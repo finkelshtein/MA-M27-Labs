@@ -1,5 +1,4 @@
-# MA-M16-Labs
-Lab Assignments for module MA-M16 Probability and Statistics for Data Science.
+# MA-M27-Labs
+Lab Assignments for module MA-M27 Probability and Statistics for Data Science.
 
-The website is available at https://finkelshtein.github.io/MA-M16-Labs/
-
+You can view the compiled website here: <a href="https://finkelshtein.github.io/MA-M27-Labs/">📘 Labs Website</a>
