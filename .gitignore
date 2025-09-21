@@ -1,0 +1,8 @@
+/*
+!.gitignore
+!docs/
+!README.md
+
+/.quarto/
+
+**/*.quarto_ipynb
