@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Introduction",
     "section": "",
-    "text": "1 Sign up to Anaconda (do it once)\n\nGo to https://anaconda.cloud\nSign up using your personal or University email address.\nAdvice: do not use your University password.\n\n\n\n2 Log in to Anaconda (do it for each lab)\n\nLogin to https://anaconda.cloud\nChoose “Notebooks” in the top menu:\n\n\n\nCreate a folder for all files related to this module:\n\n\nand name it “MA-M27”.\n\nOpen the created folder.\nPress blue button with “+”\n\n\nand choose any of anaconda-notebooks:\n\n\nRename the created file\n\n\ne.g. to “Lab1.ipynb”, “Lab2.ipynb” etc.\n\n\n\n\n Back to top",
+    "text": "1 Sign up to Anaconda (do it once)\n\nGo to https://anaconda.com/app/\nSign up using your personal or University email address.\nAdvice: do not use your University password.\n\n\n\n2 Log in to Anaconda (do it for each lab)\n\nLogin to https://anaconda.com/app/\nChoose “Notebooks” in the Explore Anaconda section:\n\n\n\nOpen the file browser (from the left side menu bar)\n\n\n\nCreate a folder for all files related to this module:\n\n\nand name it, e.g., “MA-M27”.\n\nOpen the created folder.\nPress blue button with “+”\n\n\nand choose any of anaconda-notebooks:\n\n\nRename the created file\n\n\ne.g. to “Lab1.ipynb”, “Lab2.ipynb” etc.\n\n\n\n\n Back to top",
     "crumbs": [
       "Introduction"
     ]
