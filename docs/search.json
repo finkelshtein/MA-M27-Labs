@@ -1,5 +1,126 @@
 [
   {
+    "objectID": "Lab1.html",
+    "href": "Lab1.html",
+    "title": "Lab 1",
+    "section": "",
+    "text": "As you know, statistics deals with data. There are several ways how to load data to Python.\nIn this lab we consider the first two of them.\nThere are several ways to calculate mean, mode, median, variance and other descriptive characteristics in Python. We will use numpy library for this, so run at the beginning of your Jupyter notebook the following command\nimport numpy as np",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section",
+    "href": "Lab1.html#section",
+    "title": "Lab 1",
+    "section": "1.1 ",
+    "text": "1.1 \n\nConvert the list a defined above to a Numpy array, reassign the result again to the variable a to get the following output\n\na\n\narray([2, 1, 3, 4, 2, 6, 4, 0, 1, 1, 3, 3, 4, 1, 1, 5, 5, 2, 1, 3])\n\n\n\n\nMean\nTo calculate the mean of all values in the array \\(a=(a_1,\\ldots,a_{20})\\), i.e.\n\\[\n\\bar{a} = \\frac{a_1+\\ldots+a_{n}}{n},\n\\]\nfor \\(n=20\\), we run\n\nnp.mean(a)\n\n2.6\n\n\n(we could calculate this and further characteristics directly, e.g. for mean one could write sum(a)/len(a), however, the usage of special functions is more efficient in the case of large datasets).\n\n\nMedian\nSimilarly, to calculate the median of data, we can use np.median method.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-1",
+    "href": "Lab1.html#section-1",
+    "title": "Lab 1",
+    "section": "1.2 ",
+    "text": "1.2 \n\nFind the median of a. Check the answer.\n\n\n2.5\n\n\n\n\nPopulation variance and standard deviation\nTo calculate the population variance of a, i.e. the quantity\n\\[\n\\sigma^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n},\n\\]\nwe use np.var method and to calculate the population standard deviation \\(\\sigma=\\sqrt{\\sigma^2}\\) we use np.std method. For example,\n\nnp.var(a)\n\n2.6399999999999997\n\n\nAgain, this is faster and more convenient than calculating them directly, e.g. instead of np.var(a) we could write\n\nsum((a - np.mean(a))**2)/len(a)\n\n2.64\n\n\n\n\n\n\n\n\nDo not miss this\n\n\n\nNote that we have used, in the last command, array (vector) operations: a - np.mean(a) means that we subtract the number np.mean(a) from each component of a, and the result is again an array of \\(a_1-\\bar a,\\ldots,a_n-\\bar{a}\\).\nSimmilarly, **2 means that we square each component of the array a - np.mean(a), and the result is again an array.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-2",
+    "href": "Lab1.html#section-2",
+    "title": "Lab 1",
+    "section": "1.3 ",
+    "text": "1.3 \n\nFind the standard deviation of a. Check the answer.\n\n\n1.624807680927192\n\n\n\n\nSample variance and standard deviation\nTo get the sample variance\n\\[\ns^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n-1}.\n\\]\none could, of course, use that\n\\[\ns^2=\\frac{n}{n-1} \\sigma^2,\n\\]\n(where \\(n=20\\) for the given a), however, it is better to use a special key ddof = 1 inside np.var, where ddof stands for “delta degree of freedom”:\n\nnp.var(a, ddof = 1)\n\n2.7789473684210524\n\n\nWe can check that indeed e.g.\n\nnp.var(a, ddof = 1) == np.var(a)*20/19\n\nTrue",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-3",
+    "href": "Lab1.html#section-3",
+    "title": "Lab 1",
+    "section": "1.4 ",
+    "text": "1.4 \n\nFind the sample standard deviation for a using an analogy with the previous commands. Check the answer.\n\n\n1.6670175069329813",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-4",
+    "href": "Lab1.html#section-4",
+    "title": "Lab 1",
+    "section": "2.1 ",
+    "text": "2.1 \n\nFind the average weight of the members of the sports club. Check your answer.\n\n\n69.34",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-5",
+    "href": "Lab1.html#section-5",
+    "title": "Lab 1",
+    "section": "2.2 ",
+    "text": "2.2 \n\nAssign to variable d the Numpy array of the heights of all members of the sports club. Find the median and the variance of the heights. Check your answers.\n\n\n[170.0, 254.2239]",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-6",
+    "href": "Lab1.html#section-6",
+    "title": "Lab 1",
+    "section": "2.3 ",
+    "text": "2.3 \n\nAssign to variable e the Numpy array of the body mass indexes (BMI) of the club members: if a member has weight \\(w\\) kg and height \\(h\\) cm, then its BMI is \\(10^4*\\dfrac{w}{h^2}\\). Remember that in Python all array operations are done component-wise. Find the mean and the standard deviation of e. Check your answer.\n\n\n[24.900949943455288, 6.54617400802904]",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-7",
+    "href": "Lab1.html#section-7",
+    "title": "Lab 1",
+    "section": "3.1 ",
+    "text": "3.1 \n\nTake the first \\(100\\) members of the sports club from the sportsclub.csv discussed before, and draw the scatter plot of heights (vertical axis) over weights (horizontal axis). Use green colours for the markers. Label the axes appropriately.\n\n\n\n\n\n\n\n\n\n\n\nBox plot\nConsider now a box-and-whisker plot. The following code produce the blox plot for the weights of all members of the sports club:\n\nplt.boxplot(b)\nplt.show()\n\n\n\n\n\n\n\n\nBy default, the box plot is vertical. To make it horizontal, use the key vert = False in boxplot method.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-8",
+    "href": "Lab1.html#section-8",
+    "title": "Lab 1",
+    "section": "3.2 ",
+    "text": "3.2 \n\nPlot the horizontal box plot for the heights of all members of the sports club.\n\n\n\n\n\n\n\n\n\n\n\nRemark. Recall that the box plot visualises, in particular, the rectangle bound by the lower and upper quartiles: \\(Q_1\\) and \\(Q_3\\), whereas the coloured line represents the median \\(Q_2\\). We know that \\(Q_2\\) is calculated differently is the sample has even or odd number of elements. By definition, recall, \\(Q1\\) and \\(Q3\\) are medians of the lower half and upper halves of the ordered sample. However, it’s a question of agreement whether to include the median \\(Q_2\\) to both halves or not, in the case when the number of elelements is odd. For example, let the data be \\[\n1,2,3,4,5,6,7.\n\\] The median is \\(4\\), i.e. \\(Q_2=4\\). Now, we may say that the lower half is \\(1,2,3\\), its median is \\(2\\), i.e. \\(Q_1=2\\), similarly then the upper half is \\(5,6,7\\), hence, \\(Q_3=6\\). ANother approach is to say that the lower part is \\(1,2,3,4\\) (including \\(Q_2=4\\)), and it’s median is \\(\\frac{2+3}{2}=2.5\\), i.e. \\(Q_1=2.5\\); similarly then the upper half is \\(4,5,6,7\\), and hence, \\(Q_3=5.5\\). Python in Mathplotlib uses the second approach.\n\n\nHistogram\nLet’s create the histogram for the weights of all sports club members. Conside the histogram with \\(20\\) bins.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 20)\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nRecall that the change of the number of bins may drastically change the shapce of a histogram, e.g.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 50)                 # 50 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nor\n\nplt.hist(b, 5)                 # 5 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-9",
+    "href": "Lab1.html#section-9",
+    "title": "Lab 1",
+    "section": "3.3 ",
+    "text": "3.3 \n\nPlot the histogram of heights of the all members of the sports club. Make all the bins of the size \\(3\\) cm (perhaps, all but the last, the most right, one). To calculate the number of bins, use functions min() and max() and also round().",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Introduction",
