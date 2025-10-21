@@ -231,6 +231,12 @@ window.Quarto = {
  <span class="menu-text">Lab 2 - Solutions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lab3-solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3 - Solutions</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -298,7 +304,7 @@ window.Quarto = {
 <h2 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> </h2>
 <div class="task">
 <p>A fair coin is tossed 25 times. Store at the variable <code>a</code> the probability to get 25 heads. A fair six-sided dice is throwing 10 times. Store at the variable <code>b</code> the probability to get 10 <strong>equal even</strong> scores. Find the ratio <code>a/b</code>.</p>
-<div id="2048665b" class="cell" data-execution_count="2">
+<div id="2048665b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a<span class="op">/</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>0.6006774902343753</code></pre>
@@ -313,7 +319,7 @@ window.Quarto = {
 <p>When a red token is selected, a biased coin with probability <span class="math inline">\(\dfrac45\)</span> of landing heads is tossed.</p>
 <p>When a blue token is selected, a biased coin with probability <span class="math inline">\(\dfrac25\)</span> of landing heads is spun.</p>
 <p>Find the probability <code>c</code> of obtaining tail. Round the answer to 3 decimal digits.</p>
-<div id="f3285d51" class="cell" data-execution_count="4">
+<div id="f3285d51" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>0.465</code></pre>
@@ -325,7 +331,7 @@ window.Quarto = {
 <h2 data-number="1.3" class="anchored" data-anchor-id="section-2"><span class="header-section-number">1.3</span> </h2>
 <div class="task">
 <p>In the conditions of the previous task, if the tail was obtained, what is the probability <span class="math inline">\(d\)</span> of having selected a red token? Round the answer to 3 decimal digits.</p>
-<div id="bf9c3c02" class="cell" data-execution_count="6">
+<div id="bf9c3c02" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>0.145</code></pre>
@@ -354,7 +360,7 @@ n! = 1\cdot 2\cdot \ldots \cdot n.
 </div>
 </div>
 <p>We can calculate factorial manually, e.g.&nbsp;using a loop:</p>
-<div id="556339ef" class="cell" data-execution_count="7">
+<div id="556339ef" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,n<span class="op">+</span><span class="dv">1</span>):</span>
@@ -365,7 +371,7 @@ n! = 1\cdot 2\cdot \ldots \cdot n.
 </div>
 </div>
 <p>We can also use a special function:</p>
-<div id="8d3e6f24" class="cell" data-execution_count="8">
+<div id="8d3e6f24" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -373,7 +379,7 @@ n! = 1\cdot 2\cdot \ldots \cdot n.
 </div>
 </div>
 <p>There is also another large library, called <code>scipy</code> which contains factorials and many other scientific functions. Note, however, the additional parameter.</p>
-<div id="08c58598" class="cell" data-execution_count="9">
+<div id="08c58598" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> factorial</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>factorial(<span class="dv">10</span>, exact<span class="op">=</span><span class="va">True</span>)       <span class="co"># Try without 'exact', notice the difference</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
@@ -396,7 +402,7 @@ Memorize
 </div>
 </div>
 <p>In Python, we can use the following code, to get the number of <span class="math inline">\(4\)</span>-element subsets of a <span class="math inline">\(10\)</span>-element set</p>
-<div id="3c63b427" class="cell" data-execution_count="10">
+<div id="3c63b427" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> comb</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">4</span></span>
@@ -412,7 +418,7 @@ Memorize
 <div class="proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>Note that since the choice of football funs does not depend on the choice of rugby funs, we need just to multiply the number of ways to choose fotball funs and the number of ways to choose rugby funs.</p>
 </div>
-<div id="cedabd0e" class="cell" data-execution_count="12">
+<div id="cedabd0e" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>518700</code></pre>
@@ -424,7 +430,7 @@ Memorize
 <h2 data-number="2.2" class="anchored" data-anchor-id="section-4"><span class="header-section-number">2.2</span> </h2>
 <div class="task">
 <p>Let now the committee (of 6 children) is chosen without any restrictions on the preferences of its members. Find the number of ways to form the committee. Store the answer in <code>r</code>.</p>
-<div id="e232aa64" class="cell" data-execution_count="14">
+<div id="e232aa64" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>1623160</code></pre>
@@ -436,7 +442,7 @@ Memorize
 <h2 data-number="2.3" class="anchored" data-anchor-id="section-5"><span class="header-section-number">2.3</span> </h2>
 <div class="task">
 <p>Finally, find the probability <code>p</code> that a randomly choosen committee consisting of 6 children has equal numbers of football and rugby funs. Round to <span class="math inline">\(4\)</span> decimal digits.</p>
-<div id="0ce1d3b2" class="cell" data-execution_count="16">
+<div id="0ce1d3b2" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>0.3196</code></pre>
@@ -449,7 +455,7 @@ Memorize
 <div class="task">
 <p>If <span class="math inline">\(10\)</span> balls are randomly drawn from a bag containing <span class="math inline">\(17\)</span> blue and <span class="math inline">\(19\)</span> yellow balls, what is the probability <code>q</code> that <span class="math inline">\(4\)</span> of the balls are blue and the others are yellow? Round to <span class="math inline">\(3\)</span> decimal digits.</p>
 <p>Note that despite the balls of the same colour are indistinguishable (in contrast to children of the same sport preference in the previous tasks), we may always think that the balls e.g.&nbsp;numbered, to apply the same arguments as before.</p>
-<div id="071d0958" class="cell" data-execution_count="18">
+<div id="071d0958" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>0.25404208941472567</code></pre>
@@ -486,11 +492,11 @@ Remember
 <section id="how-to-model-simple-random-events" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> How to model simple random events</h1>
 <p>To model various random events in Python, we may use module <code>random</code>:</p>
-<div id="0e2786e3" class="cell" data-execution_count="19">
+<div id="0e2786e3" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Lets model tossing a fair coin. Define the list</p>
-<div id="9602c7b5" class="cell" data-execution_count="20">
+<div id="9602c7b5" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>coin <span class="op">=</span> [<span class="st">'h'</span>,<span class="st">'t'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Command <code>random.choice(list_name)</code> would return a randomly chosen element from a list <code>list_name</code> assuming that any such an element can be picked with equal probability.</p>
@@ -498,7 +504,7 @@ Remember
 <h2 data-number="3.1" class="anchored" data-anchor-id="section-7"><span class="header-section-number">3.1</span> </h2>
 <div class="task">
 <p>Choose a random element from the list <code>coin</code>. The output will be one of two letters <code>h</code> or <code>t</code>, e.g.:</p>
-<div id="3ee6d0ab" class="cell" data-execution_count="21">
+<div id="3ee6d0ab" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>'t'</code></pre>
 </div>
@@ -511,7 +517,7 @@ Remember
 <h2 data-number="3.2" class="anchored" data-anchor-id="section-8"><span class="header-section-number">3.2</span> </h2>
 <div class="task">
 <p>Suppose we tossed the coin <code>n_trials = 10</code> times. Generate a list called <code>series</code> that would contain outputs of all these trials, e.g.</p>
-<div id="a7cd3b6f" class="cell" data-execution_count="22">
+<div id="a7cd3b6f" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>['t', 't', 'h', 'h', 't', 't', 't', 'h', 't', 't']</code></pre>
 </div>
@@ -519,7 +525,7 @@ Remember
 <p>(your output will be probably different).</p>
 <p>Advice: it may be more convenient to use <em>list comprehension</em> instead of loops, though it’s up to you. Recall that <code>range(10)</code> command generates 10 numbers from 0 to 9.</p>
 <p>Count the number of “heads” in <code>series</code>, using property <code>list_name.count(element_name)</code> to get the number of elements <code>element_name</code> in the list <code>list_name</code>.</p>
-<div id="226d0a67" class="cell" data-execution_count="23">
+<div id="226d0a67" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>3</code></pre>
 </div>
@@ -530,14 +536,14 @@ Remember
 <h2 data-number="3.3" class="anchored" data-anchor-id="section-9"><span class="header-section-number">3.3</span> </h2>
 <div class="task">
 <p>Load library <code>pyplot</code> of module <code>matplotlib</code> as follows:</p>
-<div id="4aaf557d" class="cell" data-execution_count="24">
+<div id="4aaf557d" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Change now <code>n_trials</code> to 1000. We expect to see around 500 heads in a series of trials, though if you run your code, you will probably get another number. Define <code>n_series = 1000</code> and repeat running the previous code <code>n_series</code> times, i.e.&nbsp;the output should be a list of <code>n_series</code> numbers. Store the output in a variable <code>heads</code>.</p>
 <p>Again, you may find more useful to use list comprehension.</p>
 <p>Create the scatter plot of numbers of heads in all series using the commands <code>plt.scatter(x, heads)</code> and <code>plt.show()</code>, where <code>x</code> would be all numbers from 0 to <code>n_series</code>.</p>
 <p>Your output should be similar to:</p>
-<div id="43f7f591" class="cell" data-execution_count="25">
+<div id="43f7f591" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -547,7 +553,7 @@ Remember
 </div>
 </div>
 <p>As you can see all results indeed gather around 500. Note that you can find <code>min(heads)</code> and <code>max(heads)</code> to see how large is the spread of numbers, e.g.&nbsp;on the picture above it’s</p>
-<div id="39ee507e" class="cell" data-execution_count="26">
+<div id="39ee507e" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>[<span class="bu">min</span>(heads),<span class="bu">max</span>(heads)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>[442, 548]</code></pre>
@@ -559,7 +565,7 @@ Remember
 <section id="when-you-have-free-time" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> When you have free time</h1>
 <p>Of course, our approach may become very time-consuming when <code>n_series</code> becomes large. There exist special functions for generating big amounts of random values. The following code generates <code>n = 10</code> random integer numbers from the interval <span class="math inline">\([0,2)\)</span> (i.e.&nbsp;either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>):</p>
-<div id="d3773b12" class="cell" data-execution_count="27">
+<div id="d3773b12" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.random.randint(<span class="dv">2</span>, size<span class="op">=</span>n)</span>
@@ -569,7 +575,7 @@ Remember
 </div>
 </div>
 <p>We may think then that <span class="math inline">\(0\)</span> stands for <code>h</code> and <span class="math inline">\(1\)</span> stands for <code>t</code> (or vice versa). Then the number of <em>tails</em> is the number of <span class="math inline">\(1\)</span> in <code>a</code>, that is just the sum of all elements from <code>a</code>. Note that despite <code>sum(a)</code> would work, for large values of <code>n</code>, the following code will be faster:</p>
-<div id="d613ffe9" class="cell" data-execution_count="28">
+<div id="d613ffe9" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> a.<span class="bu">sum</span>()</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
@@ -577,7 +583,7 @@ Remember
 </div>
 </div>
 <p>If now we want to repeat the previous code <span class="math inline">\(5\)</span> times, getting each time a number <code>s</code> of tails, we may use the following modification of the code:</p>
-<div id="991903f8" class="cell" data-execution_count="29">
+<div id="991903f8" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>a_series <span class="op">=</span> np.random.randint(<span class="dv">2</span>, size<span class="op">=</span>(<span class="dv">5</span>,n))</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>a_series</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
@@ -589,7 +595,7 @@ Remember
 </div>
 </div>
 <p>and also</p>
-<div id="1de01a9b" class="cell" data-execution_count="30">
+<div id="1de01a9b" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>s_series <span class="op">=</span> a_series.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>s_series</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
@@ -597,7 +603,7 @@ Remember
 </div>
 </div>
 <p>We can also calculate the average of obtained numbers (their sum divided by their quantity):</p>
-<div id="ebd0bde2" class="cell" data-execution_count="31">
+<div id="ebd0bde2" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>s_series.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>5.4</code></pre>
@@ -607,7 +613,7 @@ Remember
 <h2 data-number="4.1" class="anchored" data-anchor-id="section-10"><span class="header-section-number">4.1</span> </h2>
 <div class="task">
 <p>Consider again that we toss the coin <span class="math inline">\(1000\)</span> times and count the number of tails, but repeat this procedure <span class="math inline">\(10^5\)</span> times. Calculate the average <code>m</code> of the obtained result.</p>
-<div id="001f66ad" class="cell" data-execution_count="32">
+<div id="001f66ad" class="cell" data-execution_count="33">
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>500.01605</code></pre>
 </div>
@@ -619,7 +625,7 @@ Remember
 <h2 data-number="4.2" class="anchored" data-anchor-id="section-11"><span class="header-section-number">4.2</span> </h2>
 <div class="task">
 <p>We can also model unfair coins. The command</p>
-<div id="dabdf135" class="cell" data-execution_count="33">
+<div id="dabdf135" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="dv">10</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>np.random.choice([<span class="dv">0</span>,<span class="dv">1</span>], size<span class="op">=</span>(<span class="dv">5</span>,n), p<span class="op">=</span>[<span class="fl">0.6</span>, <span class="fl">0.4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
@@ -631,7 +637,7 @@ Remember
 </div>
 </div>
 <p>generates <span class="math inline">\(5\)</span> series of <span class="math inline">\(10\)</span> outputs each with the probability for head <span class="math inline">\(0.6\)</span> and the probability for tail <span class="math inline">\(0.4\)</span>. Calculate again the average for <span class="math inline">\(10^5\)</span> series of <span class="math inline">\(1000\)</span> trials.</p>
-<div id="b3920f54" class="cell" data-execution_count="34">
+<div id="b3920f54" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>400.05303</code></pre>
 </div>

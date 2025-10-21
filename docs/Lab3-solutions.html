@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 3 – MA-M27 Lab Assignments</title>
+<title>Lab 3 - Solutions – MA-M27 Lab Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Lab2.html" rel="prev">
+<link href="./Lab2-solutions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -132,7 +132,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Lab 3 – MA-M27 Lab Assignments">
+<meta property="og:title" content="Lab 3 - Solutions – MA-M27 Lab Assignments">
 <meta property="og:description" content="Lab Assignments for MA-M27 Probability and Statistics for Data Science">
 <meta property="og:site_name" content="MA-M27 Lab Assignments">
 </head>
@@ -146,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab3.html">Lab 3 - Problems</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab3-solutions.html">Lab 3 - Solutions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -201,7 +201,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab3.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Lab3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 3 - Problems</span></a>
   </div>
 </li>
@@ -231,7 +231,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab3-solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="./Lab3-solutions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 3 - Solutions</span></a>
   </div>
 </li>
@@ -265,7 +265,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#poisson-distribution" id="toc-poisson-distribution" class="nav-link" data-scroll-target="#poisson-distribution"><span class="header-section-number">5</span> Poisson Distribution</a>
   <ul class="collapse">
-  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"><span class="header-section-number">5.1</span> </a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6"><span class="header-section-number">5.1</span> </a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7"><span class="header-section-number">5.2</span> </a></li>
   </ul></li>
   <li><a href="#generated-data" id="toc-generated-data" class="nav-link" data-scroll-target="#generated-data"><span class="header-section-number">6</span> Generated data</a>
   <ul class="collapse">
@@ -277,9 +278,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab3.html">Lab 3 - Problems</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab3-solutions.html">Lab 3 - Solutions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 3</h1>
+<h1 class="title">Lab 3 - Solutions</h1>
 </div>
 
 
@@ -300,15 +301,23 @@ window.Quarto = {
 <h1 data-number="1"><span class="header-section-number">1</span> Discrete probability distributions in Python</h1>
 <p>Module <code>scipy.stats</code> of the famous library <code>scipy</code> provides various tools to work with probability and statistics in Python. Today, we consider several discrete distributions; to work with them will use the same structure of commands. In particular, any distribution will have the following methods:</p>
 <ul>
-<li><p><code>rvs</code> - to generate (several) values of a random variable <span class="math inline">\(X\)</span> (see below in this Lab)</p></li>
-<li><p><code>pmf</code> - to calculate probability mass function at any <span class="math inline">\(k\in\mathbb{R}\)</span> <span class="math display">\[
+<li><p><code>rvs</code> - to generate (several) values of a random variable <span class="math inline">\(X\)</span></p></li>
+<li><p><code>pmf</code> - to calculate probability mass function at any <span class="math inline">\(k\in\mathbb{R}\)</span></p></li>
+</ul>
+<p><span class="math display">\[
 p_X(k)=\mathbb{P}(X=k)
-\]</span></p></li>
-<li><p><code>cdf</code> - to calculate the cumulative distribuion function <span class="math display">\[
+\]</span></p>
+<ul>
+<li><code>cdf</code> - to calculate the cumulative distribuion function</li>
+</ul>
+<p><span class="math display">\[
 F_X(x)=\sum_{k\leq x} p_X(k)=\mathbb{P}(X\leq x)
-\]</span> recall that <span class="math display">\[
+\]</span></p>
+<p>recall that</p>
+<p><span class="math display">\[
 \mathbb{P}(a&lt;X\leq b) = F_X(b)-F_X(a)
-\]</span></p></li>
+\]</span></p>
+<ul>
 <li><p><code>mean</code> - to calculate the mathematical expectation (mean) <span class="math inline">\(\mathbb{E}(X)\)</span></p></li>
 <li><p><code>var</code> - to calculate the varaince <span class="math inline">\(\mathrm{Var}(X)\)</span></p></li>
 <li><p><code>std</code> - to calculate the standard deviation <span class="math inline">\(\sigma(X)=\sqrt{\mathrm{Var}(X)}\)</span></p></li>
@@ -317,79 +326,118 @@ F_X(x)=\sum_{k\leq x} p_X(k)=\mathbb{P}(X\leq x)
 <section id="binomial-distribution" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Binomial distribution</h1>
 <p>First, one has to import <code>binom</code> class.</p>
-<div id="34fd8bec" class="cell" data-execution_count="2">
+<div id="67afaade" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>For <span class="math inline">\(X\sim Bin(n, p)\)</span>, one can use <code>binom.pmf(k, n, p)</code> to calculate, <span class="math display">\[
+<p>For <span class="math inline">\(X\sim Bin(n, p)\)</span>, one can use <code>binom.pmf(k, n, p)</code> to calculate,</p>
+<p><span class="math display">\[
 \mathbb{P}(X=k) = \binom{n}{k}p^k(1-p)^{n-k},
-\]</span> and one can use <code>binom.cdf(k, n, p)</code> to calculate <span class="math display">\[
+\]</span></p>
+<p>and one can use <code>binom.cdf(k, n, p)</code> to calculate</p>
+<p><span class="math display">\[
 \mathbb{P}(X\leq k) = \sum_{j\leq k}\mathbb{P}(X=j).
 \]</span></p>
 <div class="proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>Note that <span class="math inline">\(X\sim Bin(n, p)\)</span> can take only values <span class="math inline">\(0, 1, 2, \ldots, n\)</span>. In particular, for example, for <span class="math inline">\(X\sim Bin(5, 0.1)\)</span>,</p>
-<div id="d0d68eff" class="cell" data-execution_count="3">
+</div>
+<div id="ee16fba2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>[binom.pmf(<span class="dv">6</span>, <span class="dv">5</span>, <span class="fl">0.1</span>), binom.pmf(<span class="op">-</span><span class="dv">1</span>, <span class="dv">5</span>, <span class="fl">0.1</span>), binom.pmf(<span class="fl">2.5</span>, <span class="dv">5</span>, <span class="fl">0.1</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>[0.0, 0.0, 0.0]</code></pre>
 </div>
 </div>
 <p>since neither of <code>6, -1, 2.5</code> belongs to <span class="math inline">\(\{0, 1, 2, 3, 4, 5\}\)</span>.</p>
-<p>However, <code>cdf</code> is the cumulative probability, e.g. <span class="math display">\[
+<p>However, <code>cdf</code> is the cumulative probability, e.g.</p>
+<p><span class="math display">\[
 \mathbb{P}(X\leq 1.5)=\mathbb{P}(X=0)+\mathbb{P}(X=1),
-\]</span> and hence, it’s not <span class="math inline">\(0\)</span>, namely,</p>
-<div id="9512faeb" class="cell" data-execution_count="4">
+\]</span></p>
+<p>and hence, it’s not <span class="math inline">\(0\)</span>, namely,</p>
+<div id="6eadf483" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>binom.cdf(<span class="fl">1.5</span>, <span class="dv">5</span>, <span class="fl">0.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>0.9185399999999999</code></pre>
 </div>
 </div>
-</div>
 <div class="proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>Note also that, e.g. <span class="math display">\[
+<p><span class="proof-title"><em>Remark</em>. </span>Note also that, e.g.</p>
+<p><span class="math display">\[
 \mathbb{P}(X\leq 1)=\mathbb{P}(X\leq 1.5)=\mathbb{P}(X&lt;2)
-\]</span> since in all three cases it will be <span class="math inline">\(X=0\)</span> or <span class="math inline">\(X=1\)</span>.</p>
+\]</span></p>
+<p>since in all three cases it will be <span class="math inline">\(X=0\)</span> or <span class="math inline">\(X=1\)</span>.</p>
 </div>
-<p>We know from lectures that <span class="math display">\[
+<p>We know from lectures that</p>
+<p><span class="math display">\[
 \mathbb{E}(X) = np, \qquad \mathrm{Var}(X) = np(1-p).
-\]</span> We may also get these numbers from <code>binom.mean(n, p)</code> and <code>binom.var(n, p)</code>. We can also get <span class="math display">\[
+\]</span></p>
+<p>We may also get these numbers from <code>binom.mean(n, p)</code> and <code>binom.var(n, p)</code>. We can also get</p>
+<p><span class="math display">\[
 \sigma(X)=\sqrt{\mathrm{Var}(X)}=\sqrt{np(1-p)}
-\]</span> from <code>binom.std(n, p)</code>.</p>
+\]</span></p>
+<p>from <code>binom.std(n, p)</code>.</p>
 <section id="section" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="section"><span class="header-section-number">2.1</span> </h2>
 <div class="task">
 <p>Let <span class="math inline">\(X\sim Bin(27, 0.45)\)</span>.</p>
 <ol type="1">
-<li>Calculate <span class="math inline">\(\mathbb{P}(X\leq 20)\)</span>. Check the answer:</li>
-</ol>
-<div id="c82b0a2a" class="cell" data-execution_count="5">
+<li><p>Calculate <span class="math inline">\(\mathbb{P}(X\leq 20)\)</span>.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span><span class="math inline">\(\mathbb{P}(X\leq 20) = F_X(20)\)</span>, hence, we calculate <code>binom.cdf</code> at <code>k=20</code> with parameters <code>n=27</code> and <code>p=0.45</code>.</p>
+</div>
+<div id="467c2cd2" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> binom.cdf(<span class="dv">20</span>, <span class="dv">27</span>, <span class="fl">0.45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>0.9994575733214396</code></pre>
 </div>
+</div></li>
+<li><p>Calculate <span class="math inline">\(\mathbb{P}(X &lt; 10)\)</span>.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Since <span class="math inline">\(X\)</span> takes only integer values, <span class="math inline">\(X&lt;10\)</span> means that <span class="math inline">\(X\leq 9\)</span>. Hence,</p>
+<p><span class="math display">\[
+\mathbb{P}(X &lt; 10) = \mathbb{P}(X \leq 9) = F_X(9).
+\]</span></p>
 </div>
-<ol start="2" type="1">
-<li>Calculate <span class="math inline">\(\mathbb{P}(X &lt; 10)\)</span>. Check the answer:</li>
-</ol>
-<div id="f9384fee" class="cell" data-execution_count="6">
+<div id="9ff437c9" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>binom.cdf(<span class="dv">9</span>, <span class="dv">27</span>, <span class="fl">0.45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>0.15256903022954094</code></pre>
 </div>
+</div></li>
+<li><p>Calculate <span class="math inline">\(\mathbb{P}(7&lt;X\leq 13)\)</span>.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>We use the formula</p>
+<p><span class="math display">\[
+\mathbb{P}(7&lt;X\leq 13) = F_X(13)-F_X(7).
+\]</span></p>
 </div>
-<ol start="3" type="1">
-<li>Calculate <span class="math inline">\(\mathbb{P}(7&lt;X\leq 13)\)</span>. Check the answer:</li>
-</ol>
-<div id="dfb1103e" class="cell" data-execution_count="7">
+<div id="a123a110" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>binom.cdf(<span class="dv">13</span>, <span class="dv">27</span>, <span class="fl">0.45</span>)<span class="op">-</span>binom.cdf(<span class="dv">7</span>, <span class="dv">27</span>, <span class="fl">0.45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>0.666671672666459</code></pre>
 </div>
+</div></li>
+<li><p>Calculate <span class="math inline">\(\mathbb{P}(7\leq X\leq 13)\)</span>.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>To apply the same formula, we need to rewrite the inequality in the form <span class="math inline">\(6&lt;X\leq 13\)</span>.</p>
 </div>
-<ol start="4" type="1">
-<li>Calculate <span class="math inline">\(\mathbb{P}(7\leq X\leq 13)\)</span>. Check the answer:</li>
-</ol>
-<div id="5dd237af" class="cell" data-execution_count="8">
+<div id="9eb00fa3" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>binom.cdf(<span class="dv">13</span>, <span class="dv">27</span>, <span class="fl">0.45</span>)<span class="op">-</span>binom.cdf(<span class="dv">6</span>, <span class="dv">27</span>, <span class="fl">0.45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>0.6879613472859423</code></pre>
 </div>
-</div>
+</div></li>
+</ol>
 </div>
 </section>
 <section id="section-1" class="level2" data-number="2.2">
@@ -397,55 +445,95 @@ F_X(x)=\sum_{k\leq x} p_X(k)=\mathbb{P}(X\leq x)
 <div class="task">
 <p>A company manufactures light bulbs, and <span class="math inline">\(95\)</span>% of them are of good quality, while the rest are defective. If a customer buys <span class="math inline">\(50\)</span> light bulbs, what is the probability that:</p>
 <ol type="1">
-<li>Exactly <span class="math inline">\(5\)</span> of them are defective? Check the answer:</li>
-</ol>
-<div id="844761fa" class="cell" data-execution_count="9">
+<li><p>Exactly <span class="math inline">\(5\)</span> of them are defective?</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Since we are looking for defective bulbs, we consider <span class="math inline">\(p=0.05\)</span> that is the probabilioty that a bulb is defective (<span class="math inline">\(5\)</span>% of all bulbs). Hence, we need to find <span class="math inline">\(p_X(5)\)</span> for <span class="math inline">\(X\sim Bin(50,0.05)\)</span>.</p>
+</div>
+<div id="4bcbe760" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>binom.pmf(<span class="dv">5</span>, <span class="dv">50</span>, <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>0.06584063715436628</code></pre>
 </div>
+</div></li>
+<li><p>At most <span class="math inline">\(5\)</span> of them are defective?</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>We need to find (again, for <span class="math inline">\(X\sim Bin(50,0.05)\)</span>)</p>
+<p><span class="math display">\[
+\mathbb{P}(X\leq 5) = F_X(5).
+\]</span></p>
 </div>
-<ol start="2" type="1">
-<li>At most <span class="math inline">\(5\)</span> of them are defective? Check the answer:</li>
-</ol>
-<div id="d46861a6" class="cell" data-execution_count="10">
+<div id="89663fb3" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>binom.cdf(<span class="dv">5</span>, <span class="dv">50</span>, <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>0.9622238270102227</code></pre>
 </div>
+</div></li>
+<li><p>At least <span class="math inline">\(5\)</span> of them are defective?</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>We need to find</p>
+<p><span class="math display">\[
+\mathbb{P}(X\geq 5) = 1- \mathbb{P}(X &lt; 5)=1- \mathbb{P}(X \leq {\color{red}4})=1-F_X(4).
+\]</span></p>
 </div>
-<ol start="3" type="1">
-<li>At least <span class="math inline">\(5\)</span> of them are defective? Check the answer:</li>
-</ol>
-<div id="4fe95dac" class="cell" data-execution_count="11">
+<div id="a2cbcd8b" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">-</span>binom.cdf(<span class="dv">4</span>, <span class="dv">50</span>, <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>0.10361681014414348</code></pre>
 </div>
+</div></li>
+<li><p>Find the expected value of the number of defective bulbs and the standard deviation of this quantity.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Here we just use the corresponding methods to calculate <code>mean</code> and <code>std</code>.</p>
 </div>
-<ol start="4" type="1">
-<li>Find the expected value of the number of defective bulbs and the standard deviation of this quantity. Check the answer:</li>
-</ol>
-<div id="5825f65a" class="cell" data-execution_count="12">
+<div id="660a7e38" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>[binom.mean(<span class="dv">50</span>, <span class="fl">0.05</span>), binom.std(<span class="dv">50</span>, <span class="fl">0.05</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>[2.5, 1.541103500742244]</code></pre>
 </div>
-</div>
+</div></li>
+</ol>
 </div>
 </section>
 </section>
 <section id="geometric-distribution" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Geometric distribution</h1>
-<p>Recall that, for <span class="math inline">\(X\sim Geom(p)\)</span>, <span class="math display">\[
+<p>Recall that, for <span class="math inline">\(X\sim Geom(p)\)</span>,</p>
+<p><span class="math display">\[
 \mathbb{P}(X = k) = (1-p)^{k-1} p,
-\]</span> and this the probability that the first “success” happened in the <span class="math inline">\(k\)</span>-th Bernoulli trial.</p>
+\]</span></p>
+<p>and this the probability that the first “success” happened in the <span class="math inline">\(k\)</span>-th Bernoulli trial.</p>
 <p>To work with the geometric distribution in Python, one has to import <code>geom</code> class.</p>
-<div id="c6b4d246" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> geom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2bc729e7" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> geom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The functions are similar to the binomial case: <code>geom.pmf(k, p)</code>, <code>geom.cdf(k, p)</code>, <code>geom.mean(p)</code>, <code>geom.var(p)</code>, <code>geom.std(p)</code>.</p>
 <section id="section-2" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="section-2"><span class="header-section-number">3.1</span> </h2>
 <div class="task">
-<p>Let <span class="math inline">\(X\sim Geom(0.4)\)</span>. Calculate <span class="math inline">\(\mathbb{P}(7\leq X &lt;10)\)</span>. Check the answer.</p>
-<div id="abb3318c" class="cell" data-execution_count="14">
+<p>Let <span class="math inline">\(X\sim Geom(0.4)\)</span>. Calculate <span class="math inline">\(\mathbb{P}(7\leq X &lt;10)\)</span>.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Similarly to the previous examples, we rewrite</p>
+<p><span class="math display">\[
+\mathbb{P}(7\leq X &lt;10)=\mathbb{P}(6 &lt;X \leq 9)=F_X(9)-F_X(6).
+\]</span></p>
+</div>
+<div id="78e0422e" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>geom.cdf(<span class="dv">9</span>, <span class="fl">0.4</span>)<span class="op">-</span>geom.cdf(<span class="dv">6</span>, <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>0.03657830400000006</code></pre>
 </div>
@@ -457,8 +545,14 @@ F_X(x)=\sum_{k\leq x} p_X(k)=\mathbb{P}(X\leq x)
 <div class="task">
 <p>A lazy student has to take a quiz, where each question may have as an answer an integer number from <span class="math inline">\(1\)</span> to <span class="math inline">\(100\)</span> (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains <span class="math inline">\(20\)</span> questions. As soon as the student gives a correct answer, the quiz stops, and it is considered as a passed one. What is the probability that the student will pass the quiz?</p>
 <p><em>Hint:</em> the quiz may stop after either of <span class="math inline">\(1,2,3,\ldots,20\)</span> questions.</p>
-<p>Check the answer:</p>
-<div id="e3fe72ce" class="cell" data-execution_count="15">
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>The students needs to guess a number from <span class="math inline">\(100\)</span> possible numbers, so the proability to answer a question correctly is <span class="math inline">\(\frac1{100}=0.01\)</span>. If <span class="math inline">\(X\sim Geom(0.01)\)</span>, then <span class="math inline">\(X\)</span> models the number of the question when the first correct answer is made, and the quiz stops. Hence, <span class="math inline">\(X\)</span> may be either of <span class="math inline">\(1,2,3,\ldots,20\)</span>, i.e.&nbsp;we need to find <span class="math inline">\(\mathbb{P}(X\leq 20)\)</span>.</p>
+</div>
+<div id="d84a9577" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>geom.cdf(<span class="dv">20</span>, <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>0.18209306240276918</code></pre>
 </div>
@@ -468,19 +562,30 @@ F_X(x)=\sum_{k\leq x} p_X(k)=\mathbb{P}(X\leq x)
 </section>
 <section id="negative-binomial-distribution" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Negative Binomial Distribution</h1>
-<p>Recall that <span class="math inline">\(X\sim NB(r, p)\)</span> describes the number <span class="math inline">\(k\)</span> of failures in a series of trials before the <span class="math inline">\(r\)</span>-th success occurs for the first time. The total number of trials is then, hence, <span class="math inline">\(n=r+k\)</span>. We know that <span class="math display">\[
+<p>Recall that <span class="math inline">\(X\sim NB(r, p)\)</span> describes the number <span class="math inline">\(k\)</span> of failures in a series of trials before the <span class="math inline">\(r\)</span>-th success occurs for the first time. The total number of trials is then, hence, <span class="math inline">\(n=r+k\)</span>. We know that</p>
+<p><span class="math display">\[
 \mathbb{P}(X = k) = \binom{k+r-1}{k} p^r (1-p)^{k}.
 \]</span></p>
 <p>To work with the negative binomial distribution in Python, one has to import <code>nbinom</code> class.</p>
-<div id="fb56971c" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> nbinom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8ae65b25" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> nbinom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The previously discussed functions can be used similarly: <code>nbinom.pmf(k, r, p)</code>, <code>nbinom.cdf(k, r, p)</code>, <code>nbinom.mean(r, p)</code>, <code>nbinom.var(r, p)</code>, <code>nbinom.std(r, p)</code>.</p>
 <section id="section-4" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="section-4"><span class="header-section-number">4.1</span> </h2>
 <div class="task">
-<p>Let <span class="math inline">\(X\sim NB(5, 0.3)\)</span>. Find <span class="math inline">\(\mathbb{P}(X&gt;10)\)</span>. Check the answer.</p>
-<div id="3479c2fa" class="cell" data-execution_count="17">
+<p>Let <span class="math inline">\(X\sim NB(5, 0.3)\)</span>. Find <span class="math inline">\(\mathbb{P}(X&gt;10)\)</span>.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>We have, by using the probability of the complement event,</p>
+<p><span class="math display">\[
+\mathbb{P}(X&gt;10)=1-\mathbb{P}(X\leq 10)=1-F_X(10).
+\]</span></p>
+</div>
+<div id="e751620f" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">-</span>nbinom.cdf(<span class="dv">10</span>, <span class="dv">5</span>, <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>0.5154910592268431</code></pre>
 </div>
@@ -492,8 +597,17 @@ F_X(x)=\sum_{k\leq x} p_X(k)=\mathbb{P}(X\leq x)
 <div class="task">
 <p>A lazy student has to take a quiz, where each question may have as an answer an integer number from <span class="math inline">\(1\)</span> to <span class="math inline">\(100\)</span> (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains <span class="math inline">\(20\)</span> questions. The quiz stops as soon as the student answers correctly <span class="math inline">\(3\)</span> questions. What is the probability to pass the test for this student?</p>
 <p><em>Hint:</em> think on how many wrong answers could be made by the student to still pass the test.</p>
-<p>Check the answer.</p>
-<div id="402e5bc8" class="cell" data-execution_count="18">
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Let <span class="math inline">\(X\sim NB(3, 0.01)\)</span> be the number of wrong answers made by the student before he made the <span class="math inline">\(3\)</span>rd correct answer. Then the total number of answered questions will be <span class="math inline">\(X+3\)</span>. One needs to have <span class="math inline">\(X+3\leq20\)</span> (as there are only <span class="math inline">\(20\)</span> questions), i.e.&nbsp;<span class="math inline">\(X\leq 17\)</span>. Hence, we need to find</p>
+<p><span class="math display">\[
+\mathbb{P}(X\leq 17)=F_X(17).
+\]</span></p>
+</div>
+<div id="28d803a1" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>nbinom.cdf(<span class="dv">17</span>, <span class="dv">3</span>, <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>0.0010035761681001162</code></pre>
 </div>
@@ -504,47 +618,76 @@ F_X(x)=\sum_{k\leq x} p_X(k)=\mathbb{P}(X\leq x)
 <section id="poisson-distribution" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Poisson Distribution</h1>
 <p>Recall that <span class="math inline">\(X\sim Po(\lambda)\)</span> models the number of independent events occurring in a fixed interval of time or space. It is characterized by <span class="math inline">\(\lambda&gt;0\)</span> that the average rate of events per interval <em>of the same size</em>.</p>
-<p>We know that <span class="math display">\[
+<p>We know that</p>
+<p><span class="math display">\[
 P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}.
 \]</span></p>
 <p>To work with the Poisson distribution in Python, one has to import <code>poisson</code> class.</p>
-<div id="ba98d747" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6037f842" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>and the functions are <code>poisson.pmf(k, lambda)</code>, <code>poisson.cdf(k, lambda)</code>, <code>poisson.mean(lambda)</code>, <code>poisson.var(lambda)</code>, <code>poisson.std(lambda)</code>.</p>
-<section id="section-6" class="level4" data-number="5.0.0.1">
-<h4 data-number="5.0.0.1" class="anchored" data-anchor-id="section-6"><span class="header-section-number">5.0.0.1</span> </h4>
+<p>and the functions are <code>poisson.pmf(n, lambda)</code>, <code>poisson.cdf(n, lambda)</code>, <code>poisson.mean(lambda)</code> and so on.</p>
+<section id="section-6" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="section-6"><span class="header-section-number">5.1</span> </h2>
 <div class="task">
-<p>Let <span class="math inline">\(X\sim Po(0.4)\)</span>. Find <span class="math display">\[
+<p>Let <span class="math inline">\(X\sim Po(0.4)\)</span>. Find</p>
+<p><span class="math display">\[
 \sum_{n=4}^\infty \mathbb{P}(X=n).
-\]</span> Check the answer.</p>
-<div id="85eecad0" class="cell" data-execution_count="20">
+\]</span></p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Note that</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=4}^\infty \mathbb{P}(X=n)&amp;=\mathbb{P}(X\geq 4) =1-\mathbb{P}(X&lt; 4)\\&amp;=1-\mathbb{P}(X\leq 3)=1-F_X(3).
+\end{aligned}
+\]</span></p>
+</div>
+<div id="41c325fa" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">-</span> poisson.cdf(<span class="dv">3</span>, <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>0.0007762513762070711</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="section-7" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="section-7"><span class="header-section-number">5.1</span> </h2>
+<section id="section-7" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="section-7"><span class="header-section-number">5.2</span> </h2>
 <div class="task">
 <p>In an insurance company, customers’ claims are raised at an average rate of <span class="math inline">\(5\)</span> claims per working day. Calculate the probability that</p>
 <ol type="1">
-<li>Exactly <span class="math inline">\(30\)</span> claims will be raised in one working week (Monday – Friday). Check the answer.</li>
-</ol>
-<div id="95ed3a86" class="cell" data-execution_count="21">
+<li><p>Exactly <span class="math inline">\(30\)</span> claims will be raised in one working week (Monday – Friday).</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>The average rate of <span class="math inline">\(5\)</span> claims per working day means, on average, <span class="math inline">\(5\cdot 5=25\)</span> claims per <span class="math inline">\(5\)</span> working days (that is the working week). Hence we consider now <span class="math inline">\(X\sim Po(25)\)</span> and we need to find <span class="math inline">\(p_X(30)\)</span>.</p>
+</div>
+<div id="94222df7" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>poisson.pmf(<span class="dv">30</span>, <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>0.04541278513011904</code></pre>
 </div>
+</div></li>
+<li><p>At least <span class="math inline">\(8\)</span> claims will be raised in the next <span class="math inline">\(2\)</span> working days.</p>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>The average rate per <span class="math inline">\(2\)</span> working days is <span class="math inline">\(2\cdot 5=10\)</span>, i.e.&nbsp;we deal now with <span class="math inline">\(X\sim Po(10)\)</span>. We need to find</p>
+<p><span class="math display">\[
+\mathbb{P}(X\geq8)=1-\mathbb{P}(X&lt;8)=1-\mathbb{P}(X\leq7)=1-F_X(7).
+\]</span></p>
 </div>
-<ol start="2" type="1">
-<li>At least <span class="math inline">\(8\)</span> claims will be raised in the next <span class="math inline">\(2\)</span> working days. Check the answer.</li>
-</ol>
-<div id="e2e0cdc7" class="cell" data-execution_count="22">
+<div id="50ba7aed" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">-</span> poisson.cdf(<span class="dv">7</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>0.7797793533983011</code></pre>
 </div>
-</div>
+</div></li>
+</ol>
 </div>
 </section>
 </section>
@@ -552,18 +695,24 @@ P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}.
 <h1 data-number="6"><span class="header-section-number">6</span> Generated data</h1>
 <p>We can also generate data, in particular, random data. For example, we can use for this <code>scipy</code> library. Recall that each of the random variable classes in this library has method <code>rvs</code> which can be used to generate (several) random values distributed according to the corresponding probability distribution. The general form of the command is <code>distribution_name.rvs(distribution_parameters, size = number_of_genereted_values)</code>, where <code>distribution_name</code> is one of e.g.&nbsp;<code>binom</code>, <code>geom</code>, <code>nbinom</code>, <code>poisson</code>, and instead of <code>number_of_genereted_values</code> you write a number, whereas you keep <code>size =</code> as it is (see below). The <code>distribution_parameters</code> will be all parameters needed for the given distribution, i.e.&nbsp;to generate <span class="math inline">\(5\)</span> binomial random variables you would use <code>binom.rvs(n, p, size = 5)</code> with certain <code>n</code> and <code>p</code> (and similarly for the negative binomial), but for <span class="math inline">\(5\)</span> geometrical random variables you would use <code>geom.rvs(p, size = 5)</code> with certain <code>p</code> only since there is only one parameter for the geometrical distribution.</p>
 <p>For example, in Task 2.2 above we considered a company which manufactures light bulbs, and <span class="math inline">\(95\)</span>% of them are of good quality, while the rest are defective. If a customer buys <span class="math inline">\(50\)</span> light bulbs, the random number <span class="math inline">\(X\)</span> of defective bulbs there has a binomial distribution, namely, <span class="math inline">\(X\sim Bin(50,0.05)\)</span>, as <span class="math inline">\(p=0.05\)</span> is the probability of a defective bulb. To generate e.g.&nbsp;<span class="math inline">\(7\)</span> random values of <span class="math inline">\(X\)</span>, we use the commands</p>
-<div id="86de7660" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>binom.rvs(<span class="dv">50</span>, <span class="fl">0.05</span>, size <span class="op">=</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="59d3bb5e" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>binom.rvs(<span class="dv">50</span>, <span class="fl">0.05</span>, size <span class="op">=</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="22">
-<pre><code>array([4, 4, 2, 1, 4, 4, 2], dtype=int64)</code></pre>
+<pre><code>array([4, 3, 2, 3, 5, 2, 2], dtype=int64)</code></pre>
 </div>
 </div>
 <p>If you run this command several times, you will probably get each time a different result, as the numbers are random. To fix an output, we should set a <code>random_state</code>:</p>
-<div id="e649ef47" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom <span class="co"># If you kept the previous cell, there is no need in this line</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> binom.rvs(<span class="dv">50</span>, <span class="fl">0.05</span>, size <span class="op">=</span> <span class="dv">7</span>, random_state <span class="op">=</span> <span class="dv">123</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="36a868b3" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom <span class="co"># If you kept the previous cell, there is no need in this line</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> binom.rvs(<span class="dv">50</span>, <span class="fl">0.05</span>, size <span class="op">=</span> <span class="dv">7</span>, random_state <span class="op">=</span> <span class="dv">123</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>array([3, 2, 1, 3, 3, 2, 6], dtype=int64)</code></pre>
 </div>
@@ -573,7 +722,14 @@ P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}.
 <h2 data-number="6.1" class="anchored" data-anchor-id="section-8"><span class="header-section-number">6.1</span> </h2>
 <div class="task">
 <p>Let <span class="math inline">\(X\sim Po(3)\)</span> be a Poisson random variable with the parameter <span class="math inline">\(\lambda=3\)</span>. Generate <span class="math inline">\(100\)</span> random values of <span class="math inline">\(X\)</span> fixing <code>random_state = 111</code>, and assign the resulting Numpy array to a variable <code>f</code>. Calculate the mean and the (population) variance of <code>f</code>. Check your answer. Don’t forget to load <code>numpy</code> first.</p>
-<div id="9063ea9a" class="cell" data-execution_count="25">
+<div id="3c19e583" class="cell" data-execution_count="24">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> poisson</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> poisson.rvs(<span class="dv">3</span>, size <span class="op">=</span> <span class="dv">100</span>, random_state <span class="op">=</span> <span class="dv">111</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>[np.mean(f), np.var(f)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>[2.9, 2.87]</code></pre>
 </div>
@@ -583,7 +739,12 @@ P(X = k) = \frac{\lambda^k}{k!}e^{-\lambda}.
 \mathbb{E}(X)=\mathrm{Var}(X)=\lambda.
 \]</span></p>
 <p>Clearly, <span class="math inline">\(2.9\neq 3\neq 2.87\)</span>. To make the statistics more “matching” the probability, we need to increase the size of the data: let’s generate <span class="math inline">\(10^6\)</span> random variables (keeping <code>random_state = 111</code>). Check the answers.</p>
-<div id="689d2485" class="cell" data-execution_count="26">
+<div id="34d928f0" class="cell" data-execution_count="25">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> poisson.rvs(<span class="dv">3</span>, size <span class="op">=</span> <span class="dv">10</span><span class="op">**</span><span class="dv">6</span>, random_state <span class="op">=</span> <span class="dv">111</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>[np.mean(f), np.var(f)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>[2.998107, 2.9899274165509997]</code></pre>
 </div>
@@ -1014,8 +1175,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Lab2.html" class="pagination-link" aria-label="Lab 2 - Problems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 2 - Problems</span>
+      <a href="./Lab2-solutions.html" class="pagination-link" aria-label="Lab 2 - Solutions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 2 - Solutions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
