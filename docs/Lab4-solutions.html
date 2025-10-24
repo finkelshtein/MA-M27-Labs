@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 4 – MA-M27 Lab Assignments</title>
+<title>Lab 4 - Solutions – MA-M27 Lab Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Lab3.html" rel="prev">
+<link href="./Lab3-solutions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -135,9 +135,9 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Lab 4 – MA-M27 Lab Assignments">
+<meta property="og:title" content="Lab 4 - Solutions – MA-M27 Lab Assignments">
 <meta property="og:description" content="Lab Assignments for MA-M27 Probability and Statistics for Data Science">
-<meta property="og:image" content="Lab4_files/figure-html/cell-3-output-1.png">
+<meta property="og:image" content="Lab4-solutions_files/figure-html/cell-3-output-1.png">
 <meta property="og:site_name" content="MA-M27 Lab Assignments">
 </head>
 
@@ -150,7 +150,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab4.html">Lab 4 - Problems</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab4-solutions.html">Lab 4 - Solutions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -211,7 +211,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Lab4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4 - Problems</span></a>
   </div>
 </li>
@@ -247,7 +247,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab4-solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="./Lab4-solutions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 4 - Solutions</span></a>
   </div>
 </li>
@@ -298,9 +298,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab4.html">Lab 4 - Problems</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab4-solutions.html">Lab 4 - Solutions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 4</h1>
+<h1 class="title">Lab 4 - Solutions</h1>
 </div>
 
 
@@ -324,7 +324,7 @@ window.Quarto = {
 \begin{aligned}
 \bar{x}&amp; = \frac1n \sum_{i=1}^n x_i,\\
 S_{xx} &amp;= \sum_{i=1}^n(x_i-\bar{x})^2=\sum_{i=1}^nx_i^2-n\bar{x}^2,\\
-S_{xy}&amp;=\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})-\sum_{i=1}^nx_iy_i-n\bar{x}\bar{y},\\
+S_{xy}&amp;=\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})=\sum_{i=1}^nx_iy_i-n\bar{x}\bar{y},\\
 S_{yy}&amp;= \sum_{i=1}^n(y_i-\bar{y})^2=\sum_{i=1}^ny_i^2-n\bar{y}^2.
 \end{aligned}
 \]</span></p>
@@ -354,10 +354,16 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <section id="section" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> </h2>
 <div class="task">
-<p>Download file <a href="Birthweight.csv">Birthweight.csv</a> and upload it to <code>Anaconda.com/app</code>. Assign it to the dataframe named <code>df</code>. Show the first rows of <code>df</code>.</p>
-<p><em>Hint:</em> to import CSV file, use commands discussed in Lab 1. Don’t forget about <code>pandas</code> library.</p>
+<p>Download file <code>Birthweight.csv</code> from Canvas (see Week 4 section in Modules) and upload it to <code>Anaconda.com/app</code>. Assign it to the dataframe named <code>df</code>. Show the first rows of <code>df</code>.</p>
+<p><em>Hint:</em> to import CSV file, use commands discussed in Lab 3. Don’t forget about <code>pandas</code> library.</p>
 <p>You should get the following output</p>
-<div id="ad3054b1" class="cell" data-execution_count="2">
+<div id="f9e90c71" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Birthweight.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
@@ -507,11 +513,19 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <div class="task">
 <p>Plot a scatter plot making <code>length</code> data on the horizontal axes and <code>Birthweight</code> data on the vertical axes. Label axes appropriately, and show in labels the units (<code>in</code> and <code>lb</code>).</p>
 <p><em>Hint:</em> use commands discussed in Lab 3. Don’t forget about <code>matplotlib.pyplot</code> module. Note also that <code>matplotlib</code> allows to use Pandas series (e.g.&nbsp;dataframe columns), it’s <em>not necessary</em> to convert them into Numpy arrays using <code>.to_numpy()</code> command.</p>
-<div id="cbcf4fcd" class="cell" data-execution_count="3">
+<div id="dd72ee08" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(df[<span class="st">'length'</span>], df[<span class="st">'Birthweight'</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Length (in)'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Weight (lb)'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab4_files/figure-html/cell-3-output-1.png" width="585" height="429" class="figure-img"></p>
+<p><img src="Lab4-solutions_files/figure-html/cell-3-output-1.png" width="585" height="429" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -526,9 +540,19 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <h2 data-number="1.3" class="anchored" data-anchor-id="section-2"><span class="header-section-number">1.3</span> </h2>
 <div class="task">
 <p>Convert columns <code>length</code> and <code>Birthweight</code> to Numpy arrays <code>x</code> and <code>y</code>, respectively. Assign <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span> to <code>mx</code> and <code>my</code>, respectively. Note that you may use either <code>mean</code> or <code>np.mean</code> functions.</p>
+<div id="73354d6a" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[<span class="st">'length'</span>].to_numpy()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'Birthweight'</span>].to_numpy()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>mx <span class="op">=</span> np.mean(x)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>my <span class="op">=</span> np.mean(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Check your answer:</p>
-<div id="ef304206" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>[mx, my]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="53ec3407" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>[mx, my]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[19.928571428571427, 7.264285714285713]</code></pre>
 </div>
@@ -539,9 +563,17 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <h2 data-number="1.4" class="anchored" data-anchor-id="section-3"><span class="header-section-number">1.4</span> </h2>
 <div class="task">
 <p>Assign values of <span class="math inline">\(S_{xx}, S_{xy}, S_{yy}\)</span> to variables <code>sxx</code>, <code>sxy</code>, and <code>syy</code>, respectively (use the formulas at the beginning of this Lab). Note that you can use functions <code>sum</code> or <code>np.sum</code>, and remember about vector operations in Python.</p>
+<div id="d7a7ba53" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sxx <span class="op">=</span> np.<span class="bu">sum</span>((x<span class="op">-</span>mx)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sxy <span class="op">=</span> np.<span class="bu">sum</span>((x<span class="op">-</span>mx)<span class="op">*</span>(y<span class="op">-</span>my))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>syy<span class="op">=</span> np.<span class="bu">sum</span>((y<span class="op">-</span>my)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Check the answer:</p>
-<div id="b9a79a43" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>[sxx, sxy, syy]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="493679c4" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>[sxx, sxy, syy]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>[50.785714285714285, 42.292857142857144, 72.49642857142857]</code></pre>
 </div>
@@ -552,9 +584,17 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <h2 data-number="1.5" class="anchored" data-anchor-id="section-4"><span class="header-section-number">1.5</span> </h2>
 <div class="task">
 <p>Assign values of <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_0\)</span> to variables <code>b1</code> and <code>b0</code>, respectively. Assign the Pearson regression coefficient to variable <code>r</code>. (To find the square root, you may use <code>np.sqrt</code> function.)</p>
+<div id="3ef2cfd9" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>b1 <span class="op">=</span> sxy<span class="op">/</span>sxx</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>b0 <span class="op">=</span> my <span class="op">-</span> b1 <span class="op">*</span> mx</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> sxy <span class="op">/</span> np.sqrt(sxx <span class="op">*</span> syy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Check the answer:</p>
-<div id="12e9cc5f" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>[b0, b1, r]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="915eb13d" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>[b0, b1, r]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]</code></pre>
 </div>
@@ -563,33 +603,33 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <section id="linregress-function" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="linregress-function">Linregress function</h3>
 <p>Instead of all these calculations, we can also use <code>linregress</code> class from <code>scipy.stats</code> module:</p>
-<div id="d345e567" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> linregress</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>linregress(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f6748dff" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> linregress</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>linregress(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>LinregressResult(slope=0.8327707454289732, intercept=-9.331645569620253, rvalue=0.6970082792022005, pvalue=2.9301969030656806e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)</code></pre>
 </div>
 </div>
 <p>You may notice that it gives the same answers (up to a little calculation error), where <code>slope</code> stands for <code>b1</code> (that is indeed the slope of <span class="math inline">\(\hat{y}=\hat{\beta}_0+\hat{\beta}_1 x\)</span>), <code>intercept</code> stands for <code>b0</code>, and <code>rvalue</code> stands for <code>r</code>. You may access these values as follows:</p>
-<div id="4fb681ce" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> linregress(x,y)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>[lr.intercept, lr.slope, lr.rvalue]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8a40ab7f" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> linregress(x,y)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>[lr.intercept, lr.slope, lr.rvalue]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>[-9.331645569620253, 0.8327707454289732, 0.6970082792022005]</code></pre>
 </div>
 </div>
 <p>that is pretty simular to <code>[b0, b1, r]</code> calculated before.</p>
 <p>We are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between <code>min(x)</code> and <code>max(x)</code> by e.g.&nbsp;<span class="math inline">\(100\)</span> parts (for this we will use <code>np.linespace</code> function), and calculate the values of the linear regression line at these points:</p>
-<div id="97dd20eb" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>xvalues <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x), <span class="dv">100</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>yvalues <span class="op">=</span> lr.intercept <span class="op">+</span> lr.slope <span class="op">*</span> xvalues</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.plot(xvalues, yvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="10197fd3" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>xvalues <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x), <span class="dv">100</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>yvalues <span class="op">=</span> lr.intercept <span class="op">+</span> lr.slope <span class="op">*</span> xvalues</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.plot(xvalues, yvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab4_files/figure-html/cell-12-output-1.png" width="558" height="411" class="figure-img"></p>
+<p><img src="Lab4-solutions_files/figure-html/cell-12-output-1.png" width="558" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -600,18 +640,29 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <h2 data-number="1.6" class="anchored" data-anchor-id="section-5"><span class="header-section-number">1.6</span> </h2>
 <div class="task">
 <p>Combine the regression line with the scatter plot to get the following output:</p>
-<div id="7dfc7b05" class="cell" data-execution_count="13">
+<div id="08810e95" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>xvalues <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x), <span class="dv">100</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>yvalues <span class="op">=</span> lr.intercept <span class="op">+</span> lr.slope <span class="op">*</span> xvalues</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.plot(xvalues, yvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Length (in)'</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Weight (lb)'</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab4_files/figure-html/cell-13-output-1.png" width="585" height="429" class="figure-img"></p>
+<p><img src="Lab4-solutions_files/figure-html/cell-13-output-1.png" width="585" height="429" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>As we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see <code>lr.rvalue</code> or <code>r</code>) is not large:</p>
-<div id="a9ed4f4f" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lr.rvalue</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0397e16d" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>lr.rvalue</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>0.6970082792022005</code></pre>
 </div>
@@ -622,19 +673,34 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <section id="section-6" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="section-6"><span class="header-section-number">1.7</span> </h2>
 <div class="task">
-<p>Download now file <a href="Experience-Salary.csv">Experience-Salary.csv</a> which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:</p>
-<div id="994eed9d" class="cell" data-execution_count="15">
+<p>Download now file <code>Experience-Salary.csv</code> which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:</p>
+<div id="c880f94c" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Experience-Salary.csv"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[<span class="st">'exp(in months)'</span>].to_numpy()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'salary(in thousands)'</span>].to_numpy()</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> linregress(x,y)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>xvalues <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x), <span class="dv">100</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>yvalues <span class="op">=</span> lr.intercept <span class="op">+</span> lr.slope <span class="op">*</span> xvalues</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>plt.plot(xvalues, yvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Experience (months)'</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Salary (thousands)'</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab4_files/figure-html/cell-15-output-1.png" width="585" height="429" class="figure-img"></p>
+<p><img src="Lab4-solutions_files/figure-html/cell-15-output-1.png" width="585" height="429" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>You can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:</p>
-<div id="abe99c8a" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lr.rvalue <span class="co">#If you kept the notation lr for linregress object.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="849ee549" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>lr.rvalue <span class="co">#If you kept the notation lr for linregress object.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>0.8109692945840652</code></pre>
 </div>
@@ -644,12 +710,12 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </section>
 <section id="binary-logistic-regression" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> (Binary) Logistic Regression</h1>
-<p>In contrast to the linear regression, the binary logistic regression can be applied if the dependent variable takes only two values, e.g.&nbsp;<span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. For example, download file <a href="colleges.csv">colleges.csv</a> and upload it to <code>Anaconda.com/app</code>.</p>
+<p>In contrast to the linear regression, the binary logistic regression can be applied if the dependent variable takes only two values, e.g.&nbsp;<span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. For example, download file <code>colleges.csv</code> from Week 4 of Canvas Modules, and upload it to <code>Anaconda.com/app</code>.</p>
 <section id="investigating-data" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="investigating-data">Investigating data</h3>
-<div id="6e499255" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"colleges.csv"</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="abf7f677" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"colleges.csv"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
@@ -708,23 +774,23 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </div>
 <p>This dataset describes how much the marks in <code>gmat</code> and <code>gpa</code> exams (read Wikipedia for details about these exams, it’s not relevant now though) and <code>work_experience</code> affect whether a student was admitted to a US college.</p>
 <p>Note that we used here <code>tail</code> function, it shows the last rows of a dataframe. Note that the last index is <code>29</code> i.e.&nbsp;the dataframe contains 30 rows (the indexes start with <code>0</code> as usual). Another way to get the dimensions of the dataframe is</p>
-<div id="9ac2a2b4" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ee48e476" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>(30, 4)</code></pre>
 </div>
 </div>
 <p>i.e.&nbsp;there are 30 rows and 4 columns.</p>
 <p>As you can see, the <code>admitted</code> column contains only <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, where <span class="math inline">\(1\)</span> stands for admission, and <span class="math inline">\(0\)</span> for failure; more precisely, we can see this for the last rows only, but we can check this using the following Python trick:</p>
-<div id="b7e33fb4" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>(df[<span class="st">'admitted'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="02d700d6" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>(df[<span class="st">'admitted'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>{0, 1}</code></pre>
 </div>
 </div>
 <p>Here <code>set</code> function returns the set of all values of the column (<em>unique</em> values as it is a set). An alternative Pandas code for this is</p>
-<div id="5ec6e752" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'admitted'</span>].unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="07223917" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'admitted'</span>].unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>array([0, 1], dtype=int64)</code></pre>
 </div>
@@ -733,13 +799,13 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <section id="separating-data" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="separating-data">Separating data</h3>
 <p>Now we save the last row in a separate dataframe, call it <code>df_test</code>, and redefine <code>df</code> as the first 29 rows of the original <code>df</code> (you learned the functions below in Python lectures of MA-M06).</p>
-<div id="73190d35" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> df.iloc[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[:<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e4f9231a" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> df.iloc[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[:<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can check that now</p>
-<div id="23d31a38" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="936ea459" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
@@ -797,8 +863,8 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </div>
 </div>
 <p>i.e.&nbsp;<code>df</code> contains 29 rows only, and</p>
-<div id="0192dffd" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="202e40c4" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>gmat               620.0
 gpa                  2.7
@@ -812,10 +878,10 @@ Name: 29, dtype: float64</code></pre>
 <section id="logistic-regression-for-1-independent-variable" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="logistic-regression-for-1-independent-variable">Logistic regression for 1 independent variable</h3>
 <p>We first study how much the mark in <code>gmat</code> affects the admission. We use the following code:</p>
-<div id="7d3ed44e" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> smf.logit(<span class="st">'admitted ~ gmat'</span>, data <span class="op">=</span> df).fit()</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>reg.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a09230af" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> smf.logit(<span class="st">'admitted ~ gmat'</span>, data <span class="op">=</span> df).fit()</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>reg.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully.
          Current function value: 0.485467
@@ -845,13 +911,13 @@ Name: 29, dtype: float64</code></pre>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Wed, 22 Oct 2025</td>
+<td>Fri, 24 Oct 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.2990</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>14:04:23</td>
+<td>13:35:51</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-14.079</td>
 </tr>
@@ -909,8 +975,8 @@ Name: 29, dtype: float64</code></pre>
 \mathrm{logit} (p) = \hat{\beta}_0 + \hat{\beta}_1 x_1
 \]</span></p>
 <p>(here there is only one independent variable, <code>gmat</code>, hence, we use only <span class="math inline">\(x_1\)</span>), and the values of <code>coef</code> in the <code>summary</code> for <code>Intercept</code> is <span class="math inline">\(\hat{\beta}_0\)</span>, whereas the value of <code>gmat</code> in the <code>summary</code> is <span class="math inline">\(\hat{\beta}_1\)</span>. We can access these values directly:</p>
-<div id="45e51cea" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>[reg.params.iloc[<span class="dv">0</span>], reg.params.iloc[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="00c49768" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>[reg.params.iloc[<span class="dv">0</span>], reg.params.iloc[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>[-17.676429305462698, 0.02718342681533622]</code></pre>
 </div>
@@ -920,29 +986,29 @@ Name: 29, dtype: float64</code></pre>
 p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}
 \]</span></p>
 <p>We are going now to plot the scatter plot of <code>admitted</code> vs <code>gmat</code> and plot on the same diagram the curve <span class="math inline">\(p=p(x_1)\)</span>. We will use <code>np.exp</code> function for the exponent.</p>
-<div id="5a8c4034" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> df[<span class="st">'gmat'</span>].to_numpy()</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> df[<span class="st">'admitted'</span>].to_numpy()</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(x1, p)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>b0 <span class="op">=</span> reg.params.iloc[<span class="dv">0</span>]</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>b1 <span class="op">=</span> reg.params.iloc[<span class="dv">1</span>]</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>x1values <span class="op">=</span> np.linspace(<span class="bu">min</span>(x1), <span class="bu">max</span>(x1), <span class="dv">100</span>)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>pvalues <span class="op">=</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> x1values)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> x1values))</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x1values, pvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0e54eb6f" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> df[<span class="st">'gmat'</span>].to_numpy()</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> df[<span class="st">'admitted'</span>].to_numpy()</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(x1, p)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>b0 <span class="op">=</span> reg.params.iloc[<span class="dv">0</span>]</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>b1 <span class="op">=</span> reg.params.iloc[<span class="dv">1</span>]</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>x1values <span class="op">=</span> np.linspace(<span class="bu">min</span>(x1), <span class="bu">max</span>(x1), <span class="dv">100</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>pvalues <span class="op">=</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> x1values)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> x1values))</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x1values, pvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab4_files/figure-html/cell-26-output-1.png" width="571" height="411" class="figure-img"></p>
+<p><img src="Lab4-solutions_files/figure-html/cell-26-output-1.png" width="571" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>We can see that the red function separates values of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</p>
 <p>This function can be used to make predictions about the admission. Namely, we take the value of <code>gmat</code> for the last student of the original dataframe, now stored in the separate dataframe <code>df_test</code>; and then we calculate <span class="math inline">\(p\)</span> at this <span class="math inline">\(x_1=\)</span><code>gmat</code>:</p>
-<div id="fb9ae687" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>gmat <span class="op">=</span> df_test[<span class="st">'gmat'</span>]</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="32b7ac8b" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>gmat <span class="op">=</span> df_test[<span class="st">'gmat'</span>]</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>0.30518983321629944</code></pre>
 </div>
@@ -957,7 +1023,12 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
 <h2 data-number="2.1" class="anchored" data-anchor-id="section-7"><span class="header-section-number">2.1</span> </h2>
 <div class="task">
 <p>Change the code as explained and get the following summary.</p>
-<div id="0e7b341a" class="cell" data-execution_count="28">
+<div id="c773270f" class="cell" data-execution_count="28">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> smf.logit(<span class="st">'admitted ~ gmat + gpa'</span>, data <span class="op">=</span> df).fit()</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>reg.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully.
          Current function value: 0.322141
@@ -987,13 +1058,13 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">Date:</td>
-<td>Wed, 22 Oct 2025</td>
+<td>Fri, 24 Oct 2025</td>
 <td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
 <td>0.5348</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">Time:</td>
-<td>14:04:23</td>
+<td>13:35:51</td>
 <td data-quarto-table-cell-role="th">Log-Likelihood:</td>
 <td>-9.3421</td>
 </tr>
@@ -1065,34 +1136,34 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
 p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}
 \]</span></p>
 <p>We can show how <span class="math inline">\(p\)</span> separates the values (some lines of the code may be new for you - it’s just for your information, <strong>you are not required to learn them</strong>):</p>
-<div id="ce0fff53" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> df[<span class="st">'gmat'</span>].to_numpy()</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> df[<span class="st">'gpa'</span>].to_numpy()</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> df[<span class="st">'admitted'</span>].to_numpy()</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, projection<span class="op">=</span><span class="st">'3d'</span>, computed_zorder<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>x1values <span class="op">=</span> np.linspace(<span class="bu">min</span>(x1), <span class="bu">max</span>(x1), <span class="dv">100</span>)</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>x2values <span class="op">=</span> np.linspace(<span class="bu">min</span>(x2), <span class="bu">max</span>(x2), <span class="dv">100</span>)</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>[X1, X2] <span class="op">=</span> np.meshgrid(x1values, x2values)</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>b0 <span class="op">=</span> reg.params.iloc[<span class="dv">0</span>]</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>b1 <span class="op">=</span> reg.params.iloc[<span class="dv">1</span>]</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>b2 <span class="op">=</span> reg.params.iloc[<span class="dv">2</span>]</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>pvalues <span class="op">=</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> X1 <span class="op">+</span> b2 <span class="op">*</span> X2)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> X1 <span class="op">+</span> b2 <span class="op">*</span> X2))</span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>ax.plot_surface(X1, X2, pvalues, color <span class="op">=</span> <span class="st">'r'</span>, alpha <span class="op">=</span> <span class="fl">0.4</span>)</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>ax.scatter(x1, x2, p)</span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="87636c4b" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> df[<span class="st">'gmat'</span>].to_numpy()</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> df[<span class="st">'gpa'</span>].to_numpy()</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> df[<span class="st">'admitted'</span>].to_numpy()</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, projection<span class="op">=</span><span class="st">'3d'</span>, computed_zorder<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>x1values <span class="op">=</span> np.linspace(<span class="bu">min</span>(x1), <span class="bu">max</span>(x1), <span class="dv">100</span>)</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>x2values <span class="op">=</span> np.linspace(<span class="bu">min</span>(x2), <span class="bu">max</span>(x2), <span class="dv">100</span>)</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>[X1, X2] <span class="op">=</span> np.meshgrid(x1values, x2values)</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>b0 <span class="op">=</span> reg.params.iloc[<span class="dv">0</span>]</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>b1 <span class="op">=</span> reg.params.iloc[<span class="dv">1</span>]</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>b2 <span class="op">=</span> reg.params.iloc[<span class="dv">2</span>]</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>pvalues <span class="op">=</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> X1 <span class="op">+</span> b2 <span class="op">*</span> X2)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> X1 <span class="op">+</span> b2 <span class="op">*</span> X2))</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>ax.plot_surface(X1, X2, pvalues, color <span class="op">=</span> <span class="st">'r'</span>, alpha <span class="op">=</span> <span class="fl">0.4</span>)</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>ax.scatter(x1, x2, p)</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab4_files/figure-html/cell-29-output-1.png" width="407" height="389" class="figure-img"></p>
+<p><img src="Lab4-solutions_files/figure-html/cell-29-output-1.png" width="407" height="389" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>As you can see, the red graph (surface) of <span class="math inline">\(p\)</span> separates values of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. Again, we may try to predict the admission for the student with data stored in <code>df_test</code>. We assigned to <code>gmat</code> the corresponding mark, now we do the same for <code>gpa</code> and calculate <code>p</code> for these two values. As you can see, the result is much closer to <span class="math inline">\(0\)</span>, hence, we are more confident in our (correct) prediction that the student would not be admitted.</p>
-<div id="c9f482fe" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>gpa <span class="op">=</span> df_test[<span class="st">'gpa'</span>]</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7041f457" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>gpa <span class="op">=</span> df_test[<span class="st">'gpa'</span>]</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>0.07118806995711177</code></pre>
 </div>
@@ -1109,7 +1180,11 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}{1+e^{\hat{\beta
 <p><span class="math display">\[
 \mathrm{logit} (p) = \hat{\beta}_0 + \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2 + \hat{\beta}_3 x_3
 \]</span></p>
-<div id="90b3bb26" class="cell" data-execution_count="31">
+<div id="e95a2960" class="cell" data-execution_count="31">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> smf.logit(<span class="st">'admitted ~ gmat + gpa + work_experience'</span>, data <span class="op">=</span> df).fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully.
          Current function value: 0.255306
@@ -1117,8 +1192,8 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}{1+e^{\hat{\beta
 </div>
 </div>
 <p>Check your answer:</p>
-<div id="0b1ef255" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>reg.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="07e711bd" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>reg.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>Intercept         -16.182243
 gmat                0.002624
@@ -1137,7 +1212,13 @@ dtype: float64</code></pre>
 p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2+\hat{\beta}_3 x_3}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2+\hat{\beta}_3 x_3}}
 \]</span></p>
 <p>for that student. Check the answer:</p>
-<div id="1e772ec7" class="cell" data-execution_count="33">
+<div id="6559393e" class="cell" data-execution_count="33">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>w_exp <span class="op">=</span> df_test[<span class="st">'work_experience'</span>]</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>b0, b1, b2, b3 <span class="op">=</span> reg.params <span class="co">#Note the trick</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa <span class="op">+</span> b3 <span class="op">*</span> w_exp)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa <span class="op">+</span> b3 <span class="op">*</span> w_exp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>0.3133331286316772</code></pre>
 </div>
@@ -1570,8 +1651,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Lab3.html" class="pagination-link" aria-label="Lab 3 - Problems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 3 - Problems</span>
+      <a href="./Lab3-solutions.html" class="pagination-link" aria-label="Lab 3 - Solutions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 3 - Solutions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
