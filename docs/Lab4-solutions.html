@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.8.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -57,22 +58,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./Lab3-solutions.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-70e52673ab01eacf4446dd4d819793d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8fef5d38915f831591fa3b4cafce98b5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -100,7 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
@@ -118,7 +121,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -141,7 +144,7 @@ window.Quarto = {
 <meta property="og:site_name" content="MA-M27 Lab Assignments">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -165,7 +168,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/wordcloud.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="./images/wordcloud.jpg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/wordcloud.jpg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -213,6 +217,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./Lab4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 4 - Problems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lab5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 5 - Problems</span></a>
   </div>
 </li>
       </ul>
@@ -357,18 +367,18 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <p>Download file <code>Birthweight.csv</code> from Canvas (see Week 4 section in Modules) and upload it to <code>Anaconda.com/app</code>. Assign it to the dataframe named <code>df</code>. Show the first rows of <code>df</code>.</p>
 <p><em>Hint:</em> to import CSV file, use commands discussed in Lab 3. Don’t forget about <code>pandas</code> library.</p>
 <p>You should get the following output</p>
-<div id="f9e90c71" class="cell" data-execution_count="2">
+<div id="26763db1" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Birthweight.csv"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -394,7 +404,7 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>1313</td>
 <td>12</td>
 <td>17</td>
@@ -415,7 +425,7 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>431</td>
 <td>12</td>
 <td>19</td>
@@ -436,7 +446,7 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>808</td>
 <td>13</td>
 <td>19</td>
@@ -457,7 +467,7 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <td>2</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>300</td>
 <td>12</td>
 <td>18</td>
@@ -478,7 +488,7 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>516</td>
 <td>13</td>
 <td>18</td>
@@ -513,14 +523,14 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <div class="task">
 <p>Plot a scatter plot making <code>length</code> data on the horizontal axes and <code>Birthweight</code> data on the vertical axes. Label axes appropriately, and show in labels the units (<code>in</code> and <code>lb</code>).</p>
 <p><em>Hint:</em> use commands discussed in Lab 3. Don’t forget about <code>matplotlib.pyplot</code> module. Note also that <code>matplotlib</code> allows to use Pandas series (e.g.&nbsp;dataframe columns), it’s <em>not necessary</em> to convert them into Numpy arrays using <code>.to_numpy()</code> command.</p>
-<div id="dd72ee08" class="cell" data-execution_count="3">
+<div id="ecded6d7" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(df[<span class="st">'length'</span>], df[<span class="st">'Birthweight'</span>])</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Length (in)'</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Weight (lb)'</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -540,19 +550,19 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <h2 data-number="1.3" class="anchored" data-anchor-id="section-2"><span class="header-section-number">1.3</span> </h2>
 <div class="task">
 <p>Convert columns <code>length</code> and <code>Birthweight</code> to Numpy arrays <code>x</code> and <code>y</code>, respectively. Assign <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span> to <code>mx</code> and <code>my</code>, respectively. Note that you may use either <code>mean</code> or <code>np.mean</code> functions.</p>
-<div id="73354d6a" class="cell" data-execution_count="4">
+<div id="05ce3bea" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[<span class="st">'length'</span>].to_numpy()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'Birthweight'</span>].to_numpy()</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>mx <span class="op">=</span> np.mean(x)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>my <span class="op">=</span> np.mean(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>my <span class="op">=</span> np.mean(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Check your answer:</p>
-<div id="53ec3407" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>[mx, my]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9dd292fd" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>[mx, my]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[19.928571428571427, 7.264285714285713]</code></pre>
 </div>
@@ -563,17 +573,17 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <h2 data-number="1.4" class="anchored" data-anchor-id="section-3"><span class="header-section-number">1.4</span> </h2>
 <div class="task">
 <p>Assign values of <span class="math inline">\(S_{xx}, S_{xy}, S_{yy}\)</span> to variables <code>sxx</code>, <code>sxy</code>, and <code>syy</code>, respectively (use the formulas at the beginning of this Lab). Note that you can use functions <code>sum</code> or <code>np.sum</code>, and remember about vector operations in Python.</p>
-<div id="d7a7ba53" class="cell" data-execution_count="6">
+<div id="e4d02f9b" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sxx <span class="op">=</span> np.<span class="bu">sum</span>((x<span class="op">-</span>mx)<span class="op">**</span><span class="dv">2</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sxx <span class="op">=</span> np.<span class="bu">sum</span>((x<span class="op">-</span>mx)<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sxy <span class="op">=</span> np.<span class="bu">sum</span>((x<span class="op">-</span>mx)<span class="op">*</span>(y<span class="op">-</span>my))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>syy<span class="op">=</span> np.<span class="bu">sum</span>((y<span class="op">-</span>my)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>syy<span class="op">=</span> np.<span class="bu">sum</span>((y<span class="op">-</span>my)<span class="op">**</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Check the answer:</p>
-<div id="493679c4" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>[sxx, sxy, syy]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cf4721b9" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>[sxx, sxy, syy]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>[50.785714285714285, 42.292857142857144, 72.49642857142857]</code></pre>
 </div>
@@ -584,17 +594,17 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <h2 data-number="1.5" class="anchored" data-anchor-id="section-4"><span class="header-section-number">1.5</span> </h2>
 <div class="task">
 <p>Assign values of <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_0\)</span> to variables <code>b1</code> and <code>b0</code>, respectively. Assign the Pearson regression coefficient to variable <code>r</code>. (To find the square root, you may use <code>np.sqrt</code> function.)</p>
-<div id="3ef2cfd9" class="cell" data-execution_count="8">
+<div id="e2b60b3a" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>b1 <span class="op">=</span> sxy<span class="op">/</span>sxx</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>b1 <span class="op">=</span> sxy<span class="op">/</span>sxx</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>b0 <span class="op">=</span> my <span class="op">-</span> b1 <span class="op">*</span> mx</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> sxy <span class="op">/</span> np.sqrt(sxx <span class="op">*</span> syy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> sxy <span class="op">/</span> np.sqrt(sxx <span class="op">*</span> syy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Check the answer:</p>
-<div id="915eb13d" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>[b0, b1, r]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3db46328" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>[b0, b1, r]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]</code></pre>
 </div>
@@ -603,29 +613,29 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <section id="linregress-function" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="linregress-function">Linregress function</h3>
 <p>Instead of all these calculations, we can also use <code>linregress</code> class from <code>scipy.stats</code> module:</p>
-<div id="f6748dff" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> linregress</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>linregress(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2e7baa8c" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> linregress</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>linregress(x,y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>LinregressResult(slope=0.8327707454289732, intercept=-9.331645569620253, rvalue=0.6970082792022005, pvalue=2.9301969030656806e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)</code></pre>
+<pre><code>LinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)</code></pre>
 </div>
 </div>
 <p>You may notice that it gives the same answers (up to a little calculation error), where <code>slope</code> stands for <code>b1</code> (that is indeed the slope of <span class="math inline">\(\hat{y}=\hat{\beta}_0+\hat{\beta}_1 x\)</span>), <code>intercept</code> stands for <code>b0</code>, and <code>rvalue</code> stands for <code>r</code>. You may access these values as follows:</p>
-<div id="8a40ab7f" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> linregress(x,y)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>[lr.intercept, lr.slope, lr.rvalue]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9a162e01" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> linregress(x,y)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>[lr.intercept, lr.slope, lr.rvalue]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>[-9.331645569620253, 0.8327707454289732, 0.6970082792022005]</code></pre>
+<pre><code>[-9.331645569620274, 0.8327707454289743, 0.697008279202201]</code></pre>
 </div>
 </div>
 <p>that is pretty simular to <code>[b0, b1, r]</code> calculated before.</p>
 <p>We are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between <code>min(x)</code> and <code>max(x)</code> by e.g.&nbsp;<span class="math inline">\(100\)</span> parts (for this we will use <code>np.linespace</code> function), and calculate the values of the linear regression line at these points:</p>
-<div id="10197fd3" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div id="e4f44ed8" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>xvalues <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x), <span class="dv">100</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>yvalues <span class="op">=</span> lr.intercept <span class="op">+</span> lr.slope <span class="op">*</span> xvalues</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.plot(xvalues, yvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -640,17 +650,17 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <h2 data-number="1.6" class="anchored" data-anchor-id="section-5"><span class="header-section-number">1.6</span> </h2>
 <div class="task">
 <p>Combine the regression line with the scatter plot to get the following output:</p>
-<div id="08810e95" class="cell" data-execution_count="13">
+<div id="c37b5f58" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>xvalues <span class="op">=</span> np.linspace(<span class="bu">min</span>(x), <span class="bu">max</span>(x), <span class="dv">100</span>)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>yvalues <span class="op">=</span> lr.intercept <span class="op">+</span> lr.slope <span class="op">*</span> xvalues</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.plot(xvalues, yvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Length (in)'</span>)</span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Weight (lb)'</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -661,10 +671,10 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </div>
 </div>
 <p>As we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see <code>lr.rvalue</code> or <code>r</code>) is not large:</p>
-<div id="0397e16d" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>lr.rvalue</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7edb966f" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>lr.rvalue</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>0.6970082792022005</code></pre>
+<pre><code>0.697008279202201</code></pre>
 </div>
 </div>
 <p>i.e.&nbsp;we see here a <em>moderate</em> correlation.</p>
@@ -674,10 +684,10 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <h2 data-number="1.7" class="anchored" data-anchor-id="section-6"><span class="header-section-number">1.7</span> </h2>
 <div class="task">
 <p>Download now file <code>Experience-Salary.csv</code> which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:</p>
-<div id="c880f94c" class="cell" data-execution_count="15">
+<div id="9a9daf42" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Experience-Salary.csv"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Experience-Salary.csv"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[<span class="st">'exp(in months)'</span>].to_numpy()</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'salary(in thousands)'</span>].to_numpy()</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> linregress(x,y)</span>
@@ -688,7 +698,7 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>plt.plot(xvalues, yvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Experience (months)'</span>)</span>
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Salary (thousands)'</span>)</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -699,10 +709,10 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </div>
 </div>
 <p>You can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:</p>
-<div id="849ee549" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>lr.rvalue <span class="co">#If you kept the notation lr for linregress object.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="be290389" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>lr.rvalue <span class="co">#If you kept the notation lr for linregress object.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>0.8109692945840652</code></pre>
+<pre><code>0.8109692945840655</code></pre>
 </div>
 </div>
 </div>
@@ -713,14 +723,14 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <p>In contrast to the linear regression, the binary logistic regression can be applied if the dependent variable takes only two values, e.g.&nbsp;<span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. For example, download file <code>colleges.csv</code> from Week 4 of Canvas Modules, and upload it to <code>Anaconda.com/app</code>.</p>
 <section id="investigating-data" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="investigating-data">Investigating data</h3>
-<div id="abf7f677" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"colleges.csv"</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3acc9953" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"colleges.csv"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -732,35 +742,35 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">25</td>
+<th data-quarto-table-cell-role="th">25</th>
 <td>650</td>
 <td>3.7</td>
 <td>6</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">26</td>
+<th data-quarto-table-cell-role="th">26</th>
 <td>670</td>
 <td>3.3</td>
 <td>6</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">27</td>
+<th data-quarto-table-cell-role="th">27</th>
 <td>690</td>
 <td>3.7</td>
 <td>5</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">28</td>
+<th data-quarto-table-cell-role="th">28</th>
 <td>690</td>
 <td>3.7</td>
 <td>5</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">29</td>
+<th data-quarto-table-cell-role="th">29</th>
 <td>620</td>
 <td>2.7</td>
 <td>5</td>
@@ -774,23 +784,23 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </div>
 <p>This dataset describes how much the marks in <code>gmat</code> and <code>gpa</code> exams (read Wikipedia for details about these exams, it’s not relevant now though) and <code>work_experience</code> affect whether a student was admitted to a US college.</p>
 <p>Note that we used here <code>tail</code> function, it shows the last rows of a dataframe. Note that the last index is <code>29</code> i.e.&nbsp;the dataframe contains 30 rows (the indexes start with <code>0</code> as usual). Another way to get the dimensions of the dataframe is</p>
-<div id="ee48e476" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b6c22027" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>(30, 4)</code></pre>
 </div>
 </div>
 <p>i.e.&nbsp;there are 30 rows and 4 columns.</p>
 <p>As you can see, the <code>admitted</code> column contains only <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, where <span class="math inline">\(1\)</span> stands for admission, and <span class="math inline">\(0\)</span> for failure; more precisely, we can see this for the last rows only, but we can check this using the following Python trick:</p>
-<div id="02d700d6" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>(df[<span class="st">'admitted'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="da70b07a" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>(df[<span class="st">'admitted'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>{0, 1}</code></pre>
 </div>
 </div>
 <p>Here <code>set</code> function returns the set of all values of the column (<em>unique</em> values as it is a set). An alternative Pandas code for this is</p>
-<div id="07223917" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'admitted'</span>].unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="50e547ad" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'admitted'</span>].unique()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>array([0, 1], dtype=int64)</code></pre>
 </div>
@@ -799,18 +809,18 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 <section id="separating-data" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="separating-data">Separating data</h3>
 <p>Now we save the last row in a separate dataframe, call it <code>df_test</code>, and redefine <code>df</code> as the first 29 rows of the original <code>df</code> (you learned the functions below in Python lectures of MA-M06).</p>
-<div id="e4f9231a" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> df.iloc[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[:<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a5ab23ea" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> df.iloc[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[:<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can check that now</p>
-<div id="936ea459" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8bc5193e" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -822,35 +832,35 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">24</td>
+<th data-quarto-table-cell-role="th">24</th>
 <td>690</td>
 <td>3.3</td>
 <td>3</td>
 <td>0</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">25</td>
+<th data-quarto-table-cell-role="th">25</th>
 <td>650</td>
 <td>3.7</td>
 <td>6</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">26</td>
+<th data-quarto-table-cell-role="th">26</th>
 <td>670</td>
 <td>3.3</td>
 <td>6</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">27</td>
+<th data-quarto-table-cell-role="th">27</th>
 <td>690</td>
 <td>3.7</td>
 <td>5</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">28</td>
+<th data-quarto-table-cell-role="th">28</th>
 <td>690</td>
 <td>3.7</td>
 <td>5</td>
@@ -863,8 +873,8 @@ r=\dfrac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.
 </div>
 </div>
 <p>i.e.&nbsp;<code>df</code> contains 29 rows only, and</p>
-<div id="202e40c4" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e7b2ca45" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_test</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>gmat               620.0
 gpa                  2.7
@@ -878,78 +888,78 @@ Name: 29, dtype: float64</code></pre>
 <section id="logistic-regression-for-1-independent-variable" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="logistic-regression-for-1-independent-variable">Logistic regression for 1 independent variable</h3>
 <p>We first study how much the mark in <code>gmat</code> affects the admission. We use the following code:</p>
-<div id="a09230af" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<div id="519d4eb6" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> smf.logit(<span class="st">'admitted ~ gmat'</span>, data <span class="op">=</span> df).fit()</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>reg.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>reg.summary()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully.
          Current function value: 0.485467
          Iterations 6</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="23">
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable caption-top table table-sm table-striped small">
 <caption>Logit Regression Results</caption>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Dep. Variable:</td>
+<th data-quarto-table-cell-role="th">Dep. Variable:</th>
 <td>admitted</td>
-<td data-quarto-table-cell-role="th">No. Observations:</td>
+<th data-quarto-table-cell-role="th">No. Observations:</th>
 <td>29</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Model:</td>
+<th data-quarto-table-cell-role="th">Model:</th>
 <td>Logit</td>
-<td data-quarto-table-cell-role="th">Df Residuals:</td>
+<th data-quarto-table-cell-role="th">Df Residuals:</th>
 <td>27</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Method:</td>
+<th data-quarto-table-cell-role="th">Method:</th>
 <td>MLE</td>
-<td data-quarto-table-cell-role="th">Df Model:</td>
+<th data-quarto-table-cell-role="th">Df Model:</th>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Date:</td>
-<td>Fri, 24 Oct 2025</td>
-<td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
+<th data-quarto-table-cell-role="th">Date:</th>
+<td>Thu, 30 Oct 2025</td>
+<th data-quarto-table-cell-role="th">Pseudo R-squ.:</th>
 <td>0.2990</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Time:</td>
-<td>13:35:51</td>
-<td data-quarto-table-cell-role="th">Log-Likelihood:</td>
+<th data-quarto-table-cell-role="th">Time:</th>
+<td>00:41:51</td>
+<th data-quarto-table-cell-role="th">Log-Likelihood:</th>
 <td>-14.079</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">converged:</td>
+<th data-quarto-table-cell-role="th">converged:</th>
 <td>True</td>
-<td data-quarto-table-cell-role="th">LL-Null:</td>
+<th data-quarto-table-cell-role="th">LL-Null:</th>
 <td>-20.084</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Covariance Type:</td>
+<th data-quarto-table-cell-role="th">Covariance Type:</th>
 <td>nonrobust</td>
-<td data-quarto-table-cell-role="th">LLR p-value:</td>
+<th data-quarto-table-cell-role="th">LLR p-value:</th>
 <td>0.0005289</td>
 </tr>
 </tbody>
 </table>
 
 
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable caption-top table table-sm table-striped small">
 <tbody>
 <tr class="odd">
 <td></td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>-17.6764</td>
 <td>6.763</td>
 <td>-2.614</td>
@@ -958,7 +968,7 @@ Name: 29, dtype: float64</code></pre>
 <td>-4.421</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">gmat</td>
+<th data-quarto-table-cell-role="th">gmat</th>
 <td>0.0272</td>
 <td>0.010</td>
 <td>2.644</td>
@@ -975,10 +985,10 @@ Name: 29, dtype: float64</code></pre>
 \mathrm{logit} (p) = \hat{\beta}_0 + \hat{\beta}_1 x_1
 \]</span></p>
 <p>(here there is only one independent variable, <code>gmat</code>, hence, we use only <span class="math inline">\(x_1\)</span>), and the values of <code>coef</code> in the <code>summary</code> for <code>Intercept</code> is <span class="math inline">\(\hat{\beta}_0\)</span>, whereas the value of <code>gmat</code> in the <code>summary</code> is <span class="math inline">\(\hat{\beta}_1\)</span>. We can access these values directly:</p>
-<div id="00c49768" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>[reg.params.iloc[<span class="dv">0</span>], reg.params.iloc[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3bec54a4" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>[reg.params.iloc[<span class="dv">0</span>], reg.params.iloc[<span class="dv">1</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>[-17.676429305462698, 0.02718342681533622]</code></pre>
+<pre><code>[-17.67642930546272, 0.027183426815336253]</code></pre>
 </div>
 </div>
 <p>Now, we are going to demonstrate the obtained result graphically. We know that (see Lecture Notes)</p>
@@ -986,8 +996,8 @@ Name: 29, dtype: float64</code></pre>
 p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}
 \]</span></p>
 <p>We are going now to plot the scatter plot of <code>admitted</code> vs <code>gmat</code> and plot on the same diagram the curve <span class="math inline">\(p=p(x_1)\)</span>. We will use <code>np.exp</code> function for the exponent.</p>
-<div id="0e54eb6f" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> df[<span class="st">'gmat'</span>].to_numpy()</span>
+<div id="9938545c" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> df[<span class="st">'gmat'</span>].to_numpy()</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> df[<span class="st">'admitted'</span>].to_numpy()</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(x1, p)</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>b0 <span class="op">=</span> reg.params.iloc[<span class="dv">0</span>]</span>
@@ -995,7 +1005,7 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>x1values <span class="op">=</span> np.linspace(<span class="bu">min</span>(x1), <span class="bu">max</span>(x1), <span class="dv">100</span>)</span>
 <span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>pvalues <span class="op">=</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> x1values)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> x1values))</span>
 <span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x1values, pvalues, color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1006,9 +1016,9 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
 </div>
 <p>We can see that the red function separates values of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</p>
 <p>This function can be used to make predictions about the admission. Namely, we take the value of <code>gmat</code> for the last student of the original dataframe, now stored in the separate dataframe <code>df_test</code>; and then we calculate <span class="math inline">\(p\)</span> at this <span class="math inline">\(x_1=\)</span><code>gmat</code>:</p>
-<div id="32b7ac8b" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>gmat <span class="op">=</span> df_test[<span class="st">'gmat'</span>]</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6c2a20a4" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>gmat <span class="op">=</span> df_test[<span class="st">'gmat'</span>]</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>0.30518983321629944</code></pre>
 </div>
@@ -1023,11 +1033,11 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
 <h2 data-number="2.1" class="anchored" data-anchor-id="section-7"><span class="header-section-number">2.1</span> </h2>
 <div class="task">
 <p>Change the code as explained and get the following summary.</p>
-<div id="c773270f" class="cell" data-execution_count="28">
+<div id="4206b31c" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> smf.logit(<span class="st">'admitted ~ gmat + gpa'</span>, data <span class="op">=</span> df).fit()</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>reg.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> smf.logit(<span class="st">'admitted ~ gmat + gpa'</span>, data <span class="op">=</span> df).fit()</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>reg.summary()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully.
@@ -1035,68 +1045,68 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
          Iterations 8</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="27">
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable caption-top table table-sm table-striped small">
 <caption>Logit Regression Results</caption>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Dep. Variable:</td>
+<th data-quarto-table-cell-role="th">Dep. Variable:</th>
 <td>admitted</td>
-<td data-quarto-table-cell-role="th">No. Observations:</td>
+<th data-quarto-table-cell-role="th">No. Observations:</th>
 <td>29</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Model:</td>
+<th data-quarto-table-cell-role="th">Model:</th>
 <td>Logit</td>
-<td data-quarto-table-cell-role="th">Df Residuals:</td>
+<th data-quarto-table-cell-role="th">Df Residuals:</th>
 <td>26</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Method:</td>
+<th data-quarto-table-cell-role="th">Method:</th>
 <td>MLE</td>
-<td data-quarto-table-cell-role="th">Df Model:</td>
+<th data-quarto-table-cell-role="th">Df Model:</th>
 <td>2</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Date:</td>
-<td>Fri, 24 Oct 2025</td>
-<td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
+<th data-quarto-table-cell-role="th">Date:</th>
+<td>Thu, 30 Oct 2025</td>
+<th data-quarto-table-cell-role="th">Pseudo R-squ.:</th>
 <td>0.5348</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Time:</td>
-<td>13:35:51</td>
-<td data-quarto-table-cell-role="th">Log-Likelihood:</td>
+<th data-quarto-table-cell-role="th">Time:</th>
+<td>00:41:51</td>
+<th data-quarto-table-cell-role="th">Log-Likelihood:</th>
 <td>-9.3421</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">converged:</td>
+<th data-quarto-table-cell-role="th">converged:</th>
 <td>True</td>
-<td data-quarto-table-cell-role="th">LL-Null:</td>
+<th data-quarto-table-cell-role="th">LL-Null:</th>
 <td>-20.084</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Covariance Type:</td>
+<th data-quarto-table-cell-role="th">Covariance Type:</th>
 <td>nonrobust</td>
-<td data-quarto-table-cell-role="th">LLR p-value:</td>
+<th data-quarto-table-cell-role="th">LLR p-value:</th>
 <td>2.162e-05</td>
 </tr>
 </tbody>
 </table>
 
 
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable caption-top table table-sm table-striped small">
 <tbody>
 <tr class="odd">
 <td></td>
-<td data-quarto-table-cell-role="th">coef</td>
-<td data-quarto-table-cell-role="th">std err</td>
-<td data-quarto-table-cell-role="th">z</td>
-<td data-quarto-table-cell-role="th">P&gt;|z|</td>
-<td data-quarto-table-cell-role="th">[0.025</td>
-<td data-quarto-table-cell-role="th">0.975]</td>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Intercept</td>
+<th data-quarto-table-cell-role="th">Intercept</th>
 <td>-22.0171</td>
 <td>9.232</td>
 <td>-2.385</td>
@@ -1105,7 +1115,7 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
 <td>-3.923</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">gmat</td>
+<th data-quarto-table-cell-role="th">gmat</th>
 <td>0.0150</td>
 <td>0.014</td>
 <td>1.052</td>
@@ -1114,7 +1124,7 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
 <td>0.043</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">gpa</td>
+<th data-quarto-table-cell-role="th">gpa</th>
 <td>3.7604</td>
 <td>2.003</td>
 <td>1.877</td>
@@ -1136,8 +1146,8 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 
 p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}
 \]</span></p>
 <p>We can show how <span class="math inline">\(p\)</span> separates the values (some lines of the code may be new for you - it’s just for your information, <strong>you are not required to learn them</strong>):</p>
-<div id="87636c4b" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> df[<span class="st">'gmat'</span>].to_numpy()</span>
+<div id="72fed8e9" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> df[<span class="st">'gmat'</span>].to_numpy()</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> df[<span class="st">'gpa'</span>].to_numpy()</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> df[<span class="st">'admitted'</span>].to_numpy()</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
@@ -1151,7 +1161,7 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}{1+e^{\hat{\beta
 <span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>pvalues <span class="op">=</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> X1 <span class="op">+</span> b2 <span class="op">*</span> X2)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> X1 <span class="op">+</span> b2 <span class="op">*</span> X2))</span>
 <span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>ax.plot_surface(X1, X2, pvalues, color <span class="op">=</span> <span class="st">'r'</span>, alpha <span class="op">=</span> <span class="fl">0.4</span>)</span>
 <span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>ax.scatter(x1, x2, p)</span>
-<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1161,11 +1171,11 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}{1+e^{\hat{\beta
 </div>
 </div>
 <p>As you can see, the red graph (surface) of <span class="math inline">\(p\)</span> separates values of <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. Again, we may try to predict the admission for the student with data stored in <code>df_test</code>. We assigned to <code>gmat</code> the corresponding mark, now we do the same for <code>gpa</code> and calculate <code>p</code> for these two values. As you can see, the result is much closer to <span class="math inline">\(0\)</span>, hence, we are more confident in our (correct) prediction that the student would not be admitted.</p>
-<div id="7041f457" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>gpa <span class="op">=</span> df_test[<span class="st">'gpa'</span>]</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6f96a06f" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>gpa <span class="op">=</span> df_test[<span class="st">'gpa'</span>]</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
-<pre><code>0.07118806995711177</code></pre>
+<pre><code>0.07118806995711167</code></pre>
 </div>
 </div>
 <section id="logistic-regression-for-3-independent-variables" class="level3 unnumbered">
@@ -1180,10 +1190,10 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}{1+e^{\hat{\beta
 <p><span class="math display">\[
 \mathrm{logit} (p) = \hat{\beta}_0 + \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2 + \hat{\beta}_3 x_3
 \]</span></p>
-<div id="e95a2960" class="cell" data-execution_count="31">
+<div id="a51362d1" class="cell" data-execution_count="30">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> smf.logit(<span class="st">'admitted ~ gmat + gpa + work_experience'</span>, data <span class="op">=</span> df).fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> smf.logit(<span class="st">'admitted ~ gmat + gpa + work_experience'</span>, data <span class="op">=</span> df).fit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimization terminated successfully.
@@ -1192,8 +1202,8 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2}}{1+e^{\hat{\beta
 </div>
 </div>
 <p>Check your answer:</p>
-<div id="07e711bd" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>reg.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="53a38775" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>reg.params</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>Intercept         -16.182243
 gmat                0.002624
@@ -1212,15 +1222,15 @@ dtype: float64</code></pre>
 p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2+\hat{\beta}_3 x_3}}{1+e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2+\hat{\beta}_3 x_3}}
 \]</span></p>
 <p>for that student. Check the answer:</p>
-<div id="6559393e" class="cell" data-execution_count="33">
+<div id="b4ab9118" class="cell" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>w_exp <span class="op">=</span> df_test[<span class="st">'work_experience'</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>w_exp <span class="op">=</span> df_test[<span class="st">'work_experience'</span>]</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>b0, b1, b2, b3 <span class="op">=</span> reg.params <span class="co">#Note the trick</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa <span class="op">+</span> b3 <span class="op">*</span> w_exp)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa <span class="op">+</span> b3 <span class="op">*</span> w_exp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa <span class="op">+</span> b3 <span class="op">*</span> w_exp)<span class="op">/</span>(<span class="dv">1</span> <span class="op">+</span> np.exp(b0 <span class="op">+</span> b1 <span class="op">*</span> gmat <span class="op">+</span> b2 <span class="op">*</span> gpa <span class="op">+</span> b3 <span class="op">*</span> w_exp))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="32">
-<pre><code>0.3133331286316772</code></pre>
+<pre><code>0.31333312863167756</code></pre>
 </div>
 </div>
 </div>
@@ -1233,236 +1243,243 @@ p = \frac{e^{\hat{\beta}_0+\hat{\beta}_1 x_1+\hat{\beta}_2 x_2+\hat{\beta}_3 x_3
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1470,185 +1487,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Lab3-solutions.html" class="pagination-link" aria-label="Lab 3 - Solutions">
