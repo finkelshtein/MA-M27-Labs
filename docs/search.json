@@ -99,629 +99,223 @@
     ]
   },
   {
-    "objectID": "Lab4-solutions.html",
-    "href": "Lab4-solutions.html",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html",
+    "href": "Lab4.html",
+    "title": "Lab 4",
     "section": "",
-    "text": "Recall that the linear regression provides the “best line” that reflects the relation between two sets of data. Namely, let \\(X=(x_1,\\ldots,x_n)\\) and \\(Y=(y_1,\\ldots,y_n)\\) be vectors (arrays) of data. We define\n\\[\n\\begin{aligned}\n\\bar{x}& = \\frac1n \\sum_{i=1}^n x_i,\\\\\nS_{xx} &= \\sum_{i=1}^n(x_i-\\bar{x})^2=\\sum_{i=1}^nx_i^2-n\\bar{x}^2,\\\\\nS_{xy}&=\\sum_{i=1}^n(x_i-\\bar{x})(y_i-\\bar{y})=\\sum_{i=1}^nx_iy_i-n\\bar{x}\\bar{y},\\\\\nS_{yy}&= \\sum_{i=1}^n(y_i-\\bar{y})^2=\\sum_{i=1}^ny_i^2-n\\bar{y}^2.\n\\end{aligned}\n\\]\nThen the best fit line is\n\\[\n\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x,\n\\]\nwhere\n\\[\n\\begin{aligned}\n\\hat{\\beta}_1 &= \\dfrac{S_{xy}}{S_{xx}},\\\\\n\\hat{\\beta}_0 &= \\bar{y}-\\hat{\\beta}_1\\bar{x}.\n\\end{aligned}\n\\]\nThe strength of a linear relationship between the variables can be measured by the Pearson correlation coefficient (or just the correlation coefficient) which is given by\n\\[\nr=\\dfrac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}.\n\\]\nWe know that \\(-1\\leq r\\leq 1\\) and we say that\n\\[\n\\begin{aligned}\n|r|&gt;0.7 & \\quad \\text{means strong correlation}\\\\\n0.7\\geq |r|&gt;0.4& \\quad \\text{means moderate correlation}\\\\\n|r|\\leq 0.4 & \\quad \\text{means weak correlation}\n\\end{aligned}\n\\]\n\n\n\nDownload file Birthweight.csv from Canvas (see Week 4 section in Modules) and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 3. Don’t forget about pandas library.\nYou should get the following output\n\n\nCode\nimport pandas as pd\ndf = pd.read_csv(\"Birthweight.csv\")\ndf.head()\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.\n\n\n\n\nPlot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(df['length'], df['Birthweight'])\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.\n\n\n\n\n\nConvert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\n\n\nCode\nimport numpy as np\nx = df['length'].to_numpy()\ny = df['Birthweight'].to_numpy()\nmx = np.mean(x)\nmy = np.mean(y)\n\n\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]\n\n\n\n\n\n\n\nAssign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\n\n\nCode\nsxx = np.sum((x-mx)**2)\nsxy = np.sum((x-mx)*(y-my))\nsyy= np.sum((y-my)**2)\n\n\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]\n\n\n\n\n\n\n\nAssign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\n\n\nCode\nb1 = sxy/sxx\nb0 = my - b1 * mx\nr = sxy / np.sqrt(sxx * syy)\n\n\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\nCombine the regression line with the scatter plot to get the following output:\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.\n\n\n\n\n\nDownload now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\nCode\ndf = pd.read_csv(\"Experience-Salary.csv\")\nx = df['exp(in months)'].to_numpy()\ny = df['salary(in thousands)'].to_numpy()\nlr = linregress(x,y)\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Experience (months)')\nplt.ylabel('Salary (thousands)')\nplt.show()\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
+    "text": "Recall that the linear regression provides the “best line” that reflects the relation between two sets of data. Namely, let \\(X=(x_1,\\ldots,x_n)\\) and \\(Y=(y_1,\\ldots,y_n)\\) be vectors (arrays) of data. We define\n\\[\n\\begin{aligned}\n\\bar{x}& = \\frac1n \\sum_{i=1}^n x_i,\\\\\nS_{xx} &= \\sum_{i=1}^n(x_i-\\bar{x})^2=\\sum_{i=1}^nx_i^2-n\\bar{x}^2,\\\\\nS_{xy}&=\\sum_{i=1}^n(x_i-\\bar{x})(y_i-\\bar{y})=\\sum_{i=1}^nx_iy_i-n\\bar{x}\\bar{y},\\\\\nS_{yy}&= \\sum_{i=1}^n(y_i-\\bar{y})^2=\\sum_{i=1}^ny_i^2-n\\bar{y}^2.\n\\end{aligned}\n\\]\nThen the best fit line is\n\\[\n\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x,\n\\]\nwhere\n\\[\n\\begin{aligned}\n\\hat{\\beta}_1 &= \\dfrac{S_{xy}}{S_{xx}},\\\\\n\\hat{\\beta}_0 &= \\bar{y}-\\hat{\\beta}_1\\bar{x}.\n\\end{aligned}\n\\]\nThe strength of a linear relationship between the variables can be measured by the Pearson correlation coefficient (or just the correlation coefficient) which is given by\n\\[\nr=\\dfrac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}.\n\\]\nWe know that \\(-1\\leq r\\leq 1\\) and we say that\n\\[\n\\begin{aligned}\n|r|&gt;0.7 & \\quad \\text{means strong correlation}\\\\\n0.7\\geq |r|&gt;0.4& \\quad \\text{means moderate correlation}\\\\\n|r|\\leq 0.4 & \\quad \\text{means weak correlation}\n\\end{aligned}\n\\]\n\n\n\nDownload file Birthweight.csv and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 1. Don’t forget about pandas library.\nYou should get the following output\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.\n\n\n\n\nPlot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.\n\n\n\n\n\nConvert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]\n\n\n\n\n\n\n\nAssign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]\n\n\n\n\n\n\n\nAssign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\nCombine the regression line with the scatter plot to get the following output:\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.\n\n\n\n\n\nDownload now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section",
-    "href": "Lab4-solutions.html#section",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section",
+    "href": "Lab4.html#section",
+    "title": "Lab 4",
     "section": "",
-    "text": "Download file Birthweight.csv from Canvas (see Week 4 section in Modules) and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 3. Don’t forget about pandas library.\nYou should get the following output\n\n\nCode\nimport pandas as pd\ndf = pd.read_csv(\"Birthweight.csv\")\ndf.head()\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.",
+    "text": "Download file Birthweight.csv and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 1. Don’t forget about pandas library.\nYou should get the following output\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section-1",
-    "href": "Lab4-solutions.html#section-1",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section-1",
+    "href": "Lab4.html#section-1",
+    "title": "Lab 4",
     "section": "",
-    "text": "Plot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(df['length'], df['Birthweight'])\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.",
+    "text": "Plot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section-2",
-    "href": "Lab4-solutions.html#section-2",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section-2",
+    "href": "Lab4.html#section-2",
+    "title": "Lab 4",
     "section": "",
-    "text": "Convert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\n\n\nCode\nimport numpy as np\nx = df['length'].to_numpy()\ny = df['Birthweight'].to_numpy()\nmx = np.mean(x)\nmy = np.mean(y)\n\n\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]",
+    "text": "Convert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section-3",
-    "href": "Lab4-solutions.html#section-3",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section-3",
+    "href": "Lab4.html#section-3",
+    "title": "Lab 4",
     "section": "",
-    "text": "Assign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\n\n\nCode\nsxx = np.sum((x-mx)**2)\nsxy = np.sum((x-mx)*(y-my))\nsyy= np.sum((y-my)**2)\n\n\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]",
+    "text": "Assign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section-4",
-    "href": "Lab4-solutions.html#section-4",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section-4",
+    "href": "Lab4.html#section-4",
+    "title": "Lab 4",
     "section": "",
-    "text": "Assign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\n\n\nCode\nb1 = sxy/sxx\nb0 = my - b1 * mx\nr = sxy / np.sqrt(sxx * syy)\n\n\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()",
+    "text": "Assign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section-5",
-    "href": "Lab4-solutions.html#section-5",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section-5",
+    "href": "Lab4.html#section-5",
+    "title": "Lab 4",
     "section": "",
-    "text": "Combine the regression line with the scatter plot to get the following output:\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.",
+    "text": "Combine the regression line with the scatter plot to get the following output:\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section-6",
-    "href": "Lab4-solutions.html#section-6",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section-6",
+    "href": "Lab4.html#section-6",
+    "title": "Lab 4",
     "section": "",
-    "text": "Download now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\nCode\ndf = pd.read_csv(\"Experience-Salary.csv\")\nx = df['exp(in months)'].to_numpy()\ny = df['salary(in thousands)'].to_numpy()\nlr = linregress(x,y)\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Experience (months)')\nplt.ylabel('Salary (thousands)')\nplt.show()\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
+    "text": "Download now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section-7",
-    "href": "Lab4-solutions.html#section-7",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section-7",
+    "href": "Lab4.html#section-7",
+    "title": "Lab 4",
     "section": "2.1 ",
-    "text": "2.1 \n\nChange the code as explained and get the following summary.\n\n\nCode\nreg = smf.logit('admitted ~ gmat + gpa', data = df).fit()\nreg.summary()\n\n\nOptimization terminated successfully.\n         Current function value: 0.322141\n         Iterations 8\n\n\n\nLogit Regression Results\n\n\nDep. Variable:\nadmitted\nNo. Observations:\n29\n\n\nModel:\nLogit\nDf Residuals:\n26\n\n\nMethod:\nMLE\nDf Model:\n2\n\n\nDate:\nThu, 30 Oct 2025\nPseudo R-squ.:\n0.5348\n\n\nTime:\n00:41:51\nLog-Likelihood:\n-9.3421\n\n\nconverged:\nTrue\nLL-Null:\n-20.084\n\n\nCovariance Type:\nnonrobust\nLLR p-value:\n2.162e-05\n\n\n\n\n\n\n\n\n\ncoef\nstd err\nz\nP&gt;|z|\n[0.025\n0.975]\n\n\nIntercept\n-22.0171\n9.232\n-2.385\n0.017\n-40.111\n-3.923\n\n\ngmat\n0.0150\n0.014\n1.052\n0.293\n-0.013\n0.043\n\n\ngpa\n3.7604\n2.003\n1.877\n0.060\n-0.166\n7.686\n\n\n\n\n\n\nAgain, the coefficients are available using (in the previous notations) reg.params. As before, Intercept stands for \\(\\hat{\\beta}_0\\), gmat stands for \\(\\hat{\\beta}_1\\), and also gpa stands for \\(\\hat{\\beta}_2\\) in\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2\n\\]\nand hence\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}\n\\]\nWe can show how \\(p\\) separates the values (some lines of the code may be new for you - it’s just for your information, you are not required to learn them):\n\nx1 = df['gmat'].to_numpy()\nx2 = df['gpa'].to_numpy()\np = df['admitted'].to_numpy()\nfig = plt.figure()\nax = fig.add_subplot(1, 1, 1, projection='3d', computed_zorder=False)\nx1values = np.linspace(min(x1), max(x1), 100)\nx2values = np.linspace(min(x2), max(x2), 100)\n[X1, X2] = np.meshgrid(x1values, x2values)\nb0 = reg.params.iloc[0]\nb1 = reg.params.iloc[1]\nb2 = reg.params.iloc[2]\npvalues = np.exp(b0 + b1 * X1 + b2 * X2)/(1 + np.exp(b0 + b1 * X1 + b2 * X2))\nax.plot_surface(X1, X2, pvalues, color = 'r', alpha = 0.4)\nax.scatter(x1, x2, p)\nplt.show()\n\n\n\n\n\n\n\n\nAs you can see, the red graph (surface) of \\(p\\) separates values of \\(0\\) and \\(1\\). Again, we may try to predict the admission for the student with data stored in df_test. We assigned to gmat the corresponding mark, now we do the same for gpa and calculate p for these two values. As you can see, the result is much closer to \\(0\\), hence, we are more confident in our (correct) prediction that the student would not be admitted.\n\ngpa = df_test['gpa']\nnp.exp(b0 + b1 * gmat + b2 * gpa)/(1 + np.exp(b0 + b1 * gmat + b2 * gpa))\n\n0.07118806995711167\n\n\n\nLogistic regression for 3 independent variables\nNow, we consider the dependence of admitted on all three values: gmat, gpa, and work_experience. Surely, in this case, we will not be able to draw \\(p\\) (as it would be a 4-dimensional diagram), but we can calculate \\(\\hat{\\beta}_0,\\hat{\\beta}_1,\\hat{\\beta}_2,\\hat{\\beta}_3\\).",
+    "text": "2.1 \n\nChange the code as explained and get the following summary.\n\n\nOptimization terminated successfully.\n         Current function value: 0.322141\n         Iterations 8\n\n\n\nLogit Regression Results\n\n\nDep. Variable:\nadmitted\nNo. Observations:\n29\n\n\nModel:\nLogit\nDf Residuals:\n26\n\n\nMethod:\nMLE\nDf Model:\n2\n\n\nDate:\nWed, 22 Oct 2025\nPseudo R-squ.:\n0.5348\n\n\nTime:\n00:15:07\nLog-Likelihood:\n-9.3421\n\n\nconverged:\nTrue\nLL-Null:\n-20.084\n\n\nCovariance Type:\nnonrobust\nLLR p-value:\n2.162e-05\n\n\n\n\n\n\n\n\n\ncoef\nstd err\nz\nP&gt;|z|\n[0.025\n0.975]\n\n\nIntercept\n-22.0171\n9.232\n-2.385\n0.017\n-40.111\n-3.923\n\n\ngmat\n0.0150\n0.014\n1.052\n0.293\n-0.013\n0.043\n\n\ngpa\n3.7604\n2.003\n1.877\n0.060\n-0.166\n7.686\n\n\n\n\n\n\nAgain, the coefficients are available using (in the previous notations) reg.params. As before, Intercept stands for \\(\\hat{\\beta}_0\\), gmat stands for \\(\\hat{\\beta}_1\\), and also gpa stands for \\(\\hat{\\beta}_2\\) in\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2\n\\]\nand hence\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}\n\\]\nWe can show how \\(p\\) separates the values (some lines of the code may be new for you - it’s just for your information, you are not required to learn them):\n\nx1 = df['gmat'].to_numpy()\nx2 = df['gpa'].to_numpy()\np = df['admitted'].to_numpy()\nfig = plt.figure()\nax = fig.add_subplot(1, 1, 1, projection='3d', computed_zorder=False)\nx1values = np.linspace(min(x1), max(x1), 100)\nx2values = np.linspace(min(x2), max(x2), 100)\n[X1, X2] = np.meshgrid(x1values, x2values)\nb0 = reg.params.iloc[0]\nb1 = reg.params.iloc[1]\nb2 = reg.params.iloc[2]\npvalues = np.exp(b0 + b1 * X1 + b2 * X2)/(1 + np.exp(b0 + b1 * X1 + b2 * X2))\nax.plot_surface(X1, X2, pvalues, color = 'r', alpha = 0.4)\nax.scatter(x1, x2, p)\nplt.show()\n\n\n\n\n\n\n\n\nAs you can see, the red graph (surface) of \\(p\\) separates values of \\(0\\) and \\(1\\). Again, we may try to predict the admission for the student with data stored in df_test. We assigned to gmat the corresponding mark, now we do the same for gpa and calculate p for these two values. As you can see, the result is much closer to \\(0\\), hence, we are more confident in our (correct) prediction that the student would not be admitted.\n\ngpa = df_test['gpa']\nnp.exp(b0 + b1 * gmat + b2 * gpa)/(1 + np.exp(b0 + b1 * gmat + b2 * gpa))\n\n0.07118806995711167\n\n\n\nLogistic regression for 3 independent variables\nNow, we consider the dependence of admitted on all three values: gmat, gpa, and work_experience. Surely, in this case, we will not be able to draw \\(p\\) (as it would be a 4-dimensional diagram), but we can calculate \\(\\hat{\\beta}_0,\\hat{\\beta}_1,\\hat{\\beta}_2,\\hat{\\beta}_3\\).",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section-8",
-    "href": "Lab4-solutions.html#section-8",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section-8",
+    "href": "Lab4.html#section-8",
+    "title": "Lab 4",
     "section": "2.2 ",
-    "text": "2.2 \n\nFind the coefficients of\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2 + \\hat{\\beta}_3 x_3\n\\]\n\n\nCode\nreg = smf.logit('admitted ~ gmat + gpa + work_experience', data = df).fit()\n\n\nOptimization terminated successfully.\n         Current function value: 0.255306\n         Iterations 8\n\n\nCheck your answer:\n\nreg.params\n\nIntercept         -16.182243\ngmat                0.002624\ngpa                 3.258770\nwork_experience     0.994371\ndtype: float64",
+    "text": "2.2 \n\nFind the coefficients of\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2 + \\hat{\\beta}_3 x_3\n\\]\n\n\nOptimization terminated successfully.\n         Current function value: 0.255306\n         Iterations 8\n\n\nCheck your answer:\n\nreg.params\n\nIntercept         -16.182243\ngmat                0.002624\ngpa                 3.258770\nwork_experience     0.994371\ndtype: float64",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab4-solutions.html#section-9",
-    "href": "Lab4-solutions.html#section-9",
-    "title": "Lab 4 - Solutions",
+    "objectID": "Lab4.html#section-9",
+    "href": "Lab4.html#section-9",
+    "title": "Lab 4",
     "section": "2.3 ",
-    "text": "2.3 \n\nAssign to w_exp the work experience value for the student from df_test and calculate the function\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}\n\\]\nfor that student. Check the answer:\n\n\nCode\nw_exp = df_test['work_experience']\nb0, b1, b2, b3 = reg.params #Note the trick\nnp.exp(b0 + b1 * gmat + b2 * gpa + b3 * w_exp)/(1 + np.exp(b0 + b1 * gmat + b2 * gpa + b3 * w_exp))\n\n\n0.31333312863167756\n\n\n\nAs you can see, the information about a relatively high work experience (5 years in this case), increased chances to be admitted, though the non-admission is still more likely.\nNote that the rest of information from summary actually explains the level of certainty we may have in the future prediction (we do not consider this now). Note also that, in practice, one predicts outcomes for a number of students (the dataframe df_test would contain a lot of rows), and the prediction is “good” if one predicted correctly for a big percentage of them.",
+    "text": "2.3 \n\nAssign to w_exp the work experience value for the student from df_test and calculate the function\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}\n\\]\nfor that student. Check the answer:\n\n\n0.31333312863167756\n\n\n\nAs you can see, the information about a relatively high work experience (5 years in this case), increased chances to be admitted, though the non-admission is still more likely.\nNote that the rest of information from summary actually explains the level of certainty we may have in the future prediction (we do not consider this now). Note also that, in practice, one predicts outcomes for a number of students (the dataframe df_test would contain a lot of rows), and the prediction is “good” if one predicted correctly for a big percentage of them.",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 4 - Solutions"
+      "Labs - Problems",
+      "Lab 4 - Problems"
     ]
   },
   {
-    "objectID": "Lab3-solutions.html",
-    "href": "Lab3-solutions.html",
-    "title": "Lab 3 - Solutions",
+    "objectID": "Lab3.html",
+    "href": "Lab3.html",
+    "title": "Lab 3",
     "section": "",
-    "text": "Module scipy.stats of the famous library scipy provides various tools to work with probability and statistics in Python. Today, we consider several discrete distributions; to work with them will use the same structure of commands. In particular, any distribution will have the following methods:\n\nrvs - to generate (several) values of a random variable \\(X\\)\npmf - to calculate probability mass function at any \\(k\\in\\mathbb{R}\\)\n\n\\[\np_X(k)=\\mathbb{P}(X=k)\n\\]\n\ncdf - to calculate the cumulative distribuion function\n\n\\[\nF_X(x)=\\sum_{k\\leq x} p_X(k)=\\mathbb{P}(X\\leq x)\n\\]\nrecall that\n\\[\n\\mathbb{P}(a&lt;X\\leq b) = F_X(b)-F_X(a)\n\\]\n\nmean - to calculate the mathematical expectation (mean) \\(\\mathbb{E}(X)\\)\nvar - to calculate the varaince \\(\\mathrm{Var}(X)\\)\nstd - to calculate the standard deviation \\(\\sigma(X)=\\sqrt{\\mathrm{Var}(X)}\\)",
+    "text": "Module scipy.stats of the famous library scipy provides various tools to work with probability and statistics in Python. Today, we consider several discrete distributions; to work with them will use the same structure of commands. In particular, any distribution will have the following methods:\n\nrvs - to generate (several) values of a random variable \\(X\\) (see below in this Lab)\npmf - to calculate probability mass function at any \\(k\\in\\mathbb{R}\\) \\[\np_X(k)=\\mathbb{P}(X=k)\n\\]\ncdf - to calculate the cumulative distribuion function \\[\nF_X(x)=\\sum_{k\\leq x} p_X(k)=\\mathbb{P}(X\\leq x)\n\\] recall that \\[\n\\mathbb{P}(a&lt;X\\leq b) = F_X(b)-F_X(a)\n\\]\nmean - to calculate the mathematical expectation (mean) \\(\\mathbb{E}(X)\\)\nvar - to calculate the varaince \\(\\mathrm{Var}(X)\\)\nstd - to calculate the standard deviation \\(\\sigma(X)=\\sqrt{\\mathrm{Var}(X)}\\)",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
+      "Labs - Problems",
+      "Lab 3 - Problems"
     ]
   },
   {
-    "objectID": "Lab3-solutions.html#section",
-    "href": "Lab3-solutions.html#section",
-    "title": "Lab 3 - Solutions",
+    "objectID": "Lab3.html#section",
+    "href": "Lab3.html#section",
+    "title": "Lab 3",
     "section": "2.1 ",
-    "text": "2.1 \n\nLet \\(X\\sim Bin(27, 0.45)\\).\n\nCalculate \\(\\mathbb{P}(X\\leq 20)\\).\n\nSolution. \\(\\mathbb{P}(X\\leq 20) = F_X(20)\\), hence, we calculate binom.cdf at k=20 with parameters n=27 and p=0.45.\n\n\n\nCode\n binom.cdf(20, 27, 0.45)\n\n\n0.9994575733214396\n\n\nCalculate \\(\\mathbb{P}(X &lt; 10)\\).\n\nSolution. Since \\(X\\) takes only integer values, \\(X&lt;10\\) means that \\(X\\leq 9\\). Hence,\n\\[\n\\mathbb{P}(X &lt; 10) = \\mathbb{P}(X \\leq 9) = F_X(9).\n\\]\n\n\n\nCode\nbinom.cdf(9, 27, 0.45)\n\n\n0.15256903022954094\n\n\nCalculate \\(\\mathbb{P}(7&lt;X\\leq 13)\\).\n\nSolution. We use the formula\n\\[\n\\mathbb{P}(7&lt;X\\leq 13) = F_X(13)-F_X(7).\n\\]\n\n\n\nCode\nbinom.cdf(13, 27, 0.45)-binom.cdf(7, 27, 0.45)\n\n\n0.666671672666459\n\n\nCalculate \\(\\mathbb{P}(7\\leq X\\leq 13)\\).\n\nSolution. To apply the same formula, we need to rewrite the inequality in the form \\(6&lt;X\\leq 13\\).\n\n\n\nCode\nbinom.cdf(13, 27, 0.45)-binom.cdf(6, 27, 0.45)\n\n\n0.6879613472859423",
+    "text": "2.1 \n\nLet \\(X\\sim Bin(27, 0.45)\\).\n\nCalculate \\(\\mathbb{P}(X\\leq 20)\\). Check the answer:\n\n\n\n0.9994575733214396\n\n\n\nCalculate \\(\\mathbb{P}(X &lt; 10)\\). Check the answer:\n\n\n\n0.15256903022954094\n\n\n\nCalculate \\(\\mathbb{P}(7&lt;X\\leq 13)\\). Check the answer:\n\n\n\n0.666671672666459\n\n\n\nCalculate \\(\\mathbb{P}(7\\leq X\\leq 13)\\). Check the answer:\n\n\n\n0.6879613472859423",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
+      "Labs - Problems",
+      "Lab 3 - Problems"
     ]
   },
   {
-    "objectID": "Lab3-solutions.html#section-1",
-    "href": "Lab3-solutions.html#section-1",
-    "title": "Lab 3 - Solutions",
+    "objectID": "Lab3.html#section-1",
+    "href": "Lab3.html#section-1",
+    "title": "Lab 3",
     "section": "2.2 ",
-    "text": "2.2 \n\nA company manufactures light bulbs, and \\(95\\)% of them are of good quality, while the rest are defective. If a customer buys \\(50\\) light bulbs, what is the probability that:\n\nExactly \\(5\\) of them are defective?\n\nSolution. Since we are looking for defective bulbs, we consider \\(p=0.05\\) that is the probabilioty that a bulb is defective (\\(5\\)% of all bulbs). Hence, we need to find \\(p_X(5)\\) for \\(X\\sim Bin(50,0.05)\\).\n\n\n\nCode\nbinom.pmf(5, 50, 0.05)\n\n\n0.06584063715436628\n\n\nAt most \\(5\\) of them are defective?\n\nSolution. We need to find (again, for \\(X\\sim Bin(50,0.05)\\))\n\\[\n\\mathbb{P}(X\\leq 5) = F_X(5).\n\\]\n\n\n\nCode\nbinom.cdf(5, 50, 0.05)\n\n\n0.9622238270102227\n\n\nAt least \\(5\\) of them are defective?\n\nSolution. We need to find\n\\[\n\\mathbb{P}(X\\geq 5) = 1- \\mathbb{P}(X &lt; 5)=1- \\mathbb{P}(X \\leq {\\color{red}4})=1-F_X(4).\n\\]\n\n\n\nCode\n1-binom.cdf(4, 50, 0.05)\n\n\n0.10361681014414348\n\n\nFind the expected value of the number of defective bulbs and the standard deviation of this quantity.\n\nSolution. Here we just use the corresponding methods to calculate mean and std.\n\n\n\nCode\n[binom.mean(50, 0.05), binom.std(50, 0.05)]\n\n\n[2.5, 1.541103500742244]",
+    "text": "2.2 \n\nA company manufactures light bulbs, and \\(95\\)% of them are of good quality, while the rest are defective. If a customer buys \\(50\\) light bulbs, what is the probability that:\n\nExactly \\(5\\) of them are defective? Check the answer:\n\n\n\n0.06584063715436628\n\n\n\nAt most \\(5\\) of them are defective? Check the answer:\n\n\n\n0.9622238270102227\n\n\n\nAt least \\(5\\) of them are defective? Check the answer:\n\n\n\n0.10361681014414348\n\n\n\nFind the expected value of the number of defective bulbs and the standard deviation of this quantity. Check the answer:\n\n\n\n[2.5, 1.541103500742244]",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
+      "Labs - Problems",
+      "Lab 3 - Problems"
     ]
   },
   {
-    "objectID": "Lab3-solutions.html#section-2",
-    "href": "Lab3-solutions.html#section-2",
-    "title": "Lab 3 - Solutions",
+    "objectID": "Lab3.html#section-2",
+    "href": "Lab3.html#section-2",
+    "title": "Lab 3",
     "section": "3.1 ",
-    "text": "3.1 \n\nLet \\(X\\sim Geom(0.4)\\). Calculate \\(\\mathbb{P}(7\\leq X &lt;10)\\).\n\nSolution. Similarly to the previous examples, we rewrite\n\\[\n\\mathbb{P}(7\\leq X &lt;10)=\\mathbb{P}(6 &lt;X \\leq 9)=F_X(9)-F_X(6).\n\\]\n\n\n\nCode\ngeom.cdf(9, 0.4)-geom.cdf(6, 0.4)\n\n\n0.03657830400000006",
+    "text": "3.1 \n\nLet \\(X\\sim Geom(0.4)\\). Calculate \\(\\mathbb{P}(7\\leq X &lt;10)\\). Check the answer.\n\n\n0.03657830400000006",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
+      "Labs - Problems",
+      "Lab 3 - Problems"
     ]
   },
   {
-    "objectID": "Lab3-solutions.html#section-3",
-    "href": "Lab3-solutions.html#section-3",
-    "title": "Lab 3 - Solutions",
+    "objectID": "Lab3.html#section-3",
+    "href": "Lab3.html#section-3",
+    "title": "Lab 3",
     "section": "3.2 ",
-    "text": "3.2 \n\nA lazy student has to take a quiz, where each question may have as an answer an integer number from \\(1\\) to \\(100\\) (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains \\(20\\) questions. As soon as the student gives a correct answer, the quiz stops, and it is considered as a passed one. What is the probability that the student will pass the quiz?\nHint: the quiz may stop after either of \\(1,2,3,\\ldots,20\\) questions.\n\nSolution. The students needs to guess a number from \\(100\\) possible numbers, so the proability to answer a question correctly is \\(\\frac1{100}=0.01\\). If \\(X\\sim Geom(0.01)\\), then \\(X\\) models the number of the question when the first correct answer is made, and the quiz stops. Hence, \\(X\\) may be either of \\(1,2,3,\\ldots,20\\), i.e. we need to find \\(\\mathbb{P}(X\\leq 20)\\).\n\n\n\nCode\ngeom.cdf(20, 0.01)\n\n\n0.18209306240276918",
+    "text": "3.2 \n\nA lazy student has to take a quiz, where each question may have as an answer an integer number from \\(1\\) to \\(100\\) (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains \\(20\\) questions. As soon as the student gives a correct answer, the quiz stops, and it is considered as a passed one. What is the probability that the student will pass the quiz?\nHint: the quiz may stop after either of \\(1,2,3,\\ldots,20\\) questions.\nCheck the answer:\n\n\n0.18209306240276918",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
+      "Labs - Problems",
+      "Lab 3 - Problems"
     ]
   },
   {
-    "objectID": "Lab3-solutions.html#section-4",
-    "href": "Lab3-solutions.html#section-4",
-    "title": "Lab 3 - Solutions",
+    "objectID": "Lab3.html#section-4",
+    "href": "Lab3.html#section-4",
+    "title": "Lab 3",
     "section": "4.1 ",
-    "text": "4.1 \n\nLet \\(X\\sim NB(5, 0.3)\\). Find \\(\\mathbb{P}(X&gt;10)\\).\n\nSolution. We have, by using the probability of the complement event,\n\\[\n\\mathbb{P}(X&gt;10)=1-\\mathbb{P}(X\\leq 10)=1-F_X(10).\n\\]\n\n\n\nCode\n1-nbinom.cdf(10, 5, 0.3)\n\n\n0.5154910592268431",
+    "text": "4.1 \n\nLet \\(X\\sim NB(5, 0.3)\\). Find \\(\\mathbb{P}(X&gt;10)\\). Check the answer.\n\n\n0.5154910592268431",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
+      "Labs - Problems",
+      "Lab 3 - Problems"
     ]
   },
   {
-    "objectID": "Lab3-solutions.html#section-5",
-    "href": "Lab3-solutions.html#section-5",
-    "title": "Lab 3 - Solutions",
+    "objectID": "Lab3.html#section-5",
+    "href": "Lab3.html#section-5",
+    "title": "Lab 3",
     "section": "4.2 ",
-    "text": "4.2 \n\nA lazy student has to take a quiz, where each question may have as an answer an integer number from \\(1\\) to \\(100\\) (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains \\(20\\) questions. The quiz stops as soon as the student answers correctly \\(3\\) questions. What is the probability to pass the test for this student?\nHint: think on how many wrong answers could be made by the student to still pass the test.\n\nSolution. Let \\(X\\sim NB(3, 0.01)\\) be the number of wrong answers made by the student before he made the \\(3\\)rd correct answer. Then the total number of answered questions will be \\(X+3\\). One needs to have \\(X+3\\leq20\\) (as there are only \\(20\\) questions), i.e. \\(X\\leq 17\\). Hence, we need to find\n\\[\n\\mathbb{P}(X\\leq 17)=F_X(17).\n\\]\n\n\n\nCode\nnbinom.cdf(17, 3, 0.01)\n\n\n0.0010035761681001162",
+    "text": "4.2 \n\nA lazy student has to take a quiz, where each question may have as an answer an integer number from \\(1\\) to \\(100\\) (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains \\(20\\) questions. The quiz stops as soon as the student answers correctly \\(3\\) questions. What is the probability to pass the test for this student?\nHint: think on how many wrong answers could be made by the student to still pass the test.\nCheck the answer.\n\n\n0.0010035761681001162",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
+      "Labs - Problems",
+      "Lab 3 - Problems"
     ]
   },
   {
-    "objectID": "Lab3-solutions.html#section-6",
-    "href": "Lab3-solutions.html#section-6",
-    "title": "Lab 3 - Solutions",
+    "objectID": "Lab3.html#section-7",
+    "href": "Lab3.html#section-7",
+    "title": "Lab 3",
     "section": "5.1 ",
-    "text": "5.1 \n\nLet \\(X\\sim Po(0.4)\\). Find\n\\[\n\\sum_{n=4}^\\infty \\mathbb{P}(X=n).\n\\]\n\nSolution. Note that\n\\[\n\\begin{aligned}\n\\sum_{n=4}^\\infty \\mathbb{P}(X=n)&=\\mathbb{P}(X\\geq 4) =1-\\mathbb{P}(X&lt; 4)\\\\&=1-\\mathbb{P}(X\\leq 3)=1-F_X(3).\n\\end{aligned}\n\\]\n\n\n\nCode\n1 - poisson.cdf(3, 0.4)\n\n\n0.0007762513762070711",
+    "text": "5.1 \n\nIn an insurance company, customers’ claims are raised at an average rate of \\(5\\) claims per working day. Calculate the probability that\n\nExactly \\(30\\) claims will be raised in one working week (Monday – Friday). Check the answer.\n\n\n\n0.04541278513011904\n\n\n\nAt least \\(8\\) claims will be raised in the next \\(2\\) working days. Check the answer.\n\n\n\n0.7797793533983011",
     "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
+      "Labs - Problems",
+      "Lab 3 - Problems"
     ]
   },
   {
-    "objectID": "Lab3-solutions.html#section-7",
-    "href": "Lab3-solutions.html#section-7",
-    "title": "Lab 3 - Solutions",
-    "section": "5.2 ",
-    "text": "5.2 \n\nIn an insurance company, customers’ claims are raised at an average rate of \\(5\\) claims per working day. Calculate the probability that\n\nExactly \\(30\\) claims will be raised in one working week (Monday – Friday).\n\nSolution. The average rate of \\(5\\) claims per working day means, on average, \\(5\\cdot 5=25\\) claims per \\(5\\) working days (that is the working week). Hence we consider now \\(X\\sim Po(25)\\) and we need to find \\(p_X(30)\\).\n\n\n\nCode\npoisson.pmf(30, 25)\n\n\n0.04541278513011904\n\n\nAt least \\(8\\) claims will be raised in the next \\(2\\) working days.\n\nSolution. The average rate per \\(2\\) working days is \\(2\\cdot 5=10\\), i.e. we deal now with \\(X\\sim Po(10)\\). We need to find\n\\[\n\\mathbb{P}(X\\geq8)=1-\\mathbb{P}(X&lt;8)=1-\\mathbb{P}(X\\leq7)=1-F_X(7).\n\\]\n\n\n\nCode\n1 - poisson.cdf(7, 10)\n\n\n0.7797793533983011",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab3-solutions.html#section-8",
-    "href": "Lab3-solutions.html#section-8",
-    "title": "Lab 3 - Solutions",
+    "objectID": "Lab3.html#section-8",
+    "href": "Lab3.html#section-8",
+    "title": "Lab 3",
     "section": "6.1 ",
-    "text": "6.1 \n\nLet \\(X\\sim Po(3)\\) be a Poisson random variable with the parameter \\(\\lambda=3\\). Generate \\(100\\) random values of \\(X\\) fixing random_state = 111, and assign the resulting Numpy array to a variable f. Calculate the mean and the (population) variance of f. Check your answer. Don’t forget to load numpy first.\n\n\nCode\nimport numpy as np\nfrom scipy.stats import poisson\nf = poisson.rvs(3, size = 100, random_state = 111)\n[np.mean(f), np.var(f)]\n\n\n[2.9, 2.87]\n\n\nWe know that the theoretical mean (expected value) \\(\\mathbb{E}(X)\\) and variance \\(\\mathrm{Var}(X)\\) for a Poisson random variable are equal to \\(\\lambda\\):\n\\[\n\\mathbb{E}(X)=\\mathrm{Var}(X)=\\lambda.\n\\]\nClearly, \\(2.9\\neq 3\\neq 2.87\\). To make the statistics more “matching” the probability, we need to increase the size of the data: let’s generate \\(10^6\\) random variables (keeping random_state = 111). Check the answers.\n\n\nCode\nf = poisson.rvs(3, size = 10**6, random_state = 111)\n[np.mean(f), np.var(f)]\n\n\n[2.998107, 2.9899274165509997]",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 3 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html",
-    "href": "Lab2-solutions.html",
-    "title": "Lab 2 - Solutions",
-    "section": "",
-    "text": "A fair coin is tossed 25 times. Store at the variable a the probability to get 25 heads. A fair six-sided dice is throwing 10 times. Store at the variable b the probability to get 10 equal even scores. Find the ratio a/b.\n\nSolution. The probability of a head is \\(0.5\\), and all tossings are independend, hence, the probability to get \\(n\\) heads in a row is\n\\[\n0.5^n.\n\\]\nNext, \\(m\\) equal even scores in \\(m\\) throwings of the dice may be in \\(3\\) cases:\n\\[\n(\\underbrace{2,\\ldots,2}_{m\\ \\mathrm{times}}),\n(\\underbrace{4,\\ldots,4}_{m\\ \\mathrm{times}}),\n(\\underbrace{4,\\ldots,4}_{m\\ \\mathrm{times}})\n\\] These cases are mutually exclusive, hence the probability that either of them happens is the sum of probabilities of each event. Each probability is equal to\n\\[\n\\Bigl(\\frac16\\Bigr)^{m},\n\\] hence, for b, we need to multiply the latter number (for \\(m=10\\)) by \\(3\\).\n\n\n\nCode\n#\na = 0.5 ** 25\nb = 3 * (1/6) ** 10 # Read about the order of operations in Python\na/b\n\n\n0.6006774902343753\n\n\n\n\n\n\n\nAn experiment consists of selecting a token from a bag and spinning a coin. The bag contains \\(345\\) red tokens and \\(678\\) blue tokens. A token is selected at random from the bag, its colour is noted and then the token is returned to the bag.\nWhen a red token is selected, a biased coin with probability \\(\\dfrac45\\) of landing heads is tossed.\nWhen a blue token is selected, a biased coin with probability \\(\\dfrac25\\) of landing heads is spun.\nFind the probability c of obtaining tail. Round the answer to 3 decimal digits.\n\nSolution. Let \\(R\\) and \\(B\\) be the events of selecting a red (respectively, blue) token. Then\n\\[\n\\mathbb{P}(R) = \\frac{345}{345+678},\\qquad\n\\mathbb{P}(B) = 1-\\mathbb{P}(R)= \\frac{678}{345+678}.\n\\]\nLet \\(T\\) be the event of obtaining a tail. We will use the total probability law:\n\\[\n\\mathbb{P}(T) = \\mathbb{P}(T\\mid R)\\cdot \\mathbb{P}(R)+\n\\mathbb{P}(T \\mid B)\\cdot \\mathbb{P}(B).\n\\]\nWe know also that \\(\\mathbb{P}(H\\mid R)=\\frac45\\), hence, \\(\\mathbb{P}(T\\mid R)=1-\\frac45=\\frac15\\). Similarly, \\(\\mathbb{P}(T\\mid B)=1-\\frac25=\\frac35\\).\n\n\n\nCode\np_red =  345/(345+678)\np_blue = 1 - p_red\nc = p_red * (1 - 4/5) + p_blue * (1 - 2/5)\nround(c, 3)\n\n\n0.465\n\n\n\n\n\n\n\nIn the conditions of the previous task, if the tail was obtained, what is the probability \\(d\\) of having selected a red token? Round the answer to 3 decimal digits.\n\nSolution. By Bayes’ formula,\n\\[\n\\mathbb{P}(R | T) = \\frac{\\mathbb{P}(R) \\cdot \\mathbb{P}(T | R)}{\\mathbb{P}(T)}\n\\]\n\n\n\nCode\nd = p_red * (1-4/5) / c\nround(d, 3)\n\n\n0.145",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section",
-    "href": "Lab2-solutions.html#section",
-    "title": "Lab 2 - Solutions",
-    "section": "",
-    "text": "A fair coin is tossed 25 times. Store at the variable a the probability to get 25 heads. A fair six-sided dice is throwing 10 times. Store at the variable b the probability to get 10 equal even scores. Find the ratio a/b.\n\nSolution. The probability of a head is \\(0.5\\), and all tossings are independend, hence, the probability to get \\(n\\) heads in a row is\n\\[\n0.5^n.\n\\]\nNext, \\(m\\) equal even scores in \\(m\\) throwings of the dice may be in \\(3\\) cases:\n\\[\n(\\underbrace{2,\\ldots,2}_{m\\ \\mathrm{times}}),\n(\\underbrace{4,\\ldots,4}_{m\\ \\mathrm{times}}),\n(\\underbrace{4,\\ldots,4}_{m\\ \\mathrm{times}})\n\\] These cases are mutually exclusive, hence the probability that either of them happens is the sum of probabilities of each event. Each probability is equal to\n\\[\n\\Bigl(\\frac16\\Bigr)^{m},\n\\] hence, for b, we need to multiply the latter number (for \\(m=10\\)) by \\(3\\).\n\n\n\nCode\n#\na = 0.5 ** 25\nb = 3 * (1/6) ** 10 # Read about the order of operations in Python\na/b\n\n\n0.6006774902343753",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-1",
-    "href": "Lab2-solutions.html#section-1",
-    "title": "Lab 2 - Solutions",
-    "section": "",
-    "text": "An experiment consists of selecting a token from a bag and spinning a coin. The bag contains \\(345\\) red tokens and \\(678\\) blue tokens. A token is selected at random from the bag, its colour is noted and then the token is returned to the bag.\nWhen a red token is selected, a biased coin with probability \\(\\dfrac45\\) of landing heads is tossed.\nWhen a blue token is selected, a biased coin with probability \\(\\dfrac25\\) of landing heads is spun.\nFind the probability c of obtaining tail. Round the answer to 3 decimal digits.\n\nSolution. Let \\(R\\) and \\(B\\) be the events of selecting a red (respectively, blue) token. Then\n\\[\n\\mathbb{P}(R) = \\frac{345}{345+678},\\qquad\n\\mathbb{P}(B) = 1-\\mathbb{P}(R)= \\frac{678}{345+678}.\n\\]\nLet \\(T\\) be the event of obtaining a tail. We will use the total probability law:\n\\[\n\\mathbb{P}(T) = \\mathbb{P}(T\\mid R)\\cdot \\mathbb{P}(R)+\n\\mathbb{P}(T \\mid B)\\cdot \\mathbb{P}(B).\n\\]\nWe know also that \\(\\mathbb{P}(H\\mid R)=\\frac45\\), hence, \\(\\mathbb{P}(T\\mid R)=1-\\frac45=\\frac15\\). Similarly, \\(\\mathbb{P}(T\\mid B)=1-\\frac25=\\frac35\\).\n\n\n\nCode\np_red =  345/(345+678)\np_blue = 1 - p_red\nc = p_red * (1 - 4/5) + p_blue * (1 - 2/5)\nround(c, 3)\n\n\n0.465",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-2",
-    "href": "Lab2-solutions.html#section-2",
-    "title": "Lab 2 - Solutions",
-    "section": "",
-    "text": "In the conditions of the previous task, if the tail was obtained, what is the probability \\(d\\) of having selected a red token? Round the answer to 3 decimal digits.\n\nSolution. By Bayes’ formula,\n\\[\n\\mathbb{P}(R | T) = \\frac{\\mathbb{P}(R) \\cdot \\mathbb{P}(T | R)}{\\mathbb{P}(T)}\n\\]\n\n\n\nCode\nd = p_red * (1-4/5) / c\nround(d, 3)\n\n\n0.145",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-3",
-    "href": "Lab2-solutions.html#section-3",
-    "title": "Lab 2 - Solutions",
-    "section": "2.1 ",
-    "text": "2.1 \n\nIn a school sport club, there are \\(20\\) children who like rugby more than football, and \\(15\\) chidlren who like football more than rugby. (Noone likes them equally.) The club wants to form a committee of \\(6\\) people: \\(3\\) football funs and \\(3\\) rugby funs. How many ways does there exist to form the committee? Store the answer in w.\n\nRemark. Note that since the choice of football funs does not depend on the choice of rugby funs, we need just to multiply the number of ways to choose fotball funs and the number of ways to choose rugby funs.\n\n\nSolution. Therefore,\n\\[\nw = \\binom{20}{3}\\cdot\\binom{15}{3}\n\\]\n\n\n\nCode\nw = comb(20,3, exact=True) * comb(15,3, exact=True)\nw\n\n\n518700",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-4",
-    "href": "Lab2-solutions.html#section-4",
-    "title": "Lab 2 - Solutions",
-    "section": "2.2 ",
-    "text": "2.2 \n\nLet now the committee (of 6 children) is chosen without any restrictions on the preferences of its members. Find the number of ways to form the committee. Store the answer in r.\n\nSolution. We choose \\(6\\) children from \\(20+15=35\\), it can be done in \\(\\binom{35}{6}\\) ways.\n\n\n\nCode\n# We choose 6 children from 35\nr = comb(35,6, exact=True)\nr\n\n\n1623160",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-5",
-    "href": "Lab2-solutions.html#section-5",
-    "title": "Lab 2 - Solutions",
-    "section": "2.3 ",
-    "text": "2.3 \n\nFinally, find the probability p that a randomly choosen committee consisting of 6 children has equal numbers of football and rugby funs. Round to \\(4\\) decimal digits.\n\n\nCode\np = round(w/r,4)\np\n\n\n0.3196",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-6",
-    "href": "Lab2-solutions.html#section-6",
-    "title": "Lab 2 - Solutions",
-    "section": "2.4 ",
-    "text": "2.4 \n\nIf \\(10\\) balls are randomly drawn from a bag containing \\(17\\) blue and \\(19\\) yellow balls, what is the probability q that \\(4\\) of the balls are blue and the others are yellow? Round to \\(3\\) decimal digits.\nNote that despite the balls of the same colour are indistinguishable (in contrast to children of the same sport preference in the previous tasks), we may always think that the balls e.g. numbered, to apply the same arguments as before.\n\n\nCode\nq = comb(17, 4) * comb(19, 10-4) / comb(17+19, 10)\nq\n\n\n0.25404208941472567\n\n\n\n\n\n\n\n\n\nTipRemember\n\n\n\n\nSpecial cases:\n\n\\[\n\\binom{n}{0}=\\binom{0}{0}=1\n\\]\n\nSimple cases:\n\n\\[\n\\binom{n}{1} = n, \\qquad \\binom{n}{2}=\\frac{n(n-1)}{2}\n\\]\n\nOverall,\n\n\\[\n\\binom{n}{k} = \\frac{n\\cdot(n-1)\\cdot(n-2)\\cdot\\ldots\\cdot(n-k+1)}{1\\cdot2\\cdot3\\cdot\\ldots\\cdot k},\n\\]\nwhere numerator has \\(k\\) factors. E.g.\n\\[\n\\binom{37}{4}=\\frac{37\\cdot 36\\cdot 35\\cdot 34}{1\\cdot 2\\cdot 3\\cdot 4}.\n\\]",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-7",
-    "href": "Lab2-solutions.html#section-7",
-    "title": "Lab 2 - Solutions",
-    "section": "3.1 ",
-    "text": "3.1 \n\nChoose a random element from the list coin. The output will be one of two letters h or t, e.g.:\n\n\nCode\nrandom.choice(coin)\n\n\n't'\n\n\nNote that if you run the same code again and again you may get each time another output.\nCongratulations: you made your first probability model.",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-8",
-    "href": "Lab2-solutions.html#section-8",
-    "title": "Lab 2 - Solutions",
-    "section": "3.2 ",
-    "text": "3.2 \n\nSuppose we tossed the coin n_trials = 10 times. Generate a list called series that would contain outputs of all these trials, e.g.\n\n\nCode\nn_trials = 10\nseries = [random.choice(coin) for _ in range(n_trials)]\nseries\n\n\n['t', 'h', 'h', 't', 'h', 't', 't', 't', 't', 't']\n\n\n(your output will be probably different).\nAdvice: it may be more convenient to use list comprehension instead of loops, though it’s up to you. Recall that range(10) command generates 10 numbers from 0 to 9.\nCount the number of “heads” in series, using property list_name.count(element_name) to get the number of elements element_name in the list list_name.\n\n\nCode\nseries.count('h')\n\n\n3",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-9",
-    "href": "Lab2-solutions.html#section-9",
-    "title": "Lab 2 - Solutions",
-    "section": "3.3 ",
-    "text": "3.3 \n\nLoad library pyplot of module matplotlib as follows:\n\nimport matplotlib.pyplot as plt\n\nChange now n_trials to 1000. We expect to see around 500 heads in a series of trials, though if you run your code, you will probably get another number. Define n_series = 1000 and repeat running the previous code n_series times, i.e. the output should be a list of n_series numbers. Store the output in a variable heads.\nAgain, you may find more useful to use list comprehension.\nCreate the scatter plot of numbers of heads in all series using the commands plt.scatter(x, heads) and plt.show(), where x would be all numbers from 0 to n_series.\nYour output should be similar to:\n\n\nCode\n#The first line of the code is to see the output in Jupyter notebook\n%matplotlib inline\nn_trials = 1000\nn_series = 1000\nheads = [[random.choice(coin) for _ in range(n_trials)].count('h') for _ in range(n_series)]\nx = range(n_series)\nplt.scatter(x, heads)\nplt.show()\n\n\n\n\n\n\n\n\n\nAs you can see all results indeed gather around 500. Note that you can find min(heads) and max(heads) to see how large is the spread of numbers, e.g. on the picture above it’s\n\n[min(heads),max(heads)]\n\n[445, 553]",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-10",
-    "href": "Lab2-solutions.html#section-10",
-    "title": "Lab 2 - Solutions",
-    "section": "4.1 ",
-    "text": "4.1 \n\nConsider again that we toss the coin \\(1000\\) times and count the number of tails, but repeat this procedure \\(10^5\\) times. Calculate the average m of the obtained result.\n\n\nCode\nn = 1000\nb = np.random.randint(2, size=(10**5,n))\nb.sum(axis=1).mean()\n\n\n500.00904\n\n\nAs expected, the result is pretty close to \\(500\\) (your result may differ from this, of course).",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab2-solutions.html#section-11",
-    "href": "Lab2-solutions.html#section-11",
-    "title": "Lab 2 - Solutions",
-    "section": "4.2 ",
-    "text": "4.2 \n\nWe can also model unfair coins. The command\n\nn=10\nnp.random.choice([0,1], size=(5,n), p=[0.6, 0.4])\n\narray([[1, 1, 1, 1, 0, 0, 0, 1, 1, 0],\n       [0, 0, 1, 1, 1, 0, 0, 0, 0, 0],\n       [1, 1, 0, 0, 1, 1, 0, 0, 0, 0],\n       [1, 1, 0, 0, 0, 0, 0, 1, 0, 0],\n       [0, 1, 0, 1, 0, 0, 0, 0, 0, 0]])\n\n\ngenerates \\(5\\) series of \\(10\\) outputs each with the probability for head \\(0.6\\) and the probability for tail \\(0.4\\). Calculate again the average for \\(10^5\\) series of \\(1000\\) trials.\n\n\nCode\nn = 1000\nb = np.random.choice([0,1], size=(10**5,n), p=[0.6, 0.4])\nb.sum(axis=1).mean()\n\n\n399.91953\n\n\nThe result is pretty close to \\(400 = 0.4*1000\\). We discuss the theoretical justification for this on Week 3.",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 2 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html",
-    "href": "Lab1-solutions.html",
-    "title": "Lab 1 - Solutions",
-    "section": "",
-    "text": "As you know, statistics deals with data. There are several ways how to load data to Python.\nIn this lab we consider the first two of them.\nThere are several ways to calculate mean, mode, median, variance and other descriptive characteristics in Python. We will use numpy library for this, so run at the beginning of your Jupyter notebook the following command\nimport numpy as np",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section",
-    "href": "Lab1-solutions.html#section",
-    "title": "Lab 1 - Solutions",
-    "section": "1.1 ",
-    "text": "1.1 \n\nConvert the list a defined above to a Numpy array, reassign the result again to the variable a:\n\n\nCode\na = np.array(a)\na\n\n\narray([2, 1, 3, 4, 2, 6, 4, 0, 1, 1, 3, 3, 4, 1, 1, 5, 5, 2, 1, 3])\n\n\n\n\nMean\nTo calculate the mean of all values in the array \\(a=(a_1,\\ldots,a_{20})\\), i.e.\n\\[\n\\bar{a} = \\frac{a_1+\\ldots+a_{n}}{n},\n\\]\nfor \\(n=20\\), we run\n\nnp.mean(a)\n\n2.6\n\n\n(we could calculate this and further characteristics directly, e.g. for mean one could write sum(a)/len(a), however, the usage of special functions is more efficient in the case of large datasets).\n\n\nMedian\nSimilarly, to calculate the median of data, we can use np.median method.",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section-1",
-    "href": "Lab1-solutions.html#section-1",
-    "title": "Lab 1 - Solutions",
-    "section": "1.2 ",
-    "text": "1.2 \n\nFind the median of a. Check the answer.\n\n\nCode\nnp.median(a)\n\n\n2.5\n\n\n\n\nPopulation variance and standard deviation\nTo calculate the population variance of a, i.e. the quantity\n\\[\n\\sigma^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n},\n\\]\nwe use np.var method and to calculate the population standard deviation \\(\\sigma=\\sqrt{\\sigma^2}\\) we use np.std method. For example,\n\nnp.var(a)\n\n2.6399999999999997\n\n\nAgain, this is faster and more convenient than calculating them directly, e.g. instead of np.var(a) we could write\n\nsum((a - np.mean(a))**2)/len(a)\n\n2.64\n\n\n\n\n\n\n\n\nImportantDo not miss this\n\n\n\nNote that we have used, in the last command, array (vector) operations: a - np.mean(a) means that we subtract the number np.mean(a) from each component of a, and the result is again an array of \\(a_1-\\bar a,\\ldots,a_n-\\bar{a}\\). Simmilarly, **2 means that we square each component of the array a - np.mean(a), and the result is again an array.",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section-2",
-    "href": "Lab1-solutions.html#section-2",
-    "title": "Lab 1 - Solutions",
-    "section": "1.3 ",
-    "text": "1.3 \n\nFind the standard deviation of a. Check the answer.\n\n\nCode\nnp.std(a)\n\n\n1.624807680927192\n\n\n\n\nSample variance and standard deviation\nTo get the sample variance\n\\[\ns^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n-1}.\n\\]\none could, of course, use that\n\\[\ns^2=\\frac{n}{n-1} \\sigma^2,\n\\]\n(where \\(n=20\\) for the given a), however, it is better to use a special key ddof = 1 inside np.var, where ddof stands for “delta degree of freedom”:\n\nnp.var(a, ddof = 1)\n\n2.7789473684210524\n\n\nWe can check that indeed e.g.\n\nnp.var(a, ddof = 1) == np.var(a)*20/19\n\nTrue",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section-3",
-    "href": "Lab1-solutions.html#section-3",
-    "title": "Lab 1 - Solutions",
-    "section": "1.4 ",
-    "text": "1.4 \n\nFind the sample standard deviation for a using an analogy with the previous commands. Check the answer.\n\n\nCode\nnp.std(a, ddof = 1)\n\n\n1.6670175069329813",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section-4",
-    "href": "Lab1-solutions.html#section-4",
-    "title": "Lab 1 - Solutions",
-    "section": "2.1 ",
-    "text": "2.1 \n\nFind the average weight of the members of the sports club. Check your answer.\n\n\nCode\nnp.mean(b)\n\n\n69.34",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section-5",
-    "href": "Lab1-solutions.html#section-5",
-    "title": "Lab 1 - Solutions",
-    "section": "2.2 ",
-    "text": "2.2 \n\nAssign to variable d the Numpy array of the heights of all members of the sports club. Find the median and the variance of the heights. Check your answers.\n\n\nCode\nd = df[\"Height\"].to_numpy()\n[np.median(d), np.var(d)]\n\n\n[170.0, 254.2239]",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section-6",
-    "href": "Lab1-solutions.html#section-6",
-    "title": "Lab 1 - Solutions",
-    "section": "2.3 ",
-    "text": "2.3 \n\nAssign to variable e the Numpy array of the body mass indexes (BMI) of the club members: if a member has weight \\(w\\) kg and height \\(h\\) cm, then its BMI is \\(10^4*\\dfrac{w}{h^2}\\). Remember that in Python all array operations are done component-wise. Find the mean and the standard deviation of e. Check your answer.\n\n\nCode\ne = 10**4 * b/(d*d)\n[np.mean(e), np.std(e)]\n\n\n[24.900949943455288, 6.54617400802904]",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section-7",
-    "href": "Lab1-solutions.html#section-7",
-    "title": "Lab 1 - Solutions",
-    "section": "3.1 ",
-    "text": "3.1 \n\nTake the first \\(100\\) members of the sports club from the sportsclub.csv discussed before, and draw the scatter plot of heights (vertical axis) over weights (horizontal axis). Use green colours for the markers. Label the axes appropriately.\n\n\nCode\nimport matplotlib.pyplot as plt\nweights = b[0:100]\nheights = d[0:100]\nplt.scatter(weights, heights, color = 'g')\nplt.xlabel('Weights')\nplt.ylabel('Heights')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nBox plot\nConsider now a box-and-whisker plot. The following code produce the blox plot for the weights of all members of the sports club:\n\nplt.boxplot(b)\nplt.show()\n\n\n\n\n\n\n\n\nBy default, the box plot is vertical. To make it horizontal, use the key vert = False in boxplot method.",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section-8",
-    "href": "Lab1-solutions.html#section-8",
-    "title": "Lab 1 - Solutions",
-    "section": "3.2 ",
-    "text": "3.2 \nPlot the horizontal box plot for the heights of all members of the sports club.\n\n\nCode\nplt.boxplot(d, vert = False)\nplt.show()\n\n\n\n\n\n\n\n\n\n\nRemark. Recall that the box plot visualises, in particular, the rectangle bound by the lower and upper quartiles: \\(Q_1\\) and \\(Q_3\\), whereas the coloured line represents the median \\(Q_2\\). We know that \\(Q_2\\) is calculated differently if the sample has even or odd number of elements. By definition, recall, \\(Q_1\\) and \\(Q_3\\) are medians of the lower half and upper halves of the ordered sample. However, it’s a question of agreement whether to include the median \\(Q_2\\) to both halves or not, in the case when the number of elelements is odd. For example, let the data be \\[\n1,2,3,4,5,6,7.\n\\] The median is \\(4\\), i.e. \\(Q_2=4\\). Now, we may say that the lower half is \\(1,2,3\\), its median is \\(2\\), i.e. \\(Q_1=2\\), similarly then the upper half is \\(5,6,7\\), hence, \\(Q_3=6\\). Another approach is to say that the lower part is \\(1,2,3,4\\) (including \\(Q_2=4\\)), and it’s median is \\(\\frac{2+3}{2}=2.5\\), i.e. \\(Q_1=2.5\\); similarly then the upper half is \\(4,5,6,7\\), and hence, \\(Q_3=5.5\\). Python in Mathplotlib uses the second approach.\n\n\nHistogram\nLet’s create the histogram for the weights of all sports club members. Conside the histogram with \\(20\\) bins.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 20)\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nRecall that the change of the number of bins may drastically change the shapce of a histogram, e.g.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 50)                 # 50 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nor\n\nplt.hist(b, 5)                 # 5 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "Lab1-solutions.html#section-9",
-    "href": "Lab1-solutions.html#section-9",
-    "title": "Lab 1 - Solutions",
-    "section": "3.3 ",
-    "text": "3.3 \n\nPlot the histogram of heights of the all members of the sports club. Make all the bins of the size \\(3\\) cm (perhaps, all but the last, the most right, one). To calculate the number of bins, use functions min() and max() and also round().\n\nSolution. The heights are stored in the array d. The range of values of heights is from min(d) to max(d) (i.e. from minimal height to maximal height); all heights are in centimeneters. To divide this range on parts of size \\(3\\) cm, we would need (max(d)-min(d))/3 parts. Since the latter number may be decimal, we round it with function round.\n\n\n\nCode\nn_bins = round((max(d) - min(d))/3)\nplt.hist(d, n_bins)  \nplt.xlabel('Heights')\nplt.ylabel('Counts')\nplt.show()",
-    "crumbs": [
-      "Labs - Solutions",
-      "Lab 1 - Solutions"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "1 Sign up to Anaconda (do it once)\n\nGo to https://anaconda.com/app/\nSign up using your personal or University email address.\nAdvice: do not use your University password.\n\n\n\n2 Log in to Anaconda (do it for each lab)\n\nLogin to https://anaconda.com/app/\nChoose “Notebooks” in the Explore Anaconda section:\n\n\n\nOpen the file browser (from the left side menu bar)\n\n\n\nCreate a folder for all files related to this module:\n\n\nand name it, e.g., “MA-M27”.\n\nOpen the created folder.\nPress blue button with “+”\n\n\nand choose any of anaconda-notebooks:\n\n\nRename the created file\n\n\ne.g. to “Lab1.ipynb”, “Lab2.ipynb” etc.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "Lab1.html",
-    "href": "Lab1.html",
-    "title": "Lab 1",
-    "section": "",
-    "text": "As you know, statistics deals with data. There are several ways how to load data to Python.\nIn this lab we consider the first two of them.\nThere are several ways to calculate mean, mode, median, variance and other descriptive characteristics in Python. We will use numpy library for this, so run at the beginning of your Jupyter notebook the following command\nimport numpy as np",
+    "text": "6.1 \n\nLet \\(X\\sim Po(3)\\) be a Poisson random variable with the parameter \\(\\lambda=3\\). Generate \\(100\\) random values of \\(X\\) fixing random_state = 111, and assign the resulting Numpy array to a variable f. Calculate the mean and the (population) variance of f. Check your answer. Don’t forget to load numpy first.\n\n\n[2.9, 2.87]\n\n\nWe know that the theoretical mean (expected value) \\(\\mathbb{E}(X)\\) and variance \\(\\mathrm{Var}(X)\\) for a Poisson random variable are equal to \\(\\lambda\\):\n\\[\n\\mathbb{E}(X)=\\mathrm{Var}(X)=\\lambda.\n\\]\nClearly, \\(2.9\\neq 3\\neq 2.87\\). To make the statistics more “matching” the probability, we need to increase the size of the data: let’s generate \\(10^6\\) random variables (keeping random_state = 111). Check the answers.\n\n\n[2.998107, 2.9899274165509997]",
     "crumbs": [
       "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section",
-    "href": "Lab1.html#section",
-    "title": "Lab 1",
-    "section": "1.1 ",
-    "text": "1.1 \n\nConvert the list a defined above to a Numpy array, reassign the result again to the variable a to get the following output\n\na\n\narray([2, 1, 3, 4, 2, 6, 4, 0, 1, 1, 3, 3, 4, 1, 1, 5, 5, 2, 1, 3])\n\n\n\n\nMean\nTo calculate the mean of all values in the array \\(a=(a_1,\\ldots,a_{20})\\), i.e.\n\\[\n\\bar{a} = \\frac{a_1+\\ldots+a_{n}}{n},\n\\]\nfor \\(n=20\\), we run\n\nnp.mean(a)\n\n2.6\n\n\n(we could calculate this and further characteristics directly, e.g. for mean one could write sum(a)/len(a), however, the usage of special functions is more efficient in the case of large datasets).\n\n\nMedian\nSimilarly, to calculate the median of data, we can use np.median method.",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section-1",
-    "href": "Lab1.html#section-1",
-    "title": "Lab 1",
-    "section": "1.2 ",
-    "text": "1.2 \n\nFind the median of a. Check the answer.\n\n\n2.5\n\n\n\n\nPopulation variance and standard deviation\nTo calculate the population variance of a, i.e. the quantity\n\\[\n\\sigma^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n},\n\\]\nwe use np.var method and to calculate the population standard deviation \\(\\sigma=\\sqrt{\\sigma^2}\\) we use np.std method. For example,\n\nnp.var(a)\n\n2.6399999999999997\n\n\nAgain, this is faster and more convenient than calculating them directly, e.g. instead of np.var(a) we could write\n\nsum((a - np.mean(a))**2)/len(a)\n\n2.64\n\n\n\n\n\n\n\n\nImportantDo not miss this\n\n\n\nNote that we have used, in the last command, array (vector) operations: a - np.mean(a) means that we subtract the number np.mean(a) from each component of a, and the result is again an array of \\(a_1-\\bar a,\\ldots,a_n-\\bar{a}\\).\nSimmilarly, **2 means that we square each component of the array a - np.mean(a), and the result is again an array.",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section-2",
-    "href": "Lab1.html#section-2",
-    "title": "Lab 1",
-    "section": "1.3 ",
-    "text": "1.3 \n\nFind the standard deviation of a. Check the answer.\n\n\n1.624807680927192\n\n\n\n\nSample variance and standard deviation\nTo get the sample variance\n\\[\ns^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n-1}.\n\\]\none could, of course, use that\n\\[\ns^2=\\frac{n}{n-1} \\sigma^2,\n\\]\n(where \\(n=20\\) for the given a), however, it is better to use a special key ddof = 1 inside np.var, where ddof stands for “delta degree of freedom”:\n\nnp.var(a, ddof = 1)\n\n2.7789473684210524\n\n\nWe can check that indeed e.g.\n\nnp.var(a, ddof = 1) == np.var(a)*20/19\n\nTrue",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section-3",
-    "href": "Lab1.html#section-3",
-    "title": "Lab 1",
-    "section": "1.4 ",
-    "text": "1.4 \n\nFind the sample standard deviation for a using an analogy with the previous commands. Check the answer.\n\n\n1.6670175069329813",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section-4",
-    "href": "Lab1.html#section-4",
-    "title": "Lab 1",
-    "section": "2.1 ",
-    "text": "2.1 \n\nFind the average weight of the members of the sports club. Check your answer.\n\n\n69.34",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section-5",
-    "href": "Lab1.html#section-5",
-    "title": "Lab 1",
-    "section": "2.2 ",
-    "text": "2.2 \n\nAssign to variable d the Numpy array of the heights of all members of the sports club. Find the median and the variance of the heights. Check your answers.\n\n\n[170.0, 254.2239]",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section-6",
-    "href": "Lab1.html#section-6",
-    "title": "Lab 1",
-    "section": "2.3 ",
-    "text": "2.3 \n\nAssign to variable e the Numpy array of the body mass indexes (BMI) of the club members: if a member has weight \\(w\\) kg and height \\(h\\) cm, then its BMI is \\(10^4*\\dfrac{w}{h^2}\\). Remember that in Python all array operations are done component-wise. Find the mean and the standard deviation of e. Check your answer.\n\n\n[24.900949943455288, 6.54617400802904]",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section-7",
-    "href": "Lab1.html#section-7",
-    "title": "Lab 1",
-    "section": "3.1 ",
-    "text": "3.1 \n\nTake the first \\(100\\) members of the sports club from the sportsclub.csv discussed before, and draw the scatter plot of heights (vertical axis) over weights (horizontal axis). Use green colours for the markers. Label the axes appropriately.\n\n\n\n\n\n\n\n\n\n\n\nBox plot\nConsider now a box-and-whisker plot. The following code produce the blox plot for the weights of all members of the sports club:\n\nplt.boxplot(b)\nplt.show()\n\n\n\n\n\n\n\n\nBy default, the box plot is vertical. To make it horizontal, use the key vert = False in boxplot method.",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section-8",
-    "href": "Lab1.html#section-8",
-    "title": "Lab 1",
-    "section": "3.2 ",
-    "text": "3.2 \n\nPlot the horizontal box plot for the heights of all members of the sports club.\n\n\n\n\n\n\n\n\n\n\n\nRemark. Recall that the box plot visualises, in particular, the rectangle bound by the lower and upper quartiles: \\(Q_1\\) and \\(Q_3\\), whereas the coloured line represents the median \\(Q_2\\). We know that \\(Q_2\\) is calculated differently if the sample has even or odd number of elements. By definition, recall, \\(Q_1\\) and \\(Q_3\\) are medians of the lower half and upper halves of the ordered sample. However, it’s a question of agreement whether to include the median \\(Q_2\\) to both halves or not, in the case when the number of elelements is odd. For example, let the data be \\[\n1,2,3,4,5,6,7.\n\\] The median is \\(4\\), i.e. \\(Q_2=4\\). Now, we may say that the lower half is \\(1,2,3\\), its median is \\(2\\), i.e. \\(Q_1=2\\), similarly then the upper half is \\(5,6,7\\), hence, \\(Q_3=6\\). Another approach is to say that the lower part is \\(1,2,3,4\\) (including \\(Q_2=4\\)), and it’s median is \\(\\frac{2+3}{2}=2.5\\), i.e. \\(Q_1=2.5\\); similarly then the upper half is \\(4,5,6,7\\), and hence, \\(Q_3=5.5\\). Python in Mathplotlib uses the second approach.\n\n\nHistogram\nLet’s create the histogram for the weights of all sports club members. Conside the histogram with \\(20\\) bins.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 20)\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nRecall that the change of the number of bins may drastically change the shapce of a histogram, e.g.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 50)                 # 50 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nor\n\nplt.hist(b, 5)                 # 5 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab1.html#section-9",
-    "href": "Lab1.html#section-9",
-    "title": "Lab 1",
-    "section": "3.3 ",
-    "text": "3.3 \n\nPlot the histogram of heights of the all members of the sports club. Make all the bins of the size \\(3\\) cm (perhaps, all but the last, the most right, one). To calculate the number of bins, use functions min() and max() and also round().",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 1 - Problems"
+      "Lab 3 - Problems"
     ]
   },
   {
@@ -868,223 +462,728 @@
     ]
   },
   {
-    "objectID": "Lab3.html",
-    "href": "Lab3.html",
-    "title": "Lab 3",
+    "objectID": "Lab1.html",
+    "href": "Lab1.html",
+    "title": "Lab 1",
     "section": "",
-    "text": "Module scipy.stats of the famous library scipy provides various tools to work with probability and statistics in Python. Today, we consider several discrete distributions; to work with them will use the same structure of commands. In particular, any distribution will have the following methods:\n\nrvs - to generate (several) values of a random variable \\(X\\) (see below in this Lab)\npmf - to calculate probability mass function at any \\(k\\in\\mathbb{R}\\) \\[\np_X(k)=\\mathbb{P}(X=k)\n\\]\ncdf - to calculate the cumulative distribuion function \\[\nF_X(x)=\\sum_{k\\leq x} p_X(k)=\\mathbb{P}(X\\leq x)\n\\] recall that \\[\n\\mathbb{P}(a&lt;X\\leq b) = F_X(b)-F_X(a)\n\\]\nmean - to calculate the mathematical expectation (mean) \\(\\mathbb{E}(X)\\)\nvar - to calculate the varaince \\(\\mathrm{Var}(X)\\)\nstd - to calculate the standard deviation \\(\\sigma(X)=\\sqrt{\\mathrm{Var}(X)}\\)",
+    "text": "As you know, statistics deals with data. There are several ways how to load data to Python.\nIn this lab we consider the first two of them.\nThere are several ways to calculate mean, mode, median, variance and other descriptive characteristics in Python. We will use numpy library for this, so run at the beginning of your Jupyter notebook the following command\nimport numpy as np",
     "crumbs": [
       "Labs - Problems",
-      "Lab 3 - Problems"
+      "Lab 1 - Problems"
     ]
   },
   {
-    "objectID": "Lab3.html#section",
-    "href": "Lab3.html#section",
-    "title": "Lab 3",
+    "objectID": "Lab1.html#section",
+    "href": "Lab1.html#section",
+    "title": "Lab 1",
+    "section": "1.1 ",
+    "text": "1.1 \n\nConvert the list a defined above to a Numpy array, reassign the result again to the variable a to get the following output\n\na\n\narray([2, 1, 3, 4, 2, 6, 4, 0, 1, 1, 3, 3, 4, 1, 1, 5, 5, 2, 1, 3])\n\n\n\n\nMean\nTo calculate the mean of all values in the array \\(a=(a_1,\\ldots,a_{20})\\), i.e.\n\\[\n\\bar{a} = \\frac{a_1+\\ldots+a_{n}}{n},\n\\]\nfor \\(n=20\\), we run\n\nnp.mean(a)\n\n2.6\n\n\n(we could calculate this and further characteristics directly, e.g. for mean one could write sum(a)/len(a), however, the usage of special functions is more efficient in the case of large datasets).\n\n\nMedian\nSimilarly, to calculate the median of data, we can use np.median method.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-1",
+    "href": "Lab1.html#section-1",
+    "title": "Lab 1",
+    "section": "1.2 ",
+    "text": "1.2 \n\nFind the median of a. Check the answer.\n\n\n2.5\n\n\n\n\nPopulation variance and standard deviation\nTo calculate the population variance of a, i.e. the quantity\n\\[\n\\sigma^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n},\n\\]\nwe use np.var method and to calculate the population standard deviation \\(\\sigma=\\sqrt{\\sigma^2}\\) we use np.std method. For example,\n\nnp.var(a)\n\n2.6399999999999997\n\n\nAgain, this is faster and more convenient than calculating them directly, e.g. instead of np.var(a) we could write\n\nsum((a - np.mean(a))**2)/len(a)\n\n2.64\n\n\n\n\n\n\n\n\nImportantDo not miss this\n\n\n\nNote that we have used, in the last command, array (vector) operations: a - np.mean(a) means that we subtract the number np.mean(a) from each component of a, and the result is again an array of \\(a_1-\\bar a,\\ldots,a_n-\\bar{a}\\).\nSimmilarly, **2 means that we square each component of the array a - np.mean(a), and the result is again an array.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-2",
+    "href": "Lab1.html#section-2",
+    "title": "Lab 1",
+    "section": "1.3 ",
+    "text": "1.3 \n\nFind the standard deviation of a. Check the answer.\n\n\n1.624807680927192\n\n\n\n\nSample variance and standard deviation\nTo get the sample variance\n\\[\ns^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n-1}.\n\\]\none could, of course, use that\n\\[\ns^2=\\frac{n}{n-1} \\sigma^2,\n\\]\n(where \\(n=20\\) for the given a), however, it is better to use a special key ddof = 1 inside np.var, where ddof stands for “delta degree of freedom”:\n\nnp.var(a, ddof = 1)\n\n2.7789473684210524\n\n\nWe can check that indeed e.g.\n\nnp.var(a, ddof = 1) == np.var(a)*20/19\n\nTrue",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-3",
+    "href": "Lab1.html#section-3",
+    "title": "Lab 1",
+    "section": "1.4 ",
+    "text": "1.4 \n\nFind the sample standard deviation for a using an analogy with the previous commands. Check the answer.\n\n\n1.6670175069329813",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-4",
+    "href": "Lab1.html#section-4",
+    "title": "Lab 1",
     "section": "2.1 ",
-    "text": "2.1 \n\nLet \\(X\\sim Bin(27, 0.45)\\).\n\nCalculate \\(\\mathbb{P}(X\\leq 20)\\). Check the answer:\n\n\n\n0.9994575733214396\n\n\n\nCalculate \\(\\mathbb{P}(X &lt; 10)\\). Check the answer:\n\n\n\n0.15256903022954094\n\n\n\nCalculate \\(\\mathbb{P}(7&lt;X\\leq 13)\\). Check the answer:\n\n\n\n0.666671672666459\n\n\n\nCalculate \\(\\mathbb{P}(7\\leq X\\leq 13)\\). Check the answer:\n\n\n\n0.6879613472859423",
+    "text": "2.1 \n\nFind the average weight of the members of the sports club. Check your answer.\n\n\n69.34",
     "crumbs": [
       "Labs - Problems",
-      "Lab 3 - Problems"
+      "Lab 1 - Problems"
     ]
   },
   {
-    "objectID": "Lab3.html#section-1",
-    "href": "Lab3.html#section-1",
-    "title": "Lab 3",
+    "objectID": "Lab1.html#section-5",
+    "href": "Lab1.html#section-5",
+    "title": "Lab 1",
     "section": "2.2 ",
-    "text": "2.2 \n\nA company manufactures light bulbs, and \\(95\\)% of them are of good quality, while the rest are defective. If a customer buys \\(50\\) light bulbs, what is the probability that:\n\nExactly \\(5\\) of them are defective? Check the answer:\n\n\n\n0.06584063715436628\n\n\n\nAt most \\(5\\) of them are defective? Check the answer:\n\n\n\n0.9622238270102227\n\n\n\nAt least \\(5\\) of them are defective? Check the answer:\n\n\n\n0.10361681014414348\n\n\n\nFind the expected value of the number of defective bulbs and the standard deviation of this quantity. Check the answer:\n\n\n\n[2.5, 1.541103500742244]",
+    "text": "2.2 \n\nAssign to variable d the Numpy array of the heights of all members of the sports club. Find the median and the variance of the heights. Check your answers.\n\n\n[170.0, 254.2239]",
     "crumbs": [
       "Labs - Problems",
-      "Lab 3 - Problems"
+      "Lab 1 - Problems"
     ]
   },
   {
-    "objectID": "Lab3.html#section-2",
-    "href": "Lab3.html#section-2",
-    "title": "Lab 3",
-    "section": "3.1 ",
-    "text": "3.1 \n\nLet \\(X\\sim Geom(0.4)\\). Calculate \\(\\mathbb{P}(7\\leq X &lt;10)\\). Check the answer.\n\n\n0.03657830400000006",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 3 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab3.html#section-3",
-    "href": "Lab3.html#section-3",
-    "title": "Lab 3",
-    "section": "3.2 ",
-    "text": "3.2 \n\nA lazy student has to take a quiz, where each question may have as an answer an integer number from \\(1\\) to \\(100\\) (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains \\(20\\) questions. As soon as the student gives a correct answer, the quiz stops, and it is considered as a passed one. What is the probability that the student will pass the quiz?\nHint: the quiz may stop after either of \\(1,2,3,\\ldots,20\\) questions.\nCheck the answer:\n\n\n0.18209306240276918",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 3 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab3.html#section-4",
-    "href": "Lab3.html#section-4",
-    "title": "Lab 3",
-    "section": "4.1 ",
-    "text": "4.1 \n\nLet \\(X\\sim NB(5, 0.3)\\). Find \\(\\mathbb{P}(X&gt;10)\\). Check the answer.\n\n\n0.5154910592268431",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 3 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab3.html#section-5",
-    "href": "Lab3.html#section-5",
-    "title": "Lab 3",
-    "section": "4.2 ",
-    "text": "4.2 \n\nA lazy student has to take a quiz, where each question may have as an answer an integer number from \\(1\\) to \\(100\\) (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains \\(20\\) questions. The quiz stops as soon as the student answers correctly \\(3\\) questions. What is the probability to pass the test for this student?\nHint: think on how many wrong answers could be made by the student to still pass the test.\nCheck the answer.\n\n\n0.0010035761681001162",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 3 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab3.html#section-7",
-    "href": "Lab3.html#section-7",
-    "title": "Lab 3",
-    "section": "5.1 ",
-    "text": "5.1 \n\nIn an insurance company, customers’ claims are raised at an average rate of \\(5\\) claims per working day. Calculate the probability that\n\nExactly \\(30\\) claims will be raised in one working week (Monday – Friday). Check the answer.\n\n\n\n0.04541278513011904\n\n\n\nAt least \\(8\\) claims will be raised in the next \\(2\\) working days. Check the answer.\n\n\n\n0.7797793533983011",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 3 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab3.html#section-8",
-    "href": "Lab3.html#section-8",
-    "title": "Lab 3",
-    "section": "6.1 ",
-    "text": "6.1 \n\nLet \\(X\\sim Po(3)\\) be a Poisson random variable with the parameter \\(\\lambda=3\\). Generate \\(100\\) random values of \\(X\\) fixing random_state = 111, and assign the resulting Numpy array to a variable f. Calculate the mean and the (population) variance of f. Check your answer. Don’t forget to load numpy first.\n\n\n[2.9, 2.87]\n\n\nWe know that the theoretical mean (expected value) \\(\\mathbb{E}(X)\\) and variance \\(\\mathrm{Var}(X)\\) for a Poisson random variable are equal to \\(\\lambda\\):\n\\[\n\\mathbb{E}(X)=\\mathrm{Var}(X)=\\lambda.\n\\]\nClearly, \\(2.9\\neq 3\\neq 2.87\\). To make the statistics more “matching” the probability, we need to increase the size of the data: let’s generate \\(10^6\\) random variables (keeping random_state = 111). Check the answers.\n\n\n[2.998107, 2.9899274165509997]",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 3 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html",
-    "href": "Lab4.html",
-    "title": "Lab 4",
-    "section": "",
-    "text": "Recall that the linear regression provides the “best line” that reflects the relation between two sets of data. Namely, let \\(X=(x_1,\\ldots,x_n)\\) and \\(Y=(y_1,\\ldots,y_n)\\) be vectors (arrays) of data. We define\n\\[\n\\begin{aligned}\n\\bar{x}& = \\frac1n \\sum_{i=1}^n x_i,\\\\\nS_{xx} &= \\sum_{i=1}^n(x_i-\\bar{x})^2=\\sum_{i=1}^nx_i^2-n\\bar{x}^2,\\\\\nS_{xy}&=\\sum_{i=1}^n(x_i-\\bar{x})(y_i-\\bar{y})=\\sum_{i=1}^nx_iy_i-n\\bar{x}\\bar{y},\\\\\nS_{yy}&= \\sum_{i=1}^n(y_i-\\bar{y})^2=\\sum_{i=1}^ny_i^2-n\\bar{y}^2.\n\\end{aligned}\n\\]\nThen the best fit line is\n\\[\n\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x,\n\\]\nwhere\n\\[\n\\begin{aligned}\n\\hat{\\beta}_1 &= \\dfrac{S_{xy}}{S_{xx}},\\\\\n\\hat{\\beta}_0 &= \\bar{y}-\\hat{\\beta}_1\\bar{x}.\n\\end{aligned}\n\\]\nThe strength of a linear relationship between the variables can be measured by the Pearson correlation coefficient (or just the correlation coefficient) which is given by\n\\[\nr=\\dfrac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}.\n\\]\nWe know that \\(-1\\leq r\\leq 1\\) and we say that\n\\[\n\\begin{aligned}\n|r|&gt;0.7 & \\quad \\text{means strong correlation}\\\\\n0.7\\geq |r|&gt;0.4& \\quad \\text{means moderate correlation}\\\\\n|r|\\leq 0.4 & \\quad \\text{means weak correlation}\n\\end{aligned}\n\\]\n\n\n\nDownload file Birthweight.csv and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 1. Don’t forget about pandas library.\nYou should get the following output\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.\n\n\n\n\nPlot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.\n\n\n\n\n\nConvert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]\n\n\n\n\n\n\n\nAssign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]\n\n\n\n\n\n\n\nAssign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\nCombine the regression line with the scatter plot to get the following output:\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.\n\n\n\n\n\nDownload now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section",
-    "href": "Lab4.html#section",
-    "title": "Lab 4",
-    "section": "",
-    "text": "Download file Birthweight.csv and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 1. Don’t forget about pandas library.\nYou should get the following output\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section-1",
-    "href": "Lab4.html#section-1",
-    "title": "Lab 4",
-    "section": "",
-    "text": "Plot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section-2",
-    "href": "Lab4.html#section-2",
-    "title": "Lab 4",
-    "section": "",
-    "text": "Convert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section-3",
-    "href": "Lab4.html#section-3",
-    "title": "Lab 4",
-    "section": "",
-    "text": "Assign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section-4",
-    "href": "Lab4.html#section-4",
-    "title": "Lab 4",
-    "section": "",
-    "text": "Assign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section-5",
-    "href": "Lab4.html#section-5",
-    "title": "Lab 4",
-    "section": "",
-    "text": "Combine the regression line with the scatter plot to get the following output:\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section-6",
-    "href": "Lab4.html#section-6",
-    "title": "Lab 4",
-    "section": "",
-    "text": "Download now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section-7",
-    "href": "Lab4.html#section-7",
-    "title": "Lab 4",
-    "section": "2.1 ",
-    "text": "2.1 \n\nChange the code as explained and get the following summary.\n\n\nOptimization terminated successfully.\n         Current function value: 0.322141\n         Iterations 8\n\n\n\nLogit Regression Results\n\n\nDep. Variable:\nadmitted\nNo. Observations:\n29\n\n\nModel:\nLogit\nDf Residuals:\n26\n\n\nMethod:\nMLE\nDf Model:\n2\n\n\nDate:\nWed, 22 Oct 2025\nPseudo R-squ.:\n0.5348\n\n\nTime:\n00:15:07\nLog-Likelihood:\n-9.3421\n\n\nconverged:\nTrue\nLL-Null:\n-20.084\n\n\nCovariance Type:\nnonrobust\nLLR p-value:\n2.162e-05\n\n\n\n\n\n\n\n\n\ncoef\nstd err\nz\nP&gt;|z|\n[0.025\n0.975]\n\n\nIntercept\n-22.0171\n9.232\n-2.385\n0.017\n-40.111\n-3.923\n\n\ngmat\n0.0150\n0.014\n1.052\n0.293\n-0.013\n0.043\n\n\ngpa\n3.7604\n2.003\n1.877\n0.060\n-0.166\n7.686\n\n\n\n\n\n\nAgain, the coefficients are available using (in the previous notations) reg.params. As before, Intercept stands for \\(\\hat{\\beta}_0\\), gmat stands for \\(\\hat{\\beta}_1\\), and also gpa stands for \\(\\hat{\\beta}_2\\) in\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2\n\\]\nand hence\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}\n\\]\nWe can show how \\(p\\) separates the values (some lines of the code may be new for you - it’s just for your information, you are not required to learn them):\n\nx1 = df['gmat'].to_numpy()\nx2 = df['gpa'].to_numpy()\np = df['admitted'].to_numpy()\nfig = plt.figure()\nax = fig.add_subplot(1, 1, 1, projection='3d', computed_zorder=False)\nx1values = np.linspace(min(x1), max(x1), 100)\nx2values = np.linspace(min(x2), max(x2), 100)\n[X1, X2] = np.meshgrid(x1values, x2values)\nb0 = reg.params.iloc[0]\nb1 = reg.params.iloc[1]\nb2 = reg.params.iloc[2]\npvalues = np.exp(b0 + b1 * X1 + b2 * X2)/(1 + np.exp(b0 + b1 * X1 + b2 * X2))\nax.plot_surface(X1, X2, pvalues, color = 'r', alpha = 0.4)\nax.scatter(x1, x2, p)\nplt.show()\n\n\n\n\n\n\n\n\nAs you can see, the red graph (surface) of \\(p\\) separates values of \\(0\\) and \\(1\\). Again, we may try to predict the admission for the student with data stored in df_test. We assigned to gmat the corresponding mark, now we do the same for gpa and calculate p for these two values. As you can see, the result is much closer to \\(0\\), hence, we are more confident in our (correct) prediction that the student would not be admitted.\n\ngpa = df_test['gpa']\nnp.exp(b0 + b1 * gmat + b2 * gpa)/(1 + np.exp(b0 + b1 * gmat + b2 * gpa))\n\n0.07118806995711167\n\n\n\nLogistic regression for 3 independent variables\nNow, we consider the dependence of admitted on all three values: gmat, gpa, and work_experience. Surely, in this case, we will not be able to draw \\(p\\) (as it would be a 4-dimensional diagram), but we can calculate \\(\\hat{\\beta}_0,\\hat{\\beta}_1,\\hat{\\beta}_2,\\hat{\\beta}_3\\).",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section-8",
-    "href": "Lab4.html#section-8",
-    "title": "Lab 4",
-    "section": "2.2 ",
-    "text": "2.2 \n\nFind the coefficients of\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2 + \\hat{\\beta}_3 x_3\n\\]\n\n\nOptimization terminated successfully.\n         Current function value: 0.255306\n         Iterations 8\n\n\nCheck your answer:\n\nreg.params\n\nIntercept         -16.182243\ngmat                0.002624\ngpa                 3.258770\nwork_experience     0.994371\ndtype: float64",
-    "crumbs": [
-      "Labs - Problems",
-      "Lab 4 - Problems"
-    ]
-  },
-  {
-    "objectID": "Lab4.html#section-9",
-    "href": "Lab4.html#section-9",
-    "title": "Lab 4",
+    "objectID": "Lab1.html#section-6",
+    "href": "Lab1.html#section-6",
+    "title": "Lab 1",
     "section": "2.3 ",
-    "text": "2.3 \n\nAssign to w_exp the work experience value for the student from df_test and calculate the function\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}\n\\]\nfor that student. Check the answer:\n\n\n0.31333312863167756\n\n\n\nAs you can see, the information about a relatively high work experience (5 years in this case), increased chances to be admitted, though the non-admission is still more likely.\nNote that the rest of information from summary actually explains the level of certainty we may have in the future prediction (we do not consider this now). Note also that, in practice, one predicts outcomes for a number of students (the dataframe df_test would contain a lot of rows), and the prediction is “good” if one predicted correctly for a big percentage of them.",
+    "text": "2.3 \n\nAssign to variable e the Numpy array of the body mass indexes (BMI) of the club members: if a member has weight \\(w\\) kg and height \\(h\\) cm, then its BMI is \\(10^4*\\dfrac{w}{h^2}\\). Remember that in Python all array operations are done component-wise. Find the mean and the standard deviation of e. Check your answer.\n\n\n[24.900949943455288, 6.54617400802904]",
     "crumbs": [
       "Labs - Problems",
-      "Lab 4 - Problems"
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-7",
+    "href": "Lab1.html#section-7",
+    "title": "Lab 1",
+    "section": "3.1 ",
+    "text": "3.1 \n\nTake the first \\(100\\) members of the sports club from the sportsclub.csv discussed before, and draw the scatter plot of heights (vertical axis) over weights (horizontal axis). Use green colours for the markers. Label the axes appropriately.\n\n\n\n\n\n\n\n\n\n\n\nBox plot\nConsider now a box-and-whisker plot. The following code produce the blox plot for the weights of all members of the sports club:\n\nplt.boxplot(b)\nplt.show()\n\n\n\n\n\n\n\n\nBy default, the box plot is vertical. To make it horizontal, use the key vert = False in boxplot method.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-8",
+    "href": "Lab1.html#section-8",
+    "title": "Lab 1",
+    "section": "3.2 ",
+    "text": "3.2 \n\nPlot the horizontal box plot for the heights of all members of the sports club.\n\n\n\n\n\n\n\n\n\n\n\nRemark. Recall that the box plot visualises, in particular, the rectangle bound by the lower and upper quartiles: \\(Q_1\\) and \\(Q_3\\), whereas the coloured line represents the median \\(Q_2\\). We know that \\(Q_2\\) is calculated differently if the sample has even or odd number of elements. By definition, recall, \\(Q_1\\) and \\(Q_3\\) are medians of the lower half and upper halves of the ordered sample. However, it’s a question of agreement whether to include the median \\(Q_2\\) to both halves or not, in the case when the number of elelements is odd. For example, let the data be \\[\n1,2,3,4,5,6,7.\n\\] The median is \\(4\\), i.e. \\(Q_2=4\\). Now, we may say that the lower half is \\(1,2,3\\), its median is \\(2\\), i.e. \\(Q_1=2\\), similarly then the upper half is \\(5,6,7\\), hence, \\(Q_3=6\\). Another approach is to say that the lower part is \\(1,2,3,4\\) (including \\(Q_2=4\\)), and it’s median is \\(\\frac{2+3}{2}=2.5\\), i.e. \\(Q_1=2.5\\); similarly then the upper half is \\(4,5,6,7\\), and hence, \\(Q_3=5.5\\). Python in Mathplotlib uses the second approach.\n\n\nHistogram\nLet’s create the histogram for the weights of all sports club members. Conside the histogram with \\(20\\) bins.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 20)\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nRecall that the change of the number of bins may drastically change the shapce of a histogram, e.g.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 50)                 # 50 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nor\n\nplt.hist(b, 5)                 # 5 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab1.html#section-9",
+    "href": "Lab1.html#section-9",
+    "title": "Lab 1",
+    "section": "3.3 ",
+    "text": "3.3 \n\nPlot the histogram of heights of the all members of the sports club. Make all the bins of the size \\(3\\) cm (perhaps, all but the last, the most right, one). To calculate the number of bins, use functions min() and max() and also round().",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 1 - Problems"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "1 Sign up to Anaconda (do it once)\n\nGo to https://anaconda.com/app/\nSign up using your personal or University email address.\nAdvice: do not use your University password.\n\n\n\n2 Log in to Anaconda (do it for each lab)\n\nLogin to https://anaconda.com/app/\nChoose “Notebooks” in the Explore Anaconda section:\n\n\n\nOpen the file browser (from the left side menu bar)\n\n\n\nCreate a folder for all files related to this module:\n\n\nand name it, e.g., “MA-M27”.\n\nOpen the created folder.\nPress blue button with “+”\n\n\nand choose any of anaconda-notebooks:\n\n\nRename the created file\n\n\ne.g. to “Lab1.ipynb”, “Lab2.ipynb” etc.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html",
+    "href": "Lab1-solutions.html",
+    "title": "Lab 1 - Solutions",
+    "section": "",
+    "text": "As you know, statistics deals with data. There are several ways how to load data to Python.\nIn this lab we consider the first two of them.\nThere are several ways to calculate mean, mode, median, variance and other descriptive characteristics in Python. We will use numpy library for this, so run at the beginning of your Jupyter notebook the following command\nimport numpy as np",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section",
+    "href": "Lab1-solutions.html#section",
+    "title": "Lab 1 - Solutions",
+    "section": "1.1 ",
+    "text": "1.1 \n\nConvert the list a defined above to a Numpy array, reassign the result again to the variable a:\n\n\nCode\na = np.array(a)\na\n\n\narray([2, 1, 3, 4, 2, 6, 4, 0, 1, 1, 3, 3, 4, 1, 1, 5, 5, 2, 1, 3])\n\n\n\n\nMean\nTo calculate the mean of all values in the array \\(a=(a_1,\\ldots,a_{20})\\), i.e.\n\\[\n\\bar{a} = \\frac{a_1+\\ldots+a_{n}}{n},\n\\]\nfor \\(n=20\\), we run\n\nnp.mean(a)\n\n2.6\n\n\n(we could calculate this and further characteristics directly, e.g. for mean one could write sum(a)/len(a), however, the usage of special functions is more efficient in the case of large datasets).\n\n\nMedian\nSimilarly, to calculate the median of data, we can use np.median method.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section-1",
+    "href": "Lab1-solutions.html#section-1",
+    "title": "Lab 1 - Solutions",
+    "section": "1.2 ",
+    "text": "1.2 \n\nFind the median of a. Check the answer.\n\n\nCode\nnp.median(a)\n\n\n2.5\n\n\n\n\nPopulation variance and standard deviation\nTo calculate the population variance of a, i.e. the quantity\n\\[\n\\sigma^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n},\n\\]\nwe use np.var method and to calculate the population standard deviation \\(\\sigma=\\sqrt{\\sigma^2}\\) we use np.std method. For example,\n\nnp.var(a)\n\n2.6399999999999997\n\n\nAgain, this is faster and more convenient than calculating them directly, e.g. instead of np.var(a) we could write\n\nsum((a - np.mean(a))**2)/len(a)\n\n2.64\n\n\n\n\n\n\n\n\nImportantDo not miss this\n\n\n\nNote that we have used, in the last command, array (vector) operations: a - np.mean(a) means that we subtract the number np.mean(a) from each component of a, and the result is again an array of \\(a_1-\\bar a,\\ldots,a_n-\\bar{a}\\). Simmilarly, **2 means that we square each component of the array a - np.mean(a), and the result is again an array.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section-2",
+    "href": "Lab1-solutions.html#section-2",
+    "title": "Lab 1 - Solutions",
+    "section": "1.3 ",
+    "text": "1.3 \n\nFind the standard deviation of a. Check the answer.\n\n\nCode\nnp.std(a)\n\n\n1.624807680927192\n\n\n\n\nSample variance and standard deviation\nTo get the sample variance\n\\[\ns^2 = \\dfrac{(a_1-\\bar a)^2+\\ldots+(a_n-\\bar a)^2}{\\color{red}n-1}.\n\\]\none could, of course, use that\n\\[\ns^2=\\frac{n}{n-1} \\sigma^2,\n\\]\n(where \\(n=20\\) for the given a), however, it is better to use a special key ddof = 1 inside np.var, where ddof stands for “delta degree of freedom”:\n\nnp.var(a, ddof = 1)\n\n2.7789473684210524\n\n\nWe can check that indeed e.g.\n\nnp.var(a, ddof = 1) == np.var(a)*20/19\n\nTrue",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section-3",
+    "href": "Lab1-solutions.html#section-3",
+    "title": "Lab 1 - Solutions",
+    "section": "1.4 ",
+    "text": "1.4 \n\nFind the sample standard deviation for a using an analogy with the previous commands. Check the answer.\n\n\nCode\nnp.std(a, ddof = 1)\n\n\n1.6670175069329813",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section-4",
+    "href": "Lab1-solutions.html#section-4",
+    "title": "Lab 1 - Solutions",
+    "section": "2.1 ",
+    "text": "2.1 \n\nFind the average weight of the members of the sports club. Check your answer.\n\n\nCode\nnp.mean(b)\n\n\n69.34",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section-5",
+    "href": "Lab1-solutions.html#section-5",
+    "title": "Lab 1 - Solutions",
+    "section": "2.2 ",
+    "text": "2.2 \n\nAssign to variable d the Numpy array of the heights of all members of the sports club. Find the median and the variance of the heights. Check your answers.\n\n\nCode\nd = df[\"Height\"].to_numpy()\n[np.median(d), np.var(d)]\n\n\n[170.0, 254.2239]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section-6",
+    "href": "Lab1-solutions.html#section-6",
+    "title": "Lab 1 - Solutions",
+    "section": "2.3 ",
+    "text": "2.3 \n\nAssign to variable e the Numpy array of the body mass indexes (BMI) of the club members: if a member has weight \\(w\\) kg and height \\(h\\) cm, then its BMI is \\(10^4*\\dfrac{w}{h^2}\\). Remember that in Python all array operations are done component-wise. Find the mean and the standard deviation of e. Check your answer.\n\n\nCode\ne = 10**4 * b/(d*d)\n[np.mean(e), np.std(e)]\n\n\n[24.900949943455288, 6.54617400802904]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section-7",
+    "href": "Lab1-solutions.html#section-7",
+    "title": "Lab 1 - Solutions",
+    "section": "3.1 ",
+    "text": "3.1 \n\nTake the first \\(100\\) members of the sports club from the sportsclub.csv discussed before, and draw the scatter plot of heights (vertical axis) over weights (horizontal axis). Use green colours for the markers. Label the axes appropriately.\n\n\nCode\nimport matplotlib.pyplot as plt\nweights = b[0:100]\nheights = d[0:100]\nplt.scatter(weights, heights, color = 'g')\nplt.xlabel('Weights')\nplt.ylabel('Heights')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nBox plot\nConsider now a box-and-whisker plot. The following code produce the blox plot for the weights of all members of the sports club:\n\nplt.boxplot(b)\nplt.show()\n\n\n\n\n\n\n\n\nBy default, the box plot is vertical. To make it horizontal, use the key vert = False in boxplot method.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section-8",
+    "href": "Lab1-solutions.html#section-8",
+    "title": "Lab 1 - Solutions",
+    "section": "3.2 ",
+    "text": "3.2 \nPlot the horizontal box plot for the heights of all members of the sports club.\n\n\nCode\nplt.boxplot(d, vert = False)\nplt.show()\n\n\n\n\n\n\n\n\n\n\nRemark. Recall that the box plot visualises, in particular, the rectangle bound by the lower and upper quartiles: \\(Q_1\\) and \\(Q_3\\), whereas the coloured line represents the median \\(Q_2\\). We know that \\(Q_2\\) is calculated differently if the sample has even or odd number of elements. By definition, recall, \\(Q_1\\) and \\(Q_3\\) are medians of the lower half and upper halves of the ordered sample. However, it’s a question of agreement whether to include the median \\(Q_2\\) to both halves or not, in the case when the number of elelements is odd. For example, let the data be \\[\n1,2,3,4,5,6,7.\n\\] The median is \\(4\\), i.e. \\(Q_2=4\\). Now, we may say that the lower half is \\(1,2,3\\), its median is \\(2\\), i.e. \\(Q_1=2\\), similarly then the upper half is \\(5,6,7\\), hence, \\(Q_3=6\\). Another approach is to say that the lower part is \\(1,2,3,4\\) (including \\(Q_2=4\\)), and it’s median is \\(\\frac{2+3}{2}=2.5\\), i.e. \\(Q_1=2.5\\); similarly then the upper half is \\(4,5,6,7\\), and hence, \\(Q_3=5.5\\). Python in Mathplotlib uses the second approach.\n\n\nHistogram\nLet’s create the histogram for the weights of all sports club members. Conside the histogram with \\(20\\) bins.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 20)\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nRecall that the change of the number of bins may drastically change the shapce of a histogram, e.g.\n\nimport matplotlib.pyplot as plt\nplt.hist(b, 50)                 # 50 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()\n\n\n\n\n\n\n\n\nor\n\nplt.hist(b, 5)                 # 5 bins\nplt.xlabel('Weights')\nplt.ylabel('Counts')\nplt.show()",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab1-solutions.html#section-9",
+    "href": "Lab1-solutions.html#section-9",
+    "title": "Lab 1 - Solutions",
+    "section": "3.3 ",
+    "text": "3.3 \n\nPlot the histogram of heights of the all members of the sports club. Make all the bins of the size \\(3\\) cm (perhaps, all but the last, the most right, one). To calculate the number of bins, use functions min() and max() and also round().\n\nSolution. The heights are stored in the array d. The range of values of heights is from min(d) to max(d) (i.e. from minimal height to maximal height); all heights are in centimeneters. To divide this range on parts of size \\(3\\) cm, we would need (max(d)-min(d))/3 parts. Since the latter number may be decimal, we round it with function round.\n\n\n\nCode\nn_bins = round((max(d) - min(d))/3)\nplt.hist(d, n_bins)  \nplt.xlabel('Heights')\nplt.ylabel('Counts')\nplt.show()",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 1 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html",
+    "href": "Lab2-solutions.html",
+    "title": "Lab 2 - Solutions",
+    "section": "",
+    "text": "A fair coin is tossed 25 times. Store at the variable a the probability to get 25 heads. A fair six-sided dice is throwing 10 times. Store at the variable b the probability to get 10 equal even scores. Find the ratio a/b.\n\nSolution. The probability of a head is \\(0.5\\), and all tossings are independend, hence, the probability to get \\(n\\) heads in a row is\n\\[\n0.5^n.\n\\]\nNext, \\(m\\) equal even scores in \\(m\\) throwings of the dice may be in \\(3\\) cases:\n\\[\n(\\underbrace{2,\\ldots,2}_{m\\ \\mathrm{times}}),\n(\\underbrace{4,\\ldots,4}_{m\\ \\mathrm{times}}),\n(\\underbrace{4,\\ldots,4}_{m\\ \\mathrm{times}})\n\\] These cases are mutually exclusive, hence the probability that either of them happens is the sum of probabilities of each event. Each probability is equal to\n\\[\n\\Bigl(\\frac16\\Bigr)^{m},\n\\] hence, for b, we need to multiply the latter number (for \\(m=10\\)) by \\(3\\).\n\n\n\nCode\n#\na = 0.5 ** 25\nb = 3 * (1/6) ** 10 # Read about the order of operations in Python\na/b\n\n\n0.6006774902343753\n\n\n\n\n\n\n\nAn experiment consists of selecting a token from a bag and spinning a coin. The bag contains \\(345\\) red tokens and \\(678\\) blue tokens. A token is selected at random from the bag, its colour is noted and then the token is returned to the bag.\nWhen a red token is selected, a biased coin with probability \\(\\dfrac45\\) of landing heads is tossed.\nWhen a blue token is selected, a biased coin with probability \\(\\dfrac25\\) of landing heads is spun.\nFind the probability c of obtaining tail. Round the answer to 3 decimal digits.\n\nSolution. Let \\(R\\) and \\(B\\) be the events of selecting a red (respectively, blue) token. Then\n\\[\n\\mathbb{P}(R) = \\frac{345}{345+678},\\qquad\n\\mathbb{P}(B) = 1-\\mathbb{P}(R)= \\frac{678}{345+678}.\n\\]\nLet \\(T\\) be the event of obtaining a tail. We will use the total probability law:\n\\[\n\\mathbb{P}(T) = \\mathbb{P}(T\\mid R)\\cdot \\mathbb{P}(R)+\n\\mathbb{P}(T \\mid B)\\cdot \\mathbb{P}(B).\n\\]\nWe know also that \\(\\mathbb{P}(H\\mid R)=\\frac45\\), hence, \\(\\mathbb{P}(T\\mid R)=1-\\frac45=\\frac15\\). Similarly, \\(\\mathbb{P}(T\\mid B)=1-\\frac25=\\frac35\\).\n\n\n\nCode\np_red =  345/(345+678)\np_blue = 1 - p_red\nc = p_red * (1 - 4/5) + p_blue * (1 - 2/5)\nround(c, 3)\n\n\n0.465\n\n\n\n\n\n\n\nIn the conditions of the previous task, if the tail was obtained, what is the probability \\(d\\) of having selected a red token? Round the answer to 3 decimal digits.\n\nSolution. By Bayes’ formula,\n\\[\n\\mathbb{P}(R | T) = \\frac{\\mathbb{P}(R) \\cdot \\mathbb{P}(T | R)}{\\mathbb{P}(T)}\n\\]\n\n\n\nCode\nd = p_red * (1-4/5) / c\nround(d, 3)\n\n\n0.145",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section",
+    "href": "Lab2-solutions.html#section",
+    "title": "Lab 2 - Solutions",
+    "section": "",
+    "text": "A fair coin is tossed 25 times. Store at the variable a the probability to get 25 heads. A fair six-sided dice is throwing 10 times. Store at the variable b the probability to get 10 equal even scores. Find the ratio a/b.\n\nSolution. The probability of a head is \\(0.5\\), and all tossings are independend, hence, the probability to get \\(n\\) heads in a row is\n\\[\n0.5^n.\n\\]\nNext, \\(m\\) equal even scores in \\(m\\) throwings of the dice may be in \\(3\\) cases:\n\\[\n(\\underbrace{2,\\ldots,2}_{m\\ \\mathrm{times}}),\n(\\underbrace{4,\\ldots,4}_{m\\ \\mathrm{times}}),\n(\\underbrace{4,\\ldots,4}_{m\\ \\mathrm{times}})\n\\] These cases are mutually exclusive, hence the probability that either of them happens is the sum of probabilities of each event. Each probability is equal to\n\\[\n\\Bigl(\\frac16\\Bigr)^{m},\n\\] hence, for b, we need to multiply the latter number (for \\(m=10\\)) by \\(3\\).\n\n\n\nCode\n#\na = 0.5 ** 25\nb = 3 * (1/6) ** 10 # Read about the order of operations in Python\na/b\n\n\n0.6006774902343753",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-1",
+    "href": "Lab2-solutions.html#section-1",
+    "title": "Lab 2 - Solutions",
+    "section": "",
+    "text": "An experiment consists of selecting a token from a bag and spinning a coin. The bag contains \\(345\\) red tokens and \\(678\\) blue tokens. A token is selected at random from the bag, its colour is noted and then the token is returned to the bag.\nWhen a red token is selected, a biased coin with probability \\(\\dfrac45\\) of landing heads is tossed.\nWhen a blue token is selected, a biased coin with probability \\(\\dfrac25\\) of landing heads is spun.\nFind the probability c of obtaining tail. Round the answer to 3 decimal digits.\n\nSolution. Let \\(R\\) and \\(B\\) be the events of selecting a red (respectively, blue) token. Then\n\\[\n\\mathbb{P}(R) = \\frac{345}{345+678},\\qquad\n\\mathbb{P}(B) = 1-\\mathbb{P}(R)= \\frac{678}{345+678}.\n\\]\nLet \\(T\\) be the event of obtaining a tail. We will use the total probability law:\n\\[\n\\mathbb{P}(T) = \\mathbb{P}(T\\mid R)\\cdot \\mathbb{P}(R)+\n\\mathbb{P}(T \\mid B)\\cdot \\mathbb{P}(B).\n\\]\nWe know also that \\(\\mathbb{P}(H\\mid R)=\\frac45\\), hence, \\(\\mathbb{P}(T\\mid R)=1-\\frac45=\\frac15\\). Similarly, \\(\\mathbb{P}(T\\mid B)=1-\\frac25=\\frac35\\).\n\n\n\nCode\np_red =  345/(345+678)\np_blue = 1 - p_red\nc = p_red * (1 - 4/5) + p_blue * (1 - 2/5)\nround(c, 3)\n\n\n0.465",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-2",
+    "href": "Lab2-solutions.html#section-2",
+    "title": "Lab 2 - Solutions",
+    "section": "",
+    "text": "In the conditions of the previous task, if the tail was obtained, what is the probability \\(d\\) of having selected a red token? Round the answer to 3 decimal digits.\n\nSolution. By Bayes’ formula,\n\\[\n\\mathbb{P}(R | T) = \\frac{\\mathbb{P}(R) \\cdot \\mathbb{P}(T | R)}{\\mathbb{P}(T)}\n\\]\n\n\n\nCode\nd = p_red * (1-4/5) / c\nround(d, 3)\n\n\n0.145",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-3",
+    "href": "Lab2-solutions.html#section-3",
+    "title": "Lab 2 - Solutions",
+    "section": "2.1 ",
+    "text": "2.1 \n\nIn a school sport club, there are \\(20\\) children who like rugby more than football, and \\(15\\) chidlren who like football more than rugby. (Noone likes them equally.) The club wants to form a committee of \\(6\\) people: \\(3\\) football funs and \\(3\\) rugby funs. How many ways does there exist to form the committee? Store the answer in w.\n\nRemark. Note that since the choice of football funs does not depend on the choice of rugby funs, we need just to multiply the number of ways to choose fotball funs and the number of ways to choose rugby funs.\n\n\nSolution. Therefore,\n\\[\nw = \\binom{20}{3}\\cdot\\binom{15}{3}\n\\]\n\n\n\nCode\nw = comb(20,3, exact=True) * comb(15,3, exact=True)\nw\n\n\n518700",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-4",
+    "href": "Lab2-solutions.html#section-4",
+    "title": "Lab 2 - Solutions",
+    "section": "2.2 ",
+    "text": "2.2 \n\nLet now the committee (of 6 children) is chosen without any restrictions on the preferences of its members. Find the number of ways to form the committee. Store the answer in r.\n\nSolution. We choose \\(6\\) children from \\(20+15=35\\), it can be done in \\(\\binom{35}{6}\\) ways.\n\n\n\nCode\n# We choose 6 children from 35\nr = comb(35,6, exact=True)\nr\n\n\n1623160",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-5",
+    "href": "Lab2-solutions.html#section-5",
+    "title": "Lab 2 - Solutions",
+    "section": "2.3 ",
+    "text": "2.3 \n\nFinally, find the probability p that a randomly choosen committee consisting of 6 children has equal numbers of football and rugby funs. Round to \\(4\\) decimal digits.\n\n\nCode\np = round(w/r,4)\np\n\n\n0.3196",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-6",
+    "href": "Lab2-solutions.html#section-6",
+    "title": "Lab 2 - Solutions",
+    "section": "2.4 ",
+    "text": "2.4 \n\nIf \\(10\\) balls are randomly drawn from a bag containing \\(17\\) blue and \\(19\\) yellow balls, what is the probability q that \\(4\\) of the balls are blue and the others are yellow? Round to \\(3\\) decimal digits.\nNote that despite the balls of the same colour are indistinguishable (in contrast to children of the same sport preference in the previous tasks), we may always think that the balls e.g. numbered, to apply the same arguments as before.\n\n\nCode\nq = comb(17, 4) * comb(19, 10-4) / comb(17+19, 10)\nq\n\n\n0.25404208941472567\n\n\n\n\n\n\n\n\n\nTipRemember\n\n\n\n\nSpecial cases:\n\n\\[\n\\binom{n}{0}=\\binom{0}{0}=1\n\\]\n\nSimple cases:\n\n\\[\n\\binom{n}{1} = n, \\qquad \\binom{n}{2}=\\frac{n(n-1)}{2}\n\\]\n\nOverall,\n\n\\[\n\\binom{n}{k} = \\frac{n\\cdot(n-1)\\cdot(n-2)\\cdot\\ldots\\cdot(n-k+1)}{1\\cdot2\\cdot3\\cdot\\ldots\\cdot k},\n\\]\nwhere numerator has \\(k\\) factors. E.g.\n\\[\n\\binom{37}{4}=\\frac{37\\cdot 36\\cdot 35\\cdot 34}{1\\cdot 2\\cdot 3\\cdot 4}.\n\\]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-7",
+    "href": "Lab2-solutions.html#section-7",
+    "title": "Lab 2 - Solutions",
+    "section": "3.1 ",
+    "text": "3.1 \n\nChoose a random element from the list coin. The output will be one of two letters h or t, e.g.:\n\n\nCode\nrandom.choice(coin)\n\n\n't'\n\n\nNote that if you run the same code again and again you may get each time another output.\nCongratulations: you made your first probability model.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-8",
+    "href": "Lab2-solutions.html#section-8",
+    "title": "Lab 2 - Solutions",
+    "section": "3.2 ",
+    "text": "3.2 \n\nSuppose we tossed the coin n_trials = 10 times. Generate a list called series that would contain outputs of all these trials, e.g.\n\n\nCode\nn_trials = 10\nseries = [random.choice(coin) for _ in range(n_trials)]\nseries\n\n\n['t', 'h', 'h', 't', 'h', 't', 't', 't', 't', 't']\n\n\n(your output will be probably different).\nAdvice: it may be more convenient to use list comprehension instead of loops, though it’s up to you. Recall that range(10) command generates 10 numbers from 0 to 9.\nCount the number of “heads” in series, using property list_name.count(element_name) to get the number of elements element_name in the list list_name.\n\n\nCode\nseries.count('h')\n\n\n3",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-9",
+    "href": "Lab2-solutions.html#section-9",
+    "title": "Lab 2 - Solutions",
+    "section": "3.3 ",
+    "text": "3.3 \n\nLoad library pyplot of module matplotlib as follows:\n\nimport matplotlib.pyplot as plt\n\nChange now n_trials to 1000. We expect to see around 500 heads in a series of trials, though if you run your code, you will probably get another number. Define n_series = 1000 and repeat running the previous code n_series times, i.e. the output should be a list of n_series numbers. Store the output in a variable heads.\nAgain, you may find more useful to use list comprehension.\nCreate the scatter plot of numbers of heads in all series using the commands plt.scatter(x, heads) and plt.show(), where x would be all numbers from 0 to n_series.\nYour output should be similar to:\n\n\nCode\n#The first line of the code is to see the output in Jupyter notebook\n%matplotlib inline\nn_trials = 1000\nn_series = 1000\nheads = [[random.choice(coin) for _ in range(n_trials)].count('h') for _ in range(n_series)]\nx = range(n_series)\nplt.scatter(x, heads)\nplt.show()\n\n\n\n\n\n\n\n\n\nAs you can see all results indeed gather around 500. Note that you can find min(heads) and max(heads) to see how large is the spread of numbers, e.g. on the picture above it’s\n\n[min(heads),max(heads)]\n\n[445, 553]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-10",
+    "href": "Lab2-solutions.html#section-10",
+    "title": "Lab 2 - Solutions",
+    "section": "4.1 ",
+    "text": "4.1 \n\nConsider again that we toss the coin \\(1000\\) times and count the number of tails, but repeat this procedure \\(10^5\\) times. Calculate the average m of the obtained result.\n\n\nCode\nn = 1000\nb = np.random.randint(2, size=(10**5,n))\nb.sum(axis=1).mean()\n\n\n500.00904\n\n\nAs expected, the result is pretty close to \\(500\\) (your result may differ from this, of course).",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab2-solutions.html#section-11",
+    "href": "Lab2-solutions.html#section-11",
+    "title": "Lab 2 - Solutions",
+    "section": "4.2 ",
+    "text": "4.2 \n\nWe can also model unfair coins. The command\n\nn=10\nnp.random.choice([0,1], size=(5,n), p=[0.6, 0.4])\n\narray([[1, 1, 1, 1, 0, 0, 0, 1, 1, 0],\n       [0, 0, 1, 1, 1, 0, 0, 0, 0, 0],\n       [1, 1, 0, 0, 1, 1, 0, 0, 0, 0],\n       [1, 1, 0, 0, 0, 0, 0, 1, 0, 0],\n       [0, 1, 0, 1, 0, 0, 0, 0, 0, 0]])\n\n\ngenerates \\(5\\) series of \\(10\\) outputs each with the probability for head \\(0.6\\) and the probability for tail \\(0.4\\). Calculate again the average for \\(10^5\\) series of \\(1000\\) trials.\n\n\nCode\nn = 1000\nb = np.random.choice([0,1], size=(10**5,n), p=[0.6, 0.4])\nb.sum(axis=1).mean()\n\n\n399.91953\n\n\nThe result is pretty close to \\(400 = 0.4*1000\\). We discuss the theoretical justification for this on Week 3.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 2 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html",
+    "href": "Lab3-solutions.html",
+    "title": "Lab 3 - Solutions",
+    "section": "",
+    "text": "Module scipy.stats of the famous library scipy provides various tools to work with probability and statistics in Python. Today, we consider several discrete distributions; to work with them will use the same structure of commands. In particular, any distribution will have the following methods:\n\nrvs - to generate (several) values of a random variable \\(X\\)\npmf - to calculate probability mass function at any \\(k\\in\\mathbb{R}\\)\n\n\\[\np_X(k)=\\mathbb{P}(X=k)\n\\]\n\ncdf - to calculate the cumulative distribuion function\n\n\\[\nF_X(x)=\\sum_{k\\leq x} p_X(k)=\\mathbb{P}(X\\leq x)\n\\]\nrecall that\n\\[\n\\mathbb{P}(a&lt;X\\leq b) = F_X(b)-F_X(a)\n\\]\n\nmean - to calculate the mathematical expectation (mean) \\(\\mathbb{E}(X)\\)\nvar - to calculate the varaince \\(\\mathrm{Var}(X)\\)\nstd - to calculate the standard deviation \\(\\sigma(X)=\\sqrt{\\mathrm{Var}(X)}\\)",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html#section",
+    "href": "Lab3-solutions.html#section",
+    "title": "Lab 3 - Solutions",
+    "section": "2.1 ",
+    "text": "2.1 \n\nLet \\(X\\sim Bin(27, 0.45)\\).\n\nCalculate \\(\\mathbb{P}(X\\leq 20)\\).\n\nSolution. \\(\\mathbb{P}(X\\leq 20) = F_X(20)\\), hence, we calculate binom.cdf at k=20 with parameters n=27 and p=0.45.\n\n\n\nCode\n binom.cdf(20, 27, 0.45)\n\n\n0.9994575733214396\n\n\nCalculate \\(\\mathbb{P}(X &lt; 10)\\).\n\nSolution. Since \\(X\\) takes only integer values, \\(X&lt;10\\) means that \\(X\\leq 9\\). Hence,\n\\[\n\\mathbb{P}(X &lt; 10) = \\mathbb{P}(X \\leq 9) = F_X(9).\n\\]\n\n\n\nCode\nbinom.cdf(9, 27, 0.45)\n\n\n0.15256903022954094\n\n\nCalculate \\(\\mathbb{P}(7&lt;X\\leq 13)\\).\n\nSolution. We use the formula\n\\[\n\\mathbb{P}(7&lt;X\\leq 13) = F_X(13)-F_X(7).\n\\]\n\n\n\nCode\nbinom.cdf(13, 27, 0.45)-binom.cdf(7, 27, 0.45)\n\n\n0.666671672666459\n\n\nCalculate \\(\\mathbb{P}(7\\leq X\\leq 13)\\).\n\nSolution. To apply the same formula, we need to rewrite the inequality in the form \\(6&lt;X\\leq 13\\).\n\n\n\nCode\nbinom.cdf(13, 27, 0.45)-binom.cdf(6, 27, 0.45)\n\n\n0.6879613472859423",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html#section-1",
+    "href": "Lab3-solutions.html#section-1",
+    "title": "Lab 3 - Solutions",
+    "section": "2.2 ",
+    "text": "2.2 \n\nA company manufactures light bulbs, and \\(95\\)% of them are of good quality, while the rest are defective. If a customer buys \\(50\\) light bulbs, what is the probability that:\n\nExactly \\(5\\) of them are defective?\n\nSolution. Since we are looking for defective bulbs, we consider \\(p=0.05\\) that is the probabilioty that a bulb is defective (\\(5\\)% of all bulbs). Hence, we need to find \\(p_X(5)\\) for \\(X\\sim Bin(50,0.05)\\).\n\n\n\nCode\nbinom.pmf(5, 50, 0.05)\n\n\n0.06584063715436628\n\n\nAt most \\(5\\) of them are defective?\n\nSolution. We need to find (again, for \\(X\\sim Bin(50,0.05)\\))\n\\[\n\\mathbb{P}(X\\leq 5) = F_X(5).\n\\]\n\n\n\nCode\nbinom.cdf(5, 50, 0.05)\n\n\n0.9622238270102227\n\n\nAt least \\(5\\) of them are defective?\n\nSolution. We need to find\n\\[\n\\mathbb{P}(X\\geq 5) = 1- \\mathbb{P}(X &lt; 5)=1- \\mathbb{P}(X \\leq {\\color{red}4})=1-F_X(4).\n\\]\n\n\n\nCode\n1-binom.cdf(4, 50, 0.05)\n\n\n0.10361681014414348\n\n\nFind the expected value of the number of defective bulbs and the standard deviation of this quantity.\n\nSolution. Here we just use the corresponding methods to calculate mean and std.\n\n\n\nCode\n[binom.mean(50, 0.05), binom.std(50, 0.05)]\n\n\n[2.5, 1.541103500742244]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html#section-2",
+    "href": "Lab3-solutions.html#section-2",
+    "title": "Lab 3 - Solutions",
+    "section": "3.1 ",
+    "text": "3.1 \n\nLet \\(X\\sim Geom(0.4)\\). Calculate \\(\\mathbb{P}(7\\leq X &lt;10)\\).\n\nSolution. Similarly to the previous examples, we rewrite\n\\[\n\\mathbb{P}(7\\leq X &lt;10)=\\mathbb{P}(6 &lt;X \\leq 9)=F_X(9)-F_X(6).\n\\]\n\n\n\nCode\ngeom.cdf(9, 0.4)-geom.cdf(6, 0.4)\n\n\n0.03657830400000006",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html#section-3",
+    "href": "Lab3-solutions.html#section-3",
+    "title": "Lab 3 - Solutions",
+    "section": "3.2 ",
+    "text": "3.2 \n\nA lazy student has to take a quiz, where each question may have as an answer an integer number from \\(1\\) to \\(100\\) (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains \\(20\\) questions. As soon as the student gives a correct answer, the quiz stops, and it is considered as a passed one. What is the probability that the student will pass the quiz?\nHint: the quiz may stop after either of \\(1,2,3,\\ldots,20\\) questions.\n\nSolution. The students needs to guess a number from \\(100\\) possible numbers, so the proability to answer a question correctly is \\(\\frac1{100}=0.01\\). If \\(X\\sim Geom(0.01)\\), then \\(X\\) models the number of the question when the first correct answer is made, and the quiz stops. Hence, \\(X\\) may be either of \\(1,2,3,\\ldots,20\\), i.e. we need to find \\(\\mathbb{P}(X\\leq 20)\\).\n\n\n\nCode\ngeom.cdf(20, 0.01)\n\n\n0.18209306240276918",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html#section-4",
+    "href": "Lab3-solutions.html#section-4",
+    "title": "Lab 3 - Solutions",
+    "section": "4.1 ",
+    "text": "4.1 \n\nLet \\(X\\sim NB(5, 0.3)\\). Find \\(\\mathbb{P}(X&gt;10)\\).\n\nSolution. We have, by using the probability of the complement event,\n\\[\n\\mathbb{P}(X&gt;10)=1-\\mathbb{P}(X\\leq 10)=1-F_X(10).\n\\]\n\n\n\nCode\n1-nbinom.cdf(10, 5, 0.3)\n\n\n0.5154910592268431",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html#section-5",
+    "href": "Lab3-solutions.html#section-5",
+    "title": "Lab 3 - Solutions",
+    "section": "4.2 ",
+    "text": "4.2 \n\nA lazy student has to take a quiz, where each question may have as an answer an integer number from \\(1\\) to \\(100\\) (different questions may have equal answers). Instead of preparation, the student is going to guess the answers. The quiz contains \\(20\\) questions. The quiz stops as soon as the student answers correctly \\(3\\) questions. What is the probability to pass the test for this student?\nHint: think on how many wrong answers could be made by the student to still pass the test.\n\nSolution. Let \\(X\\sim NB(3, 0.01)\\) be the number of wrong answers made by the student before he made the \\(3\\)rd correct answer. Then the total number of answered questions will be \\(X+3\\). One needs to have \\(X+3\\leq20\\) (as there are only \\(20\\) questions), i.e. \\(X\\leq 17\\). Hence, we need to find\n\\[\n\\mathbb{P}(X\\leq 17)=F_X(17).\n\\]\n\n\n\nCode\nnbinom.cdf(17, 3, 0.01)\n\n\n0.0010035761681001162",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html#section-6",
+    "href": "Lab3-solutions.html#section-6",
+    "title": "Lab 3 - Solutions",
+    "section": "5.1 ",
+    "text": "5.1 \n\nLet \\(X\\sim Po(0.4)\\). Find\n\\[\n\\sum_{n=4}^\\infty \\mathbb{P}(X=n).\n\\]\n\nSolution. Note that\n\\[\n\\begin{aligned}\n\\sum_{n=4}^\\infty \\mathbb{P}(X=n)&=\\mathbb{P}(X\\geq 4) =1-\\mathbb{P}(X&lt; 4)\\\\&=1-\\mathbb{P}(X\\leq 3)=1-F_X(3).\n\\end{aligned}\n\\]\n\n\n\nCode\n1 - poisson.cdf(3, 0.4)\n\n\n0.0007762513762070711",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html#section-7",
+    "href": "Lab3-solutions.html#section-7",
+    "title": "Lab 3 - Solutions",
+    "section": "5.2 ",
+    "text": "5.2 \n\nIn an insurance company, customers’ claims are raised at an average rate of \\(5\\) claims per working day. Calculate the probability that\n\nExactly \\(30\\) claims will be raised in one working week (Monday – Friday).\n\nSolution. The average rate of \\(5\\) claims per working day means, on average, \\(5\\cdot 5=25\\) claims per \\(5\\) working days (that is the working week). Hence we consider now \\(X\\sim Po(25)\\) and we need to find \\(p_X(30)\\).\n\n\n\nCode\npoisson.pmf(30, 25)\n\n\n0.04541278513011904\n\n\nAt least \\(8\\) claims will be raised in the next \\(2\\) working days.\n\nSolution. The average rate per \\(2\\) working days is \\(2\\cdot 5=10\\), i.e. we deal now with \\(X\\sim Po(10)\\). We need to find\n\\[\n\\mathbb{P}(X\\geq8)=1-\\mathbb{P}(X&lt;8)=1-\\mathbb{P}(X\\leq7)=1-F_X(7).\n\\]\n\n\n\nCode\n1 - poisson.cdf(7, 10)\n\n\n0.7797793533983011",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab3-solutions.html#section-8",
+    "href": "Lab3-solutions.html#section-8",
+    "title": "Lab 3 - Solutions",
+    "section": "6.1 ",
+    "text": "6.1 \n\nLet \\(X\\sim Po(3)\\) be a Poisson random variable with the parameter \\(\\lambda=3\\). Generate \\(100\\) random values of \\(X\\) fixing random_state = 111, and assign the resulting Numpy array to a variable f. Calculate the mean and the (population) variance of f. Check your answer. Don’t forget to load numpy first.\n\n\nCode\nimport numpy as np\nfrom scipy.stats import poisson\nf = poisson.rvs(3, size = 100, random_state = 111)\n[np.mean(f), np.var(f)]\n\n\n[2.9, 2.87]\n\n\nWe know that the theoretical mean (expected value) \\(\\mathbb{E}(X)\\) and variance \\(\\mathrm{Var}(X)\\) for a Poisson random variable are equal to \\(\\lambda\\):\n\\[\n\\mathbb{E}(X)=\\mathrm{Var}(X)=\\lambda.\n\\]\nClearly, \\(2.9\\neq 3\\neq 2.87\\). To make the statistics more “matching” the probability, we need to increase the size of the data: let’s generate \\(10^6\\) random variables (keeping random_state = 111). Check the answers.\n\n\nCode\nf = poisson.rvs(3, size = 10**6, random_state = 111)\n[np.mean(f), np.var(f)]\n\n\n[2.998107, 2.9899274165509997]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html",
+    "href": "Lab4-solutions.html",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Recall that the linear regression provides the “best line” that reflects the relation between two sets of data. Namely, let \\(X=(x_1,\\ldots,x_n)\\) and \\(Y=(y_1,\\ldots,y_n)\\) be vectors (arrays) of data. We define\n\\[\n\\begin{aligned}\n\\bar{x}& = \\frac1n \\sum_{i=1}^n x_i,\\\\\nS_{xx} &= \\sum_{i=1}^n(x_i-\\bar{x})^2=\\sum_{i=1}^nx_i^2-n\\bar{x}^2,\\\\\nS_{xy}&=\\sum_{i=1}^n(x_i-\\bar{x})(y_i-\\bar{y})=\\sum_{i=1}^nx_iy_i-n\\bar{x}\\bar{y},\\\\\nS_{yy}&= \\sum_{i=1}^n(y_i-\\bar{y})^2=\\sum_{i=1}^ny_i^2-n\\bar{y}^2.\n\\end{aligned}\n\\]\nThen the best fit line is\n\\[\n\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x,\n\\]\nwhere\n\\[\n\\begin{aligned}\n\\hat{\\beta}_1 &= \\dfrac{S_{xy}}{S_{xx}},\\\\\n\\hat{\\beta}_0 &= \\bar{y}-\\hat{\\beta}_1\\bar{x}.\n\\end{aligned}\n\\]\nThe strength of a linear relationship between the variables can be measured by the Pearson correlation coefficient (or just the correlation coefficient) which is given by\n\\[\nr=\\dfrac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}.\n\\]\nWe know that \\(-1\\leq r\\leq 1\\) and we say that\n\\[\n\\begin{aligned}\n|r|&gt;0.7 & \\quad \\text{means strong correlation}\\\\\n0.7\\geq |r|&gt;0.4& \\quad \\text{means moderate correlation}\\\\\n|r|\\leq 0.4 & \\quad \\text{means weak correlation}\n\\end{aligned}\n\\]\n\n\n\nDownload file Birthweight.csv from Canvas (see Week 4 section in Modules) and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 3. Don’t forget about pandas library.\nYou should get the following output\n\n\nCode\nimport pandas as pd\ndf = pd.read_csv(\"Birthweight.csv\")\ndf.head()\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.\n\n\n\n\nPlot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(df['length'], df['Birthweight'])\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.\n\n\n\n\n\nConvert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\n\n\nCode\nimport numpy as np\nx = df['length'].to_numpy()\ny = df['Birthweight'].to_numpy()\nmx = np.mean(x)\nmy = np.mean(y)\n\n\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]\n\n\n\n\n\n\n\nAssign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\n\n\nCode\nsxx = np.sum((x-mx)**2)\nsxy = np.sum((x-mx)*(y-my))\nsyy= np.sum((y-my)**2)\n\n\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]\n\n\n\n\n\n\n\nAssign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\n\n\nCode\nb1 = sxy/sxx\nb0 = my - b1 * mx\nr = sxy / np.sqrt(sxx * syy)\n\n\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\nCombine the regression line with the scatter plot to get the following output:\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.\n\n\n\n\n\nDownload now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\nCode\ndf = pd.read_csv(\"Experience-Salary.csv\")\nx = df['exp(in months)'].to_numpy()\ny = df['salary(in thousands)'].to_numpy()\nlr = linregress(x,y)\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Experience (months)')\nplt.ylabel('Salary (thousands)')\nplt.show()\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section",
+    "href": "Lab4-solutions.html#section",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Download file Birthweight.csv from Canvas (see Week 4 section in Modules) and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 3. Don’t forget about pandas library.\nYou should get the following output\n\n\nCode\nimport pandas as pd\ndf = pd.read_csv(\"Birthweight.csv\")\ndf.head()\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-1",
+    "href": "Lab4-solutions.html#section-1",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Plot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(df['length'], df['Birthweight'])\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-2",
+    "href": "Lab4-solutions.html#section-2",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Convert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\n\n\nCode\nimport numpy as np\nx = df['length'].to_numpy()\ny = df['Birthweight'].to_numpy()\nmx = np.mean(x)\nmy = np.mean(y)\n\n\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-3",
+    "href": "Lab4-solutions.html#section-3",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Assign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\n\n\nCode\nsxx = np.sum((x-mx)**2)\nsxy = np.sum((x-mx)*(y-my))\nsyy= np.sum((y-my)**2)\n\n\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-4",
+    "href": "Lab4-solutions.html#section-4",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Assign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\n\n\nCode\nb1 = sxy/sxx\nb0 = my - b1 * mx\nr = sxy / np.sqrt(sxx * syy)\n\n\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-5",
+    "href": "Lab4-solutions.html#section-5",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Combine the regression line with the scatter plot to get the following output:\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-6",
+    "href": "Lab4-solutions.html#section-6",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Download now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\nCode\ndf = pd.read_csv(\"Experience-Salary.csv\")\nx = df['exp(in months)'].to_numpy()\ny = df['salary(in thousands)'].to_numpy()\nlr = linregress(x,y)\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Experience (months)')\nplt.ylabel('Salary (thousands)')\nplt.show()\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-7",
+    "href": "Lab4-solutions.html#section-7",
+    "title": "Lab 4 - Solutions",
+    "section": "2.1 ",
+    "text": "2.1 \n\nChange the code as explained and get the following summary.\n\n\nCode\nreg = smf.logit('admitted ~ gmat + gpa', data = df).fit()\nreg.summary()\n\n\nOptimization terminated successfully.\n         Current function value: 0.322141\n         Iterations 8\n\n\n\nLogit Regression Results\n\n\nDep. Variable:\nadmitted\nNo. Observations:\n29\n\n\nModel:\nLogit\nDf Residuals:\n26\n\n\nMethod:\nMLE\nDf Model:\n2\n\n\nDate:\nThu, 30 Oct 2025\nPseudo R-squ.:\n0.5348\n\n\nTime:\n00:41:51\nLog-Likelihood:\n-9.3421\n\n\nconverged:\nTrue\nLL-Null:\n-20.084\n\n\nCovariance Type:\nnonrobust\nLLR p-value:\n2.162e-05\n\n\n\n\n\n\n\n\n\ncoef\nstd err\nz\nP&gt;|z|\n[0.025\n0.975]\n\n\nIntercept\n-22.0171\n9.232\n-2.385\n0.017\n-40.111\n-3.923\n\n\ngmat\n0.0150\n0.014\n1.052\n0.293\n-0.013\n0.043\n\n\ngpa\n3.7604\n2.003\n1.877\n0.060\n-0.166\n7.686\n\n\n\n\n\n\nAgain, the coefficients are available using (in the previous notations) reg.params. As before, Intercept stands for \\(\\hat{\\beta}_0\\), gmat stands for \\(\\hat{\\beta}_1\\), and also gpa stands for \\(\\hat{\\beta}_2\\) in\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2\n\\]\nand hence\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}\n\\]\nWe can show how \\(p\\) separates the values (some lines of the code may be new for you - it’s just for your information, you are not required to learn them):\n\nx1 = df['gmat'].to_numpy()\nx2 = df['gpa'].to_numpy()\np = df['admitted'].to_numpy()\nfig = plt.figure()\nax = fig.add_subplot(1, 1, 1, projection='3d', computed_zorder=False)\nx1values = np.linspace(min(x1), max(x1), 100)\nx2values = np.linspace(min(x2), max(x2), 100)\n[X1, X2] = np.meshgrid(x1values, x2values)\nb0 = reg.params.iloc[0]\nb1 = reg.params.iloc[1]\nb2 = reg.params.iloc[2]\npvalues = np.exp(b0 + b1 * X1 + b2 * X2)/(1 + np.exp(b0 + b1 * X1 + b2 * X2))\nax.plot_surface(X1, X2, pvalues, color = 'r', alpha = 0.4)\nax.scatter(x1, x2, p)\nplt.show()\n\n\n\n\n\n\n\n\nAs you can see, the red graph (surface) of \\(p\\) separates values of \\(0\\) and \\(1\\). Again, we may try to predict the admission for the student with data stored in df_test. We assigned to gmat the corresponding mark, now we do the same for gpa and calculate p for these two values. As you can see, the result is much closer to \\(0\\), hence, we are more confident in our (correct) prediction that the student would not be admitted.\n\ngpa = df_test['gpa']\nnp.exp(b0 + b1 * gmat + b2 * gpa)/(1 + np.exp(b0 + b1 * gmat + b2 * gpa))\n\n0.07118806995711167\n\n\n\nLogistic regression for 3 independent variables\nNow, we consider the dependence of admitted on all three values: gmat, gpa, and work_experience. Surely, in this case, we will not be able to draw \\(p\\) (as it would be a 4-dimensional diagram), but we can calculate \\(\\hat{\\beta}_0,\\hat{\\beta}_1,\\hat{\\beta}_2,\\hat{\\beta}_3\\).",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-8",
+    "href": "Lab4-solutions.html#section-8",
+    "title": "Lab 4 - Solutions",
+    "section": "2.2 ",
+    "text": "2.2 \n\nFind the coefficients of\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2 + \\hat{\\beta}_3 x_3\n\\]\n\n\nCode\nreg = smf.logit('admitted ~ gmat + gpa + work_experience', data = df).fit()\n\n\nOptimization terminated successfully.\n         Current function value: 0.255306\n         Iterations 8\n\n\nCheck your answer:\n\nreg.params\n\nIntercept         -16.182243\ngmat                0.002624\ngpa                 3.258770\nwork_experience     0.994371\ndtype: float64",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-9",
+    "href": "Lab4-solutions.html#section-9",
+    "title": "Lab 4 - Solutions",
+    "section": "2.3 ",
+    "text": "2.3 \n\nAssign to w_exp the work experience value for the student from df_test and calculate the function\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}\n\\]\nfor that student. Check the answer:\n\n\nCode\nw_exp = df_test['work_experience']\nb0, b1, b2, b3 = reg.params #Note the trick\nnp.exp(b0 + b1 * gmat + b2 * gpa + b3 * w_exp)/(1 + np.exp(b0 + b1 * gmat + b2 * gpa + b3 * w_exp))\n\n\n0.31333312863167756\n\n\n\nAs you can see, the information about a relatively high work experience (5 years in this case), increased chances to be admitted, though the non-admission is still more likely.\nNote that the rest of information from summary actually explains the level of certainty we may have in the future prediction (we do not consider this now). Note also that, in practice, one predicts outcomes for a number of students (the dataframe df_test would contain a lot of rows), and the prediction is “good” if one predicted correctly for a big percentage of them.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab5-solutions.html",
+    "href": "Lab5-solutions.html",
+    "title": "Lab 5 - Solutions",
+    "section": "",
+    "text": "Continuous probability distributions in Python can be treated similarly to the discrete distributions. For example, for the uniform distribution we start with\n\nfrom scipy.stats import uniform\n\nWe know that a uniform random variables \\(X\\) depends on two parameters \\(a\\) and \\(b\\), namely, \\(X\\sim U(a,b)\\) is distributed uniformly on a segment \\([a,b]\\). The length of this segment is \\(b-a\\). In Python, the uniform distribution also depends on two parameters: loc = a and scale = b - a. The default values (which are used if these parameters are omitted) are loc = 0 and scale = 1 that corresponds to \\(U(0,1)\\).\n\n\nThe PDF \\(f_X(x)\\) is then 1/scale on \\([a,b]\\) and \\(0\\) otherwise. For example, for \\(X\\sim(1,6)\\), we can calculate\n\nuniform.pdf(3, loc = 1, scale = 5)\n\n0.2\n\n\nthat is \\(\\frac15\\), whereas,\n\nuniform.pdf(7, loc = 1, scale = 5)\n\n0.0\n\n\nas \\(7\\notin[1,6]\\).\nWe can also plot the graph of the PDF for \\(X\\sim U(1,6)\\), e.g. we plot it for \\(x\\in[-2,9]\\):\n\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(-2, 9, 1000)\nplt.plot(x, uniform.pdf(x, loc = 1, scale = 5))\nplt.show()\n\n\n\n\n\n\n\n\nNot that the jumps at \\(x=1\\) and \\(x=6\\) are shown by vertical segments.\n\n\n\nSimilarly, CDF \\(F_X(x)\\) of \\(X\\sim U(a,b)\\) can be calculated by using the command uniform.cdf(x, loc = a, scale = b - a).\n\n\n\n\nPlot the graph of \\(F_X(x)\\) for \\(X\\sim U(1,6)\\) on the interval \\([-2,9]\\). Check the output:\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(-2, 9, 1000)\nplt.plot(x, uniform.cdf(x, loc = 1, scale = 5))\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\\(n\\) values of the random variable \\(X\\sim U(a,b)\\) can be generated using the command uniform.rvs(size = n, loc = a, scale = b - a). As we discussed on Lab 3, if we want to fix the output, we use the key random_state, for example, the following output\n\nuniform.rvs(size = 3, loc = 1, scale = 5, random_state = 1)\n\narray([3.08511002, 4.60162247, 1.00057187])\n\n\nwill be the same each time you run the code, whereas if you omit random_state = 1 the result will be different every time you run the code (try!)\n\n\n\n\n\nAssign to variable x the array of \\(10^6\\) random values uniformly distributed on \\([0,1]\\), fix the random state equal to 123. Calculate the mean of \\(x\\). Check the output.\n\n\nCode\nx = uniform.rvs(size = 10 ** 6, random_state = 123) # Since loc = a = 0, scale = b-a = 1, we may omit their values\nnp.mean(x)\n\n\n0.49993343872814583\n\n\nAs you can see the output is pretty close to \\(0.5 =  \\frac{0+1}{2}=\\mathbb{E}(X)\\).",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 5 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab5-solutions.html#section",
+    "href": "Lab5-solutions.html#section",
+    "title": "Lab 5 - Solutions",
+    "section": "",
+    "text": "Plot the graph of \\(F_X(x)\\) for \\(X\\sim U(1,6)\\) on the interval \\([-2,9]\\). Check the output:\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.linspace(-2, 9, 1000)\nplt.plot(x, uniform.cdf(x, loc = 1, scale = 5))\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\\(n\\) values of the random variable \\(X\\sim U(a,b)\\) can be generated using the command uniform.rvs(size = n, loc = a, scale = b - a). As we discussed on Lab 3, if we want to fix the output, we use the key random_state, for example, the following output\n\nuniform.rvs(size = 3, loc = 1, scale = 5, random_state = 1)\n\narray([3.08511002, 4.60162247, 1.00057187])\n\n\nwill be the same each time you run the code, whereas if you omit random_state = 1 the result will be different every time you run the code (try!)",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 5 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab5-solutions.html#section-1",
+    "href": "Lab5-solutions.html#section-1",
+    "title": "Lab 5 - Solutions",
+    "section": "",
+    "text": "Assign to variable x the array of \\(10^6\\) random values uniformly distributed on \\([0,1]\\), fix the random state equal to 123. Calculate the mean of \\(x\\). Check the output.\n\n\nCode\nx = uniform.rvs(size = 10 ** 6, random_state = 123) # Since loc = a = 0, scale = b-a = 1, we may omit their values\nnp.mean(x)\n\n\n0.49993343872814583\n\n\nAs you can see the output is pretty close to \\(0.5 =  \\frac{0+1}{2}=\\mathbb{E}(X)\\).",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 5 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab5-solutions.html#section-2",
+    "href": "Lab5-solutions.html#section-2",
+    "title": "Lab 5 - Solutions",
+    "section": "2.1 ",
+    "text": "2.1 \n\nGenerate \\(10^6\\) values of the random variable \\(X\\sim \\mathrm{Exp}(0.2)\\), using the random_state key equal to 12. Calculate the variance of the generated values, using the formula\n\\[\n\\mathrm{Var}(X) = \\mathbb{E}(X^2)- \\bigl(\\mathbb{E}(X)\\bigr)^2\n\\]\nCheck the answer.\n\n\nCode\nx = expon.rvs(size = 10**6, scale = 1/0.2, random_state = 12)\nnp.mean(x ** 2) - (np.mean(x)) ** 2\n\n\n25.04882818201701\n\n\nYou can also np.var command. Check the output in this case:\n\n\nCode\nnp.var(x)\n\n\n25.048828182017044\n\n\nThe results are almost identical (there is always some numerical error). Moreover, the result is close to the theoretical value \\(\\frac1{0.2^2}=25\\).\n\n\nPercentiles\nAnother important function available for all random variables in scipy.stats module is ppf, which provides percentiles. By the definition, for a random variable \\(X\\) and for any \\(q\\in[0,1]\\), the \\(q\\)-percentile of \\(X\\) is the number \\(a\\) such that\n\\[\nF_X(a) = \\mathbb{P}(X\\leq a) = q.\n\\]\nIn other words, the percentile is the inverse function to CDF.\nFor example, for \\(X\\sim \\mathrm{Exp}(0.2)\\),\n\na = expon.ppf(0.3, scale = 1/0.2)\na\n\n1.7833747196936622\n\n\nis \\(0.3\\)-percentile of \\(X\\), and then we can see that\n\nexpon.cdf(a, scale = 1/0.2)\n\n0.30000000000000004\n\n\nis effectively the initial \\(0.3\\).",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 5 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab5-solutions.html#section-3",
+    "href": "Lab5-solutions.html#section-3",
+    "title": "Lab 5 - Solutions",
+    "section": "2.2 ",
+    "text": "2.2 \n\nLet \\(X\\sim \\mathrm{Exp}(0.7)\\). Find \\(b\\) such that\n\\[\n\\mathbb{P}(1 \\leq X \\leq b) = 0.4.\n\\]\nHint: use first the formula\n\\[\n\\mathbb{P}(a \\leq X \\leq b) = F_X(b) - F_X(a).\n\\]\nCheck the answer:\n\n\nCode\n# F(c) - F(1) = 0.4,\n# then F(c) = F(1) + 0.4\nq = expon.cdf(1, scale = 1/0.7) + 0.4\nexpon.ppf(q, scale = 1/0.7)\n\n\n3.3390409771454475",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 5 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab5-solutions.html#section-4",
+    "href": "Lab5-solutions.html#section-4",
+    "title": "Lab 5 - Solutions",
+    "section": "3.1 ",
+    "text": "3.1 \n\nPlot the graph of CDF for \\(X\\sim \\mathcal{N}(2,3^2)\\) (also on the interval \\(x\\in(-10,14)\\)). Use green colour and label the axis with \\(x\\) and \\(y=F(x)\\).\n\n\nCode\nx = np.linspace(-10, 14, 1000)\ny = norm.cdf(x, loc = 2, scale = 3)\nplt.plot(x, y, color = 'green')\nplt.xlabel('x')\nplt.ylabel('y=F(x)')\nplt.show()",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 5 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab5-solutions.html#section-5",
+    "href": "Lab5-solutions.html#section-5",
+    "title": "Lab 5 - Solutions",
+    "section": "3.2 ",
+    "text": "3.2 \n\nCalculate the probability that a randomly selected individual has a height between \\(160\\) cm and \\(170\\) cm, given that the population mean height is \\(165.5\\) cm and the standard deviation is \\(10.2\\) cm, and that the heights follow the normal distribution.\nSub-task 1: calculate the answer using functions for general normal random variable \\(X\\sim \\mathcal{N}(\\mu,\\sigma^2)\\). Check the answer:\n\n\nCode\nnorm.cdf(170, loc = 165.5, scale = 10.2) - norm.cdf(160, loc = 165.5, scale = 10.2)\n\n\n0.37558835807069463\n\n\nSub-task 2: recalculate the answer using functions for standard normal random variable \\(Z\\sim \\mathcal{N}(0,1)\\). Check the answer:\n\n\nCode\nnorm.cdf((170-165.5)/10.2) - norm.cdf((160-165.5)/10.2)\n\n\n0.37558835807069463",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 5 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab5-solutions.html#section-6",
+    "href": "Lab5-solutions.html#section-6",
+    "title": "Lab 5 - Solutions",
+    "section": "3.3 ",
+    "text": "3.3 \n\nLet \\(X\\sim\\mathcal{N}(12,5^2)\\). Find \\(c\\) such that\n\\[\n\\mathbb{P}(c \\leq X \\leq 15) = 0.5.\n\\]\nCheck the answer.\n\n\nCode\n# F(15) - F(c) = 0.5\n# F(c) = F(15) - 0.5\nq = norm.cdf(15, loc = 12, scale = 5) - 0.5\nnorm.ppf(q, loc = 12, scale = 5)\n\n\n8.235364852055193",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 5 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab5-solutions.html#section-7",
+    "href": "Lab5-solutions.html#section-7",
+    "title": "Lab 5 - Solutions",
+    "section": "3.4 ",
+    "text": "3.4 \n\nGenerate \\(10^6\\) values of standard normal random variable. Check their standard deviation (use np.std function) and ensure that the result is close to \\(1\\).\n\n\nCode\nx = norm.rvs(size = 10 ** 6)\nnp.std(x)\n\n\n0.9993393936211346\n\n\n(you may get a different answer, as we didn’t fix random_state here).",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 5 - Solutions"
     ]
   }
 ]

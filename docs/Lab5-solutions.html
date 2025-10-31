@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 5 – MA-M27 Lab Assignments</title>
+<title>Lab 5 - Solutions – MA-M27 Lab Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Lab4.html" rel="prev">
+<link href="./Lab4-solutions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -135,9 +135,9 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Lab 5 – MA-M27 Lab Assignments">
+<meta property="og:title" content="Lab 5 - Solutions – MA-M27 Lab Assignments">
 <meta property="og:description" content="Lab Assignments for MA-M27 Probability and Statistics for Data Science">
-<meta property="og:image" content="Lab5_files/figure-html/cell-5-output-1.png">
+<meta property="og:image" content="Lab5-solutions_files/figure-html/cell-5-output-1.png">
 <meta property="og:site_name" content="MA-M27 Lab Assignments">
 </head>
 
@@ -150,7 +150,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab5.html">Lab 5 - Problems</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab5-solutions.html">Lab 5 - Solutions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -218,7 +218,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab5.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Lab5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 5 - Problems</span></a>
   </div>
 </li>
@@ -260,7 +260,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab5-solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="./Lab5-solutions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 5 - Solutions</span></a>
   </div>
 </li>
@@ -308,9 +308,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab5.html">Lab 5 - Problems</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab5-solutions.html">Lab 5 - Solutions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 5</h1>
+<h1 class="title">Lab 5 - Solutions</h1>
 </div>
 
 
@@ -330,21 +330,21 @@ window.Quarto = {
 <section id="uniform-distribution" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Uniform Distribution</h1>
 <p>Continuous probability distributions in Python can be treated similarly to the discrete distributions. For example, for the uniform distribution we start with</p>
-<div id="b64d35cd" class="cell" data-execution_count="2">
+<div id="39237dac" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> uniform</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We know that a uniform random variables <span class="math inline">\(X\)</span> depends on two parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, namely, <span class="math inline">\(X\sim U(a,b)\)</span> is distributed uniformly on a segment <span class="math inline">\([a,b]\)</span>. The length of this segment is <span class="math inline">\(b-a\)</span>. In Python, the uniform distribution also depends on two parameters: <code>loc = a</code> and <code>scale = b - a</code>. The default values (which are used if these parameters are omitted) are <code>loc = 0</code> and <code>scale = 1</code> that corresponds to <span class="math inline">\(U(0,1)\)</span>.</p>
 <section id="probability-density-function" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="probability-density-function">Probability Density Function</h3>
 <p>The PDF <span class="math inline">\(f_X(x)\)</span> is then <code>1/scale</code> on <span class="math inline">\([a,b]\)</span> and <span class="math inline">\(0\)</span> otherwise. For example, for <span class="math inline">\(X\sim(1,6)\)</span>, we can calculate</p>
-<div id="22ea4d9f" class="cell" data-execution_count="3">
+<div id="98a1fde4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uniform.pdf(<span class="dv">3</span>, loc <span class="op">=</span> <span class="dv">1</span>, scale <span class="op">=</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>0.2</code></pre>
 </div>
 </div>
 <p>that is <span class="math inline">\(\frac15\)</span>, whereas,</p>
-<div id="8a20d207" class="cell" data-execution_count="4">
+<div id="8268f46d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>uniform.pdf(<span class="dv">7</span>, loc <span class="op">=</span> <span class="dv">1</span>, scale <span class="op">=</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>0.0</code></pre>
@@ -352,7 +352,7 @@ window.Quarto = {
 </div>
 <p>as <span class="math inline">\(7\notin[1,6]\)</span>.</p>
 <p>We can also plot the graph of the PDF for <span class="math inline">\(X\sim U(1,6)\)</span>, e.g.&nbsp;we plot it for <span class="math inline">\(x\in[-2,9]\)</span>:</p>
-<div id="1bb300ef" class="cell" data-execution_count="5">
+<div id="afb33c28" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">1000</span>)</span>
@@ -361,7 +361,7 @@ window.Quarto = {
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab5_files/figure-html/cell-5-output-1.png" width="587" height="411" class="figure-img"></p>
+<p><img src="Lab5-solutions_files/figure-html/cell-5-output-1.png" width="587" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -376,11 +376,19 @@ window.Quarto = {
 <h2 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> </h2>
 <div class="task">
 <p>Plot the graph of <span class="math inline">\(F_X(x)\)</span> for <span class="math inline">\(X\sim U(1,6)\)</span> on the interval <span class="math inline">\([-2,9]\)</span>. Check the output:</p>
-<div id="ee40cb90" class="cell" data-execution_count="6">
+<div id="aef85bcd" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">1000</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, uniform.cdf(x, loc <span class="op">=</span> <span class="dv">1</span>, scale <span class="op">=</span> <span class="dv">5</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab5_files/figure-html/cell-6-output-1.png" width="571" height="411" class="figure-img"></p>
+<p><img src="Lab5-solutions_files/figure-html/cell-6-output-1.png" width="571" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -389,8 +397,8 @@ window.Quarto = {
 <section id="generating-random-values" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="generating-random-values">Generating Random Values</h3>
 <p><span class="math inline">\(n\)</span> values of the random variable <span class="math inline">\(X\sim U(a,b)\)</span> can be generated using the command <code>uniform.rvs(size = n, loc = a, scale = b - a)</code>. As we discussed on Lab 3, if we want to fix the output, we use the key <code>random_state</code>, for example, the following output</p>
-<div id="c1bfe3e6" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>uniform.rvs(size <span class="op">=</span> <span class="dv">3</span>, loc <span class="op">=</span> <span class="dv">1</span>, scale <span class="op">=</span> <span class="dv">5</span>, random_state <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="9ffad74f" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>uniform.rvs(size <span class="op">=</span> <span class="dv">3</span>, loc <span class="op">=</span> <span class="dv">1</span>, scale <span class="op">=</span> <span class="dv">5</span>, random_state <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>array([3.08511002, 4.60162247, 1.00057187])</code></pre>
 </div>
@@ -402,7 +410,12 @@ window.Quarto = {
 <h2 data-number="1.2" class="anchored" data-anchor-id="section-1"><span class="header-section-number">1.2</span> </h2>
 <div class="task">
 <p>Assign to variable <code>x</code> the array of <span class="math inline">\(10^6\)</span> random values uniformly distributed on <span class="math inline">\([0,1]\)</span>, fix the random state equal to <code>123</code>. Calculate the mean of <span class="math inline">\(x\)</span>. Check the output.</p>
-<div id="6dc3d607" class="cell" data-execution_count="8">
+<div id="6a9e1854" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> uniform.rvs(size <span class="op">=</span> <span class="dv">10</span> <span class="op">**</span> <span class="dv">6</span>, random_state <span class="op">=</span> <span class="dv">123</span>) <span class="co"># Since loc = a = 0, scale = b-a = 1, we may omit their values</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>np.mean(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>0.49993343872814583</code></pre>
 </div>
@@ -413,28 +426,33 @@ window.Quarto = {
 </section>
 <section id="exponential-distribution" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Exponential distribution</h1>
-<p>Recall that, for <span class="math inline">\(X\sim \mathrm{Exp}(\lambda)\)</span>, the PDF is <span class="math display">\[
+<p>Recall that, for <span class="math inline">\(X\sim \mathrm{Exp}(\lambda)\)</span>, the PDF is</p>
+<p><span class="math display">\[
 f_X(x) = \begin{cases}
           \lambda e^{-\lambda x}, &amp; \text{if } x \geq 0 \\
           0, &amp; \text{otherwise},
        \end{cases}
-\]</span> and the corresponding CDF is <span class="math display">\[
+\]</span></p>
+<p>and the corresponding CDF is</p>
+<p><span class="math display">\[
 F_X(x) = \begin{cases}
           1- e^{-\lambda x}, &amp; \text{if } x \geq 0 \\
           0, &amp; \text{otherwise}.
        \end{cases}
-\]</span> We know also that <span class="math display">\[
+\]</span></p>
+<p>We know also that</p>
+<p><span class="math display">\[
 \mathbb{E}(X) = \frac1\lambda, \quad
 \mathrm{Var}(X) = \mathbb{E}(X^2)- \bigl(\mathbb{E}(X)\bigr)^2= \frac1{\lambda^2}.
 \]</span></p>
 <p>In Python, we first load the corresponding class</p>
-<div id="1da5ba53" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="2c2f57bc" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Next, we use the same commands, e.g.&nbsp;<code>expon.pdf</code>, <code>expon.cdf</code>, <code>expon.rvs</code>, however, the key <code>scale</code> in this command is inverse to <span class="math inline">\(\lambda\)</span>: <code>scale = 1/lambda</code>.</p>
 <p>For example, to calculate <span class="math inline">\(f_X(1)\)</span> for <span class="math inline">\(X\sim \mathrm{Exp}(0.2)\)</span>, we use the command</p>
-<div id="a868e65c" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>expon.pdf(<span class="dv">1</span>, scale <span class="op">=</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5ce9a6d6" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>expon.pdf(<span class="dv">1</span>, scale <span class="op">=</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>0.16374615061559636</code></pre>
 </div>
@@ -443,16 +461,27 @@ F_X(x) = \begin{cases}
 <section id="section-2" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="section-2"><span class="header-section-number">2.1</span> </h2>
 <div class="task">
-<p>Generate <span class="math inline">\(10^6\)</span> values of the random variable <span class="math inline">\(X\sim \mathrm{Exp}(0.2)\)</span>, using the <code>random_state</code> key equal to <code>12</code>. Calculate the variance of the generated values, using the formula <span class="math display">\[
+<p>Generate <span class="math inline">\(10^6\)</span> values of the random variable <span class="math inline">\(X\sim \mathrm{Exp}(0.2)\)</span>, using the <code>random_state</code> key equal to <code>12</code>. Calculate the variance of the generated values, using the formula</p>
+<p><span class="math display">\[
 \mathrm{Var}(X) = \mathbb{E}(X^2)- \bigl(\mathbb{E}(X)\bigr)^2
-\]</span> Check the answer.</p>
-<div id="ca2cb68c" class="cell" data-execution_count="11">
+\]</span></p>
+<p>Check the answer.</p>
+<div id="047aab35" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> expon.rvs(size <span class="op">=</span> <span class="dv">10</span><span class="op">**</span><span class="dv">6</span>, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">12</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>np.mean(x <span class="op">**</span> <span class="dv">2</span>) <span class="op">-</span> (np.mean(x)) <span class="op">**</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>25.04882818201701</code></pre>
 </div>
 </div>
-<p>You can also use <code>np.var</code> command. Check the output in this case:</p>
-<div id="b3b6a505" class="cell" data-execution_count="12">
+<p>You can also <code>np.var</code> command. Check the output in this case:</p>
+<div id="a38235e9" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>np.var(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>25.048828182017044</code></pre>
 </div>
@@ -461,20 +490,22 @@ F_X(x) = \begin{cases}
 </div>
 <section id="percentiles" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="percentiles">Percentiles</h3>
-<p>Another important function available for all random variables in scipy.stats module is <code>ppf</code>, which provides <strong>percentiles</strong>. By the definition, for a random variable <span class="math inline">\(X\)</span> and for any <span class="math inline">\(q\in[0,1]\)</span>, the <span class="math inline">\(q\)</span>-percentile of <span class="math inline">\(X\)</span> is the number <span class="math inline">\(a\)</span> such that <span class="math display">\[
+<p>Another important function available for all random variables in scipy.stats module is <code>ppf</code>, which provides <strong>percentiles</strong>. By the definition, for a random variable <span class="math inline">\(X\)</span> and for any <span class="math inline">\(q\in[0,1]\)</span>, the <span class="math inline">\(q\)</span>-percentile of <span class="math inline">\(X\)</span> is the number <span class="math inline">\(a\)</span> such that</p>
+<p><span class="math display">\[
 F_X(a) = \mathbb{P}(X\leq a) = q.
-\]</span> In other words, the percentile is the inverse function to CDF.</p>
+\]</span></p>
+<p>In other words, the percentile is the inverse function to CDF.</p>
 <p>For example, for <span class="math inline">\(X\sim \mathrm{Exp}(0.2)\)</span>,</p>
-<div id="2eb72d24" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> expon.ppf(<span class="fl">0.3</span>, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="2701e7ac" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> expon.ppf(<span class="fl">0.3</span>, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>1.7833747196936622</code></pre>
 </div>
 </div>
 <p>is <span class="math inline">\(0.3\)</span>-percentile of <span class="math inline">\(X\)</span>, and then we can see that</p>
-<div id="e25eb2f2" class="cell" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>expon.cdf(a, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="9c6b7322" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>expon.cdf(a, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>0.30000000000000004</code></pre>
 </div>
@@ -485,12 +516,23 @@ F_X(a) = \mathbb{P}(X\leq a) = q.
 <section id="section-3" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="section-3"><span class="header-section-number">2.2</span> </h2>
 <div class="task">
-<p>Let <span class="math inline">\(X\sim \mathrm{Exp}(0.7)\)</span>. Find <span class="math inline">\(b\)</span> such that <span class="math display">\[
+<p>Let <span class="math inline">\(X\sim \mathrm{Exp}(0.7)\)</span>. Find <span class="math inline">\(b\)</span> such that</p>
+<p><span class="math display">\[
 \mathbb{P}(1 \leq X \leq b) = 0.4.
-\]</span> <em>Hint:</em> use first the formula <span class="math display">\[
+\]</span></p>
+<p><em>Hint:</em> use first the formula</p>
+<p><span class="math display">\[
 \mathbb{P}(a \leq X \leq b) = F_X(b) - F_X(a).
-\]</span> Check the answer:</p>
-<div id="e9218afc" class="cell" data-execution_count="15">
+\]</span></p>
+<p>Check the answer:</p>
+<div id="3ff7974e" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F(c) - F(1) = 0.4,</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># then F(c) = F(1) + 0.4</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> expon.cdf(<span class="dv">1</span>, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.7</span>) <span class="op">+</span> <span class="fl">0.4</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>expon.ppf(q, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>3.3390409771454475</code></pre>
 </div>
@@ -500,32 +542,35 @@ F_X(a) = \mathbb{P}(X\leq a) = q.
 </section>
 <section id="normal-distribution" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Normal Distribution</h1>
-<p>Recall that <span class="math inline">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span> has the PDF given by <span class="math display">\[
+<p>Recall that <span class="math inline">\(X\sim\mathcal{N}(\mu,\sigma^2)\)</span> has the PDF given by</p>
+<p><span class="math display">\[
 f_X(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
-\]</span> We also know that <span class="math display">\[
+\]</span></p>
+<p>We also know that</p>
+<p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}(X)&amp;=\mu,\\
 \mathrm{Var}(X)&amp;=\sigma^2.
 \end{aligned}
 \]</span></p>
 <p>We start with</p>
-<div id="732960d7" class="cell" data-execution_count="16">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="6ed8de84" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The PDF can be used in the code with the command <code>norm.pdf(x, loc, scale)</code> where <code>loc</code> stands for <span class="math inline">\(\mu\)</span> and <code>scale</code> stands for <span class="math inline">\(\sigma\)</span>. Similarly, one can use <code>norm.cdf(x, loc, scale)</code>, <code>norm.ppf(q, loc, scale)</code>, and <code>norm.rvs(loc, scale, size)</code> as above. The default values are <code>loc = 0</code> and <code>scale = 1</code> that corresponds to the <em>standard normal distribution</em> <span class="math inline">\(Z\sim\mathcal{N}(0,1)\)</span>.</p>
 <p>For example, the following code plots the graph of <span class="math inline">\(f_X(x)\)</span> for <span class="math inline">\(X\sim \mathcal{N}(2,3^2)\)</span> (on the interval <span class="math inline">\(x\in(-10,14)\)</span> - for example). The graph is in red colour and the axes are properly labelled.</p>
-<div id="a668a31c" class="cell" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming that you previously loaded numpy and matplotlib</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">1000</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> norm.pdf(x, loc <span class="op">=</span> <span class="dv">2</span>, scale <span class="op">=</span> <span class="dv">3</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, color <span class="op">=</span> <span class="st">'red'</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y=f(x)'</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="dbf7b14f" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming that you previously loaded numpy and matplotlib</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">1000</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> norm.pdf(x, loc <span class="op">=</span> <span class="dv">2</span>, scale <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, color <span class="op">=</span> <span class="st">'red'</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y=f(x)'</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab5_files/figure-html/cell-17-output-1.png" width="602" height="429" class="figure-img"></p>
+<p><img src="Lab5-solutions_files/figure-html/cell-17-output-1.png" width="602" height="429" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -534,11 +579,20 @@ f_X(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
 <h2 data-number="3.1" class="anchored" data-anchor-id="section-4"><span class="header-section-number">3.1</span> </h2>
 <div class="task">
 <p>Plot the graph of CDF for <span class="math inline">\(X\sim \mathcal{N}(2,3^2)\)</span> (also on the interval <span class="math inline">\(x\in(-10,14)\)</span>). Use green colour and label the axis with <span class="math inline">\(x\)</span> and <span class="math inline">\(y=F(x)\)</span>.</p>
-<div id="57ae2dbc" class="cell" data-execution_count="18">
+<div id="03ddc660" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">1000</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> norm.cdf(x, loc <span class="op">=</span> <span class="dv">2</span>, scale <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, color <span class="op">=</span> <span class="st">'green'</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y=F(x)'</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab5_files/figure-html/cell-18-output-1.png" width="593" height="429" class="figure-img"></p>
+<p><img src="Lab5-solutions_files/figure-html/cell-18-output-1.png" width="593" height="429" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -550,13 +604,21 @@ f_X(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
 <div class="task">
 <p>Calculate the probability that a randomly selected individual has a height between <span class="math inline">\(160\)</span> cm and <span class="math inline">\(170\)</span> cm, given that the population mean height is <span class="math inline">\(165.5\)</span> cm and the standard deviation is <span class="math inline">\(10.2\)</span> cm, and that the heights follow the normal distribution.</p>
 <p><strong>Sub-task 1:</strong> calculate the answer using functions for general normal random variable <span class="math inline">\(X\sim \mathcal{N}(\mu,\sigma^2)\)</span>. Check the answer:</p>
-<div id="54eed973" class="cell" data-execution_count="19">
+<div id="ad97aacc" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>norm.cdf(<span class="dv">170</span>, loc <span class="op">=</span> <span class="fl">165.5</span>, scale <span class="op">=</span> <span class="fl">10.2</span>) <span class="op">-</span> norm.cdf(<span class="dv">160</span>, loc <span class="op">=</span> <span class="fl">165.5</span>, scale <span class="op">=</span> <span class="fl">10.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>0.37558835807069463</code></pre>
 </div>
 </div>
 <p><strong>Sub-task 2:</strong> recalculate the answer using functions for standard normal random variable <span class="math inline">\(Z\sim \mathcal{N}(0,1)\)</span>. Check the answer:</p>
-<div id="b617226b" class="cell" data-execution_count="20">
+<div id="e941f337" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>norm.cdf((<span class="dv">170</span><span class="op">-</span><span class="fl">165.5</span>)<span class="op">/</span><span class="fl">10.2</span>) <span class="op">-</span> norm.cdf((<span class="dv">160</span><span class="op">-</span><span class="fl">165.5</span>)<span class="op">/</span><span class="fl">10.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>0.37558835807069463</code></pre>
 </div>
@@ -566,10 +628,19 @@ f_X(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
 <section id="section-6" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="section-6"><span class="header-section-number">3.3</span> </h2>
 <div class="task">
-<p>Let <span class="math inline">\(X\sim\mathcal{N}(12,5^2)\)</span>. Find <span class="math inline">\(c\)</span> such that <span class="math display">\[
+<p>Let <span class="math inline">\(X\sim\mathcal{N}(12,5^2)\)</span>. Find <span class="math inline">\(c\)</span> such that</p>
+<p><span class="math display">\[
 \mathbb{P}(c \leq X \leq 15) = 0.5.
-\]</span> Check the answer.</p>
-<div id="52f3195a" class="cell" data-execution_count="21">
+\]</span></p>
+<p>Check the answer.</p>
+<div id="fa6c9187" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F(15) - F(c) = 0.5</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># F(c) = F(15) - 0.5</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> norm.cdf(<span class="dv">15</span>, loc <span class="op">=</span> <span class="dv">12</span>, scale <span class="op">=</span> <span class="dv">5</span>) <span class="op">-</span> <span class="fl">0.5</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>norm.ppf(q, loc <span class="op">=</span> <span class="dv">12</span>, scale <span class="op">=</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>8.235364852055193</code></pre>
 </div>
@@ -580,9 +651,14 @@ f_X(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
 <h2 data-number="3.4" class="anchored" data-anchor-id="section-7"><span class="header-section-number">3.4</span> </h2>
 <div class="task">
 <p>Generate <span class="math inline">\(10^6\)</span> values of standard normal random variable. Check their standard deviation (use <code>np.std</code> function) and ensure that the result is close to <span class="math inline">\(1\)</span>.</p>
-<div id="5baf9b05" class="cell" data-execution_count="22">
+<div id="04a58c3f" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> norm.rvs(size <span class="op">=</span> <span class="dv">10</span> <span class="op">**</span> <span class="dv">6</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>np.std(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>0.9988975242430829</code></pre>
+<pre><code>0.9993393936211346</code></pre>
 </div>
 </div>
 <p>(you may get a different answer, as we didn’t fix <code>random_state</code> here).</p>
@@ -592,18 +668,18 @@ f_X(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
 <section id="if-you-have-time" class="level1 unnumbered">
 <h1 class="unnumbered">If you have time</h1>
 <p>As you could see, we often need to calculate different functions for the same values of the parameters, e.g.&nbsp;in the example we considered earlier:</p>
-<div id="9a48b27c" class="cell" data-execution_count="23">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> expon.ppf(<span class="fl">0.3</span>, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>expon.cdf(a, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="24d17ef5" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> expon.ppf(<span class="fl">0.3</span>, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>expon.cdf(a, scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>0.30000000000000004</code></pre>
 </div>
 </div>
 <p>In this case, we can also assign to a variable the distribution with needed values of parameters, and then use that variable with all methods of the distribution. E.g. the example above can be also rewritten</p>
-<div id="50a272f9" class="cell" data-execution_count="24">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>rv <span class="op">=</span> expon(scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> rv.ppf(<span class="fl">0.3</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>rv.cdf(a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="9f621db9" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>rv <span class="op">=</span> expon(scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">0.2</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> rv.ppf(<span class="fl">0.3</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>rv.cdf(a)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>0.30000000000000004</code></pre>
 </div>
@@ -1015,8 +1091,8 @@ f_X(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Lab4.html" class="pagination-link" aria-label="Lab 4 - Problems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 4 - Problems</span>
+      <a href="./Lab4-solutions.html" class="pagination-link" aria-label="Lab 4 - Solutions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 4 - Solutions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
