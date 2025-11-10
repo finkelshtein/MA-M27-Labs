@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 6 – MA-M27 Lab Assignments</title>
+<title>Lab 6 - Solutions – MA-M27 Lab Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Lab5.html" rel="prev">
+<link href="./Lab5-solutions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -138,9 +138,9 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Lab 6 – MA-M27 Lab Assignments">
+<meta property="og:title" content="Lab 6 - Solutions – MA-M27 Lab Assignments">
 <meta property="og:description" content="Lab Assignments for MA-M27 Probability and Statistics for Data Science">
-<meta property="og:image" content="Lab6_files/figure-html/cell-39-output-1.png">
+<meta property="og:image" content="Lab6-solutions_files/figure-html/cell-39-output-1.png">
 <meta property="og:site_name" content="MA-M27 Lab Assignments">
 </head>
 
@@ -153,7 +153,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab6.html">Lab 6 - Problems</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab6-solutions.html">Lab 6 - Solutions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -227,7 +227,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab6.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Lab6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 6 - Problems</span></a>
   </div>
 </li>
@@ -275,7 +275,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab6-solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="./Lab6-solutions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 6 - Solutions</span></a>
   </div>
 </li>
@@ -318,9 +318,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab6.html">Lab 6 - Problems</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab6-solutions.html">Lab 6 - Solutions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 6</h1>
+<h1 class="title">Lab 6 - Solutions</h1>
 </div>
 
 
@@ -373,7 +373,7 @@ p_{X,Y}(x_i,y_j)=\mathbb{P}(X=x_i, Y=y_j), \qquad x_i\in \{0,1\}, y_j\in \{0.1,2
 </table>
 <p>(so that here, e.g.&nbsp;<span class="math inline">\(p_{X,Y}(0,0)=0.1\)</span>, <span class="math inline">\(p_{X,Y}(0,3)=0.25\)</span> and so on).</p>
 <p>The values of <span class="math inline">\(p_{X,Y}\)</span> naturally form a matrix, of size <span class="math inline">\(2\times 4\)</span>. To work with this matrix in Python, we will use two-dimensional Numpy-arrays:</p>
-<div id="3cca81de" class="cell" data-execution_count="1">
+<div id="c75680c8" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pxy <span class="op">=</span> np.array([[<span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.05</span>, <span class="fl">0.25</span>],</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                [<span class="fl">0.15</span>, <span class="fl">0.05</span>, <span class="fl">0.15</span>, <span class="fl">0.1</span>]])</span>
@@ -392,7 +392,7 @@ p_Y(y_j)&amp;=\mathbb{P}(Y=y_j) = \sum_{i}p_{X,Y}(x_i,y_j).
 \end{aligned}
 \]</span></p>
 <p>In Numpy, we can sum-up <strong>along</strong> any dimension, called <code>axis</code>. The first dimension (rows) corresponds to <code>axis = 0</code>, the second dimension (columns) corresponds to<code>axis = 1</code>. <strong>However</strong>, to get sums of elements in <em>each row</em> of array <code>pxy</code> we can write <code>np.sum(pxy, axis = 1)</code> <strong>or</strong> <code>pxy.sum(axis = 1)</code>:</p>
-<div id="5f2002e4" class="cell" data-execution_count="2">
+<div id="c60e4040" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>px <span class="op">=</span> np.<span class="bu">sum</span>(pxy, axis <span class="op">=</span> <span class="dv">1</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>px</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -432,7 +432,7 @@ p_Y(y_j)&amp;=\mathbb{P}(Y=y_j) = \sum_{i}p_{X,Y}(x_i,y_j).
 </tbody>
 </table>
 <p>Similarly, to get the sums of all columns we write <code>np.sum(pxy, axis = 0)</code> or <code>pxy.sum(axis = 0)</code> as the results form a row:</p>
-<div id="44f8e6fc" class="cell" data-execution_count="3">
+<div id="8b50a753" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>py <span class="op">=</span> pxy.<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
@@ -476,7 +476,7 @@ p_Y(y_j)&amp;=\mathbb{P}(Y=y_j) = \sum_{i}p_{X,Y}(x_i,y_j).
 </table>
 <p>Another way of thinking is that <code>axis = 0</code> tells “to get rid of” rows, so only columns would remain (that’s why <code>py</code> has 4 components, the number of columns in the original <code>pxy</code>), whereas <code>axis = 1</code> tells to get rid of columns so only 2 rows remain in <code>px</code>.</p>
 <p>Note that, as it should be, the sum of all probabilities for <span class="math inline">\(X\)</span> is <span class="math inline">\(1\)</span>, and the same sum for <span class="math inline">\(Y\)</span> is <span class="math inline">\(1\)</span>. Again, we can use either <code>np.sum(px)</code> or <code>px.sum()</code> command:</p>
-<div id="c38b541c" class="cell" data-execution_count="4">
+<div id="6b5abe89" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>[np.<span class="bu">sum</span>(px), py.<span class="bu">sum</span>()]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[1.0, 1.0]</code></pre>
@@ -487,7 +487,7 @@ p_Y(y_j)&amp;=\mathbb{P}(Y=y_j) = \sum_{i}p_{X,Y}(x_i,y_j).
 \sum_{i}\sum_{j}p_{X,Y}(x_i,y_j)=1.
 \]</span></p>
 <p>We will also need the array of values of <span class="math inline">\(X\)</span> and of <span class="math inline">\(Y\)</span>. In this case, they can be defined manually:</p>
-<div id="b654a402" class="cell" data-execution_count="5">
+<div id="aeccacb1" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">1</span>])</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -495,7 +495,7 @@ p_Y(y_j)&amp;=\mathbb{P}(Y=y_j) = \sum_{i}p_{X,Y}(x_i,y_j).
 </div>
 </div>
 <p>or using e.g.&nbsp;<code>arange</code> function:</p>
-<div id="469a2df0" class="cell" data-execution_count="6">
+<div id="ee5e85e2" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.arange(<span class="dv">4</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -514,9 +514,16 @@ a \cdot b = a_1b_1+\ldots+b_n b_n.
 <h2 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> </h2>
 <div class="task">
 <p>Calculate <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\mathbb{E}(Y)\)</span> and assign the results to <code>mx</code> and <code>my</code>, respectively.</p>
+<div id="f41b863a" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mx <span class="op">=</span> x.dot(px)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>my <span class="op">=</span> y.dot(py)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Check the answer:</p>
-<div id="675e8872" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>[mx, my]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="cf28c03c" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>[mx, my]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>[0.44999999999999996, 1.65]</code></pre>
 </div>
@@ -541,9 +548,9 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 (Qy)_i = \sum_{j}  y_j \cdot p_{X,Y}(x_i,y_j).
 \]</span></p>
 <p>The Numpy command is the same <code>Q.dot(y)</code> (in our case <code>Q</code> was previously denoted <code>pxy</code>), though here the order is important (we multiply a matrix by a vector).</p>
-<div id="82c62b3d" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Qy <span class="op">=</span> pxy.dot(y)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>Qy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="59e33710" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Qy <span class="op">=</span> pxy.dot(y)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Qy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>array([1.  , 0.65])</code></pre>
 </div>
@@ -553,16 +560,16 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 \mathbb{E}(XY) = \sum_{i} x_i \cdot (Qy)_i = x\cdot Qy,
 \]</span></p>
 <p>i.e.</p>
-<div id="94e4922b" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mxy <span class="op">=</span> x.dot(Qy)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mxy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="376f84e9" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mxy <span class="op">=</span> x.dot(Qy)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mxy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>0.65</code></pre>
 </div>
 </div>
 <p>Surely, it was possible to do not introduce the intermediate <code>Qy</code> and claculate all in one command:</p>
-<div id="3eca057e" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x.dot(pxy.dot(y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="3d50efe5" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>x.dot(pxy.dot(y))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>0.65</code></pre>
 </div>
@@ -572,9 +579,15 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 <h2 data-number="1.2" class="anchored" data-anchor-id="section-1"><span class="header-section-number">1.2</span> </h2>
 <div class="task">
 <p>Find <span class="math inline">\(\mathrm{cov}(X,Y)=\mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y)\)</span> and assign it to <code>covxy</code>.</p>
+<div id="d6c3d3f3" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>covxy <span class="op">=</span> mxy <span class="op">-</span> mx<span class="op">*</span>my</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Check the answer:</p>
-<div id="583e0acd" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>covxy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5fa83b16" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>covxy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>-0.09249999999999992</code></pre>
 </div>
@@ -589,9 +602,16 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 \sigma^2(X)=\mathrm{Var}(X)= \mathbb{E}(X^2)- (\mathbb{E}(X))^2
 \]</span></p>
 <p>and assign them to <code>sx,sy</code>, respectively. Recall that the square root can be obtained by using <code>np.sqrt</code> function.</p>
+<div id="3b5b63aa" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sx <span class="op">=</span> np.sqrt((x<span class="op">**</span><span class="dv">2</span>).dot(px) <span class="op">-</span> mx <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>sy <span class="op">=</span> np.sqrt((y<span class="op">**</span><span class="dv">2</span>).dot(py) <span class="op">-</span> my <span class="op">**</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Check the answer:</p>
-<div id="de2b0030" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>[sx, sy]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="c90810c2" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>[sx, sy]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>[0.49749371855331, 1.1947803145348523]</code></pre>
 </div>
@@ -602,15 +622,21 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 <h2 data-number="1.4" class="anchored" data-anchor-id="section-3"><span class="header-section-number">1.4</span> </h2>
 <div class="task">
 <p>Find <span class="math inline">\(\mathrm{corr}(X,Y)=\frac{\mathrm{cov}(X,Y)}{\sigma(X)\sigma(Y)}\)</span> and assign it to <code>corrxy</code>.</p>
+<div id="f4f50a90" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>corrxy <span class="op">=</span> covxy<span class="op">/</span>(sx<span class="op">*</span>sy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Check the answer:</p>
-<div id="dac2271e" class="cell" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>corrxy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="d43626ea" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>corrxy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>-0.15562023709382963</code></pre>
 </div>
 </div>
-<p>Therefore, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are weakly negatively correlated.</p>
 </div>
+<p>Therefore, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are weakly negatively correlated.</p>
 <section id="if-you-have-time" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="if-you-have-time">If you have time</h3>
 </section>
@@ -619,9 +645,16 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 <h2 data-number="1.5" class="anchored" data-anchor-id="section-4"><span class="header-section-number">1.5</span> </h2>
 <div class="task">
 <p>Download file <a href="jointdistr.csv">jointdistr.csv</a>, and upload it to anaconda.com/app. Import Pandas library and load the data from this file to Pandas data frame <code>df</code>.</p>
+<div id="9e46a028" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'jointdistr.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Check the result:</p>
-<div id="2392c6d7" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="6c4e6630" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
@@ -770,15 +803,15 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 </div>
 </div>
 <p>We can also inspect the size of the data frame:</p>
-<div id="c266465d" class="cell" data-execution_count="20">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b05d2b2e" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>(15, 19)</code></pre>
 </div>
 </div>
 <p>It is possible to work with the data frame directly, but for simplicity, we convert its content into Numpy array:</p>
-<div id="31602ecb" class="cell" data-execution_count="21">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pxy <span class="op">=</span> df.to_numpy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="cb5b4fcf" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>pxy <span class="op">=</span> df.to_numpy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Look at the output of <code>pxy</code> (it’s quite long).</p>
 </section>
@@ -786,9 +819,26 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 <h2 data-number="1.6" class="anchored" data-anchor-id="section-5"><span class="header-section-number">1.6</span> </h2>
 <div class="task">
 <p>Let <span class="math inline">\(X\in\{0,\ldots,14\}\)</span> and <span class="math inline">\(Y\in\{0,\ldots,18\}\)</span> be discrete random variables with the joint distribution given by the table above. Find <span class="math inline">\(\mathrm{corr}(X,Y)\)</span>.</p>
+<div id="f3ea0a32" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>px <span class="op">=</span> np.<span class="bu">sum</span>(pxy, axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>py <span class="op">=</span> np.<span class="bu">sum</span>(pxy, axis <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(df.shape[<span class="dv">0</span>]) <span class="co"># i.e. np.arange(14)</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.arange(df.shape[<span class="dv">1</span>]) <span class="co"># i.e. np.arange(18)</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>mx <span class="op">=</span> x.dot(px)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>my <span class="op">=</span> y.dot(py)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>Qy <span class="op">=</span> pxy.dot(y)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>mxy <span class="op">=</span> x.dot(Qy)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>covxy <span class="op">=</span> mxy <span class="op">-</span> mx<span class="op">*</span>my</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>sx <span class="op">=</span> np.sqrt((x<span class="op">**</span><span class="dv">2</span>).dot(px) <span class="op">-</span> mx<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>sy <span class="op">=</span> np.sqrt((y<span class="op">**</span><span class="dv">2</span>).dot(py) <span class="op">-</span> my<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>corrxy <span class="op">=</span> covxy<span class="op">/</span>(sx<span class="op">*</span>sy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Check the answer:</p>
-<div id="b7672c82" class="cell" data-execution_count="23">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>corrxy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="703c2496" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>corrxy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>-0.014393645358847105</code></pre>
 </div>
@@ -803,26 +853,26 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 \overline{X}_n = \frac{X_1+\ldots+X_n}{n}
 \]</span></p>
 <p>for independent identically distributed random variables <span class="math inline">\(X_1,X_2,\ldots\)</span>.</p>
-<p>Consider <span class="math inline">\(n=5\)</span> values of e.g.&nbsp;binomial random variable <span class="math inline">\(X\sim Bin(10, 0.3)\)</span> (see Lab 3):</p>
-<div id="c82bca6c" class="cell" data-execution_count="24">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> binom.rvs(<span class="dv">10</span>, <span class="fl">0.3</span>, size <span class="op">=</span> n, random_state <span class="op">=</span> <span class="dv">12</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Consider <span class="math inline">\(n=5\)</span> values of e.g.&nbsp;binomial random variable <span class="math inline">\(X\sim Bin(10, 0.3)\)</span> (see Lab 2):</p>
+<div id="d4ef4993" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> binom.rvs(<span class="dv">10</span>, <span class="fl">0.3</span>, size <span class="op">=</span> n, random_state <span class="op">=</span> <span class="dv">12</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>array([2, 4, 2, 3, 0], dtype=int64)</code></pre>
 </div>
 </div>
 <p>We know that, for <span class="math inline">\(X\sim Bin(10,0.3)\)</span>, <span class="math inline">\(\mathrm{E}(X)=10\cdot 0.3=3\)</span>. If you don’t remember the formula, you can use Python:</p>
-<div id="7d56e0a8" class="cell" data-execution_count="25">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>binom.mean(<span class="dv">10</span>, <span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="98013477" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>binom.mean(<span class="dv">10</span>, <span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>3.0</code></pre>
 </div>
 </div>
 <p>On the other hand,</p>
-<div id="78b310d0" class="cell" data-execution_count="26">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>x.mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b9961b29" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x.mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>2.2</code></pre>
 </div>
@@ -832,9 +882,17 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 <h2 data-number="2.1" class="anchored" data-anchor-id="section-6"><span class="header-section-number">2.1</span> </h2>
 <div class="task">
 <p>Repeat the previous calculations fr <span class="math inline">\(n=50\)</span>, use the same <code>random_state = 12</code>. Assign <span class="math inline">\(\overline{X}_n\)</span> to <code>xbar</code>.</p>
+<div id="50878602" class="cell" data-execution_count="27">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> binom.rvs(<span class="dv">10</span>, <span class="fl">0.3</span>, size <span class="op">=</span> n, random_state <span class="op">=</span> <span class="dv">12</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>xbar <span class="op">=</span> x.mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Check the answer:</p>
-<div id="928d3d9b" class="cell" data-execution_count="28">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>xbar</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="48f9ebf3" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>xbar</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>3.06</code></pre>
 </div>
@@ -843,34 +901,34 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 </div>
 <p>Surely, if you change <code>random_state</code>, you will get another sample and another value of <span class="math inline">\(\overline{X}_n\)</span>, that may be more or less closer to <span class="math inline">\(\mathbb{E}(X)\)</span>. Let now generate many such samples (of the same size <span class="math inline">\(n=50\)</span>).</p>
 <p>We will use a loop for this. The following code generates <span class="math inline">\(K=50\)</span> samples of length <span class="math inline">\(n=50\)</span> of values of <span class="math inline">\(X\sim Bin(10,0.3)\)</span> and store the sample means in the list <code>Xbar</code> (we use the loop index as the random state, it’s not compulsory, of course):</p>
-<div id="95ff5c92" class="cell" data-execution_count="29">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>Xbar <span class="op">=</span> []</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(K):</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> binom.rvs(<span class="dv">10</span>, <span class="fl">0.3</span>, size <span class="op">=</span> n, random_state <span class="op">=</span> i)</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>        Xbar.append(x.mean())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="40b423eb" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>Xbar <span class="op">=</span> []</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(K):</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> binom.rvs(<span class="dv">10</span>, <span class="fl">0.3</span>, size <span class="op">=</span> n, random_state <span class="op">=</span> i)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>        Xbar.append(x.mean())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Look at the output of <code>Xbar</code>.</p>
 <p>Note that more “Pythonic”-way would be to use the list comprehension:</p>
-<div id="12897106" class="cell" data-execution_count="30">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>Xbar <span class="op">=</span> [np.mean(binom.rvs(<span class="dv">10</span>, <span class="fl">0.3</span>, size <span class="op">=</span> n, random_state <span class="op">=</span> i)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(K)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="aff09cd3" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>Xbar <span class="op">=</span> [np.mean(binom.rvs(<span class="dv">10</span>, <span class="fl">0.3</span>, size <span class="op">=</span> n, random_state <span class="op">=</span> i)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(K)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We will work with a Numpy array, not just a list:</p>
-<div id="4b3d8db5" class="cell" data-execution_count="31">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>Xbar <span class="op">=</span> np.array(Xbar)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="91e8eadc" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>Xbar <span class="op">=</span> np.array(Xbar)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now, suppose we want to calculate <span class="math inline">\(\mathbb{P}(\overline{X}_{n=50}&lt;2.9)\)</span>. We may look at the proportion of the entries of <code>Xbar</code> which are less than <code>2.9</code>: namely, <code>Xbar&lt;2.9</code> is the list of <code>True</code> and <code>False</code>, where <code>True = 1</code> and <code>False = 0</code>. Hence, the sum of this list gives the number of <code>True</code> among all <span class="math inline">\(K\)</span> trials. Dividing by <span class="math inline">\(K\)</span> we get the desired proportion:</p>
-<div id="d593537c" class="cell" data-execution_count="32">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="bu">sum</span>(Xbar <span class="op">&lt;</span> <span class="fl">2.9</span>)<span class="op">/</span>K</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="4ee2cd7c" class="cell" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="bu">sum</span>(Xbar <span class="op">&lt;</span> <span class="fl">2.9</span>)<span class="op">/</span>K</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>0.28</code></pre>
 </div>
 </div>
 <p>Next, we know that <span class="math inline">\(\mu=\mathbb{E}(X)=3\)</span> and <span class="math inline">\(\sigma=\sigma(X)=\sqrt{10\cdot0.3\cdot(1-0.3)}=1.449\)</span>, or:</p>
-<div id="3bf05d43" class="cell" data-execution_count="33">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>binom.std(<span class="dv">10</span>, <span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b6e415eb" class="cell" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>binom.std(<span class="dv">10</span>, <span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>1.449137674618944</code></pre>
 </div>
@@ -883,9 +941,9 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 &amp;=\mathbb{P}(Z_n &lt;\underbrace{\frac{2.9-3}{\frac{1.449}{\sqrt{50}}}}_{\color{red}=z})
 \end{aligned}
 \]</span></p>
-<div id="be01ece1" class="cell" data-execution_count="34">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> (<span class="fl">2.9</span> <span class="op">-</span> binom.mean(<span class="dv">10</span>, <span class="fl">0.3</span>))<span class="op">/</span>(binom.std(<span class="dv">10</span>, <span class="fl">0.3</span>)<span class="op">/</span>np.sqrt(n))</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="4963ec83" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> (<span class="fl">2.9</span> <span class="op">-</span> binom.mean(<span class="dv">10</span>, <span class="fl">0.3</span>))<span class="op">/</span>(binom.std(<span class="dv">10</span>, <span class="fl">0.3</span>)<span class="op">/</span>np.sqrt(n))</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>-0.487950036474267</code></pre>
 </div>
@@ -895,9 +953,9 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 \mathbb{P}(\overline{X}_{n=50}&lt;2.9)\approx \Phi(z)=\Phi(-0.488).
 \]</span></p>
 <p>We have</p>
-<div id="6c83207c" class="cell" data-execution_count="35">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>norm.cdf(z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="e1b08b74" class="cell" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>norm.cdf(z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>0.3127926157621625</code></pre>
 </div>
@@ -908,9 +966,18 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 <h2 data-number="2.2" class="anchored" data-anchor-id="section-7"><span class="header-section-number">2.2</span> </h2>
 <div class="task">
 <p>Repeat the previous considerations find <code>p</code> for <span class="math inline">\(K=1000\)</span>.</p>
+<div id="41686acf" class="cell" data-execution_count="36">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>Xbar <span class="op">=</span> np.array([np.mean(binom.rvs(<span class="dv">10</span>, <span class="fl">0.3</span>, size <span class="op">=</span> n, random_state <span class="op">=</span> i)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(K)])</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="bu">sum</span>(Xbar <span class="op">&lt;</span> <span class="fl">2.9</span>)<span class="op">/</span>K</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Check the answer:</p>
-<div id="95338b92" class="cell" data-execution_count="37">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="a618b2ec" class="cell" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>0.306</code></pre>
 </div>
@@ -920,17 +987,17 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 <section id="if-you-have-time-1" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="if-you-have-time-1">If you have time</h3>
 <p>We can also build the histogram for e.g.&nbsp;<span class="math inline">\(Z_n=\frac{\overline{X}_n-\mu}{\frac{\sigma}{\sqrt{n}}}\)</span> and compare it visually with the PDF of the standard normal distribution:</p>
-<div id="038eb282" class="cell" data-execution_count="38">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> (Xbar <span class="op">-</span> binom.mean(<span class="dv">10</span>, <span class="fl">0.3</span>))<span class="op">/</span>(binom.std(<span class="dv">10</span>, <span class="fl">0.3</span>)<span class="op">/</span>np.sqrt(n))</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>plt.hist(Z, bins <span class="op">=</span> <span class="dv">10</span>, density <span class="op">=</span> <span class="va">True</span>) <span class="co"># To have density values, i.e. the frequences</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="bu">min</span>(Z), <span class="bu">max</span>(Z), <span class="dv">100</span>)</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x, norm.pdf(x), color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b9ce06ec" class="cell" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> (Xbar <span class="op">-</span> binom.mean(<span class="dv">10</span>, <span class="fl">0.3</span>))<span class="op">/</span>(binom.std(<span class="dv">10</span>, <span class="fl">0.3</span>)<span class="op">/</span>np.sqrt(n))</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>plt.hist(Z, bins <span class="op">=</span> <span class="dv">10</span>, density <span class="op">=</span> <span class="va">True</span>) <span class="co"># To have density values, i.e. the frequences</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="bu">min</span>(Z), <span class="bu">max</span>(Z), <span class="dv">100</span>)</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x, norm.pdf(x), color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab6_files/figure-html/cell-39-output-1.png" width="580" height="411" class="figure-img"></p>
+<p><img src="Lab6-solutions_files/figure-html/cell-39-output-1.png" width="580" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -941,9 +1008,22 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
 <h2 data-number="2.3" class="anchored" data-anchor-id="section-8"><span class="header-section-number">2.3</span> </h2>
 <div class="task">
 <p>Generate <span class="math inline">\(K=10000\)</span> samples of <span class="math inline">\(n=50\)</span> exponential random variables with the parameter <span class="math inline">\(\lambda=0.1\)</span>. Use <code>random_state</code> equal to loop index as before. Calculate <span class="math inline">\(p\approx\mathbb{P}(\overline{X}_{50}&lt;9.5)\)</span> from the frequency of the corresponding events. Calculate the approximate value <span class="math inline">\(q=\Phi(z)\)</span> of <span class="math inline">\(\mathbb{P}(\overline{X}_{50}&lt;10)\)</span> using the central limit theorem. (Don’t forget that <code>expon</code> from <code>scipy.stats</code> has the parameter <code>scale</code> <strong>inverse</strong> to <span class="math inline">\(\lambda\)</span>.)</p>
+<div id="66edc7a2" class="cell" data-execution_count="39">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> expon, norm</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>la <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>Xbar <span class="op">=</span> np.array([np.mean(expon.rvs(scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>la, size <span class="op">=</span> n, random_state <span class="op">=</span> i)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(K)])</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="bu">sum</span>(Xbar <span class="op">&lt;</span> <span class="fl">9.5</span>)<span class="op">/</span>K</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> (<span class="fl">9.5</span> <span class="op">-</span> expon.mean(scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>la))<span class="op">/</span>(expon.std(scale <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>la)<span class="op">/</span>np.sqrt(n))</span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> norm.cdf(z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Check the difference:</p>
-<div id="1b8a8fb5" class="cell" data-execution_count="40">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">abs</span>(p<span class="op">-</span>q)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b6821f67" class="cell" data-execution_count="40">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">abs</span>(p<span class="op">-</span>q)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>0.01326319508411844</code></pre>
 </div>
@@ -1357,8 +1437,8 @@ p_{X,Y}(x_m,y_1) &amp; \ldots &amp; p_{X,Y}(x_m,y_n)
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Lab5.html" class="pagination-link" aria-label="Lab 5 - Problems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 5 - Problems</span>
+      <a href="./Lab5-solutions.html" class="pagination-link" aria-label="Lab 5 - Solutions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 5 - Solutions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
