@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction – MA-M27 Lab Assignments</title>
+<title>Lab 9 – MA-M27 Lab Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Lab8.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,11 +101,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Introduction – MA-M27 Lab Assignments">
-<meta property="og:description" content="Lab Assignments for MA-M27 Probability and Statistics for Data Science">
-<meta property="og:image" content="images/AC-menu.png">
+<meta property="og:title" content="Lab 9 – MA-M27 Lab Assignments">
+<meta property="og:image" content="Lab9_files/figure-html/cell-2-output-1.png">
 <meta property="og:site_name" content="MA-M27 Lab Assignments">
 </head>
 
@@ -83,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab9.html">Lab 9 - Problems</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -110,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -174,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab9.html" class="sidebar-item-text sidebar-link">
+  <a href="./Lab9.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 9 - Problems</span></a>
   </div>
 </li>
@@ -250,17 +313,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">In this Lab</h2>
    
   <ul>
-  <li><a href="#sign-up-to-anaconda-do-it-once" id="toc-sign-up-to-anaconda-do-it-once" class="nav-link active" data-scroll-target="#sign-up-to-anaconda-do-it-once"><span class="header-section-number">1</span> Sign up to Anaconda (do it once)</a></li>
-  <li><a href="#log-in-to-anaconda-do-it-for-each-lab" id="toc-log-in-to-anaconda-do-it-for-each-lab" class="nav-link" data-scroll-target="#log-in-to-anaconda-do-it-for-each-lab"><span class="header-section-number">2</span> Log in to Anaconda (do it for each lab)</a></li>
+  <li><a href="#time-series-modelling" id="toc-time-series-modelling" class="nav-link active" data-scroll-target="#time-series-modelling"><span class="header-section-number">1</span> Time series modelling</a>
+  <ul class="collapse">
+  <li><a href="#ar1-model" id="toc-ar1-model" class="nav-link" data-scroll-target="#ar1-model"><span class="math inline">\(AR(1)\)</span>-model</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.1</span> </a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="header-section-number">1.2</span> </a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="header-section-number">1.3</span> </a>
+  <ul class="collapse">
+  <li><a href="#ar2-model" id="toc-ar2-model" class="nav-link" data-scroll-target="#ar2-model"><span class="math inline">\(AR(2)\)</span>-model</a></li>
+  </ul></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"><span class="header-section-number">1.4</span> </a>
+  <ul class="collapse">
+  <li><a href="#arma2q-model" id="toc-arma2q-model" class="nav-link" data-scroll-target="#arma2q-model"><span class="math inline">\(ARMA(2,q)\)</span>-model</a></li>
+  <li><a href="#arma33-model" id="toc-arma33-model" class="nav-link" data-scroll-target="#arma33-model"><span class="math inline">\(ARMA(3,3)\)</span>-model</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#if-you-have-more-time" id="toc-if-you-have-more-time" class="nav-link" data-scroll-target="#if-you-have-more-time"><span class="header-section-number">2</span> If you have more time</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab9.html">Lab 9 - Problems</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introduction</h1>
+<h1 class="title">Lab 9</h1>
 </div>
 
 
@@ -277,42 +354,211 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="sign-up-to-anaconda-do-it-once" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Sign up to Anaconda (do it once)</h1>
+<section id="time-series-modelling" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Time series modelling</h1>
+<section id="ar1-model" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ar1-model"><span class="math inline">\(AR(1)\)</span>-model</h3>
+<p>Recall that <span class="math inline">\(AR(1)\)</span> model describes the times series which satisfies</p>
+<p><span class="math display">\[
+X_n = a X_{n-1} + Z_n,
+\]</span></p>
+<p>where <span class="math inline">\(\{Z_n\}\)</span> is a white noise. We have, hence,</p>
+<p><span class="math display">\[
+\begin{aligned}
+X_1 &amp; = a X_0 + Z_1,\\
+X_2 &amp; = a X_1 + Z_2,\\
+X_3 &amp; = a X_2 + Z_3,\\
+\vdots\\
+X_n &amp; = a X_{n-1} + Z_n,\\
+\vdots
+\end{aligned}
+\]</span></p>
+<p>Thus, to generate the first <span class="math inline">\(n\)</span> values of the time series, i.e.&nbsp;<span class="math inline">\(X_1,\ldots,X_n\)</span>, one needs to have:</p>
 <ul>
-<li><p>Go to <a href="https://anaconda.com/app/" class="uri">https://anaconda.com/app/</a></p></li>
-<li><p>Sign up using your personal or University email address.</p></li>
-<li><p><em>Advice</em>: do not use your University password.</p></li>
+<li><p><span class="math inline">\(X_0\)</span></p></li>
+<li><p><span class="math inline">\(Z_1,\ldots,Z_n\)</span></p></li>
 </ul>
+<p><span class="math inline">\(X_0\)</span> can be chosen as an arbitrary number. Next, we will model <span class="math inline">\(Z_1,\ldots,Z_n\)</span> as i.i.d. standard normal r.v.: <span class="math inline">\(Z_i\sim \mathcal{N}(0,1)\)</span>.</p>
+<p>Let’s generate first <span class="math inline">\(1000\)</span> values of <span class="math inline">\(\{X_n\}\)</span> (i.e.&nbsp;<span class="math inline">\(X_1,\ldots,X_{1000}\)</span>) for <span class="math inline">\(a=0.999\)</span>; recall that then <span class="math inline">\(\{X_n\}\)</span> is stationary. We will use a loop from <span class="math inline">\(1\)</span> to <span class="math inline">\(n=1000\)</span>. We choose <span class="math inline">\(X_0=1\)</span>. Note that if <span class="math inline">\(X\)</span> is stored in a Numpy array, it’s better to create first an “empty” array with all entries equal to <span class="math inline">\(0\)</span>, and then just assign (otherwise, the array would become larger on each step, and this is very much time and memory consuming). So, let’s run the following code, and plot the corresponding time series:</p>
+<div id="f91e5855" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.999</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> norm.rvs(size <span class="op">=</span> n<span class="op">+</span><span class="dv">1</span>) <span class="co"># If we generate all Z_0, Z_1, ..., Z_n at once</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.zeros(n<span class="op">+</span><span class="dv">1</span>) <span class="co"># Numpy array of n+1 zeroes</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>):  <span class="co"># Recall that the end is not included</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    x[i] <span class="op">=</span> a <span class="op">*</span> x[i<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> z[i]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.plot(x)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab9_files/figure-html/cell-2-output-1.png" width="577" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>alternatively, we could generate <span class="math inline">\(Z_i\)</span> on each step:</p>
+<div id="d831a7c1" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.999</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.zeros(n<span class="op">+</span><span class="dv">1</span>) <span class="co"># Numpy array of n+1 zeroes</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>):  <span class="co"># Recall that the end is not included</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    x[i] <span class="op">=</span> a <span class="op">*</span> x[i<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> norm.rvs(size <span class="op">=</span> <span class="dv">1</span>)[<span class="dv">0</span>] <span class="co"># Generate Z_i on each step</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.plot(x, color <span class="op">=</span> <span class="st">"green"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab9_files/figure-html/cell-3-output-1.png" width="577" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Surely, we got quite different results: not because we generated <span class="math inline">\(\{Z_n\}\)</span> in different ways, but because of the randomness of <span class="math inline">\(\{Z_n\}\)</span> (we can fix them by using <code>random_state</code> parameter inside function <code>norm.rvs</code>).</p>
+<p>The result may be a bit confusing, as here <span class="math inline">\(|a|&lt;1\)</span>, so <span class="math inline">\(\{X_n\}\)</span> is a stationary time series, i.e.&nbsp;we would expect more “regular” behaviour. However, this can be seen on large time intervals only.</p>
 </section>
-<section id="log-in-to-anaconda-do-it-for-each-lab" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Log in to Anaconda (do it for each lab)</h1>
-<ul>
-<li><p>Login to <a href="https://anaconda.com/app/" class="uri">https://anaconda.com/app/</a></p></li>
-<li><p>Choose “Notebooks” in the Explore Anaconda section:</p></li>
-</ul>
-<p><img src="images/AC-menu.png" class="img-fluid" style="width:40.0%"></p>
-<ul>
-<li>Open the file browser (from the left side menu bar)</li>
-</ul>
-<p><img src="images/AC-new-folder.png" class="img-fluid" style="width:5.0%"></p>
-<ul>
-<li>Create a folder for all files related to this module:</li>
-</ul>
-<p><img src="images/AC-new-folder2.png" class="img-fluid" style="width:30.0%"></p>
-<p>and name it, e.g., “MA-M27”.</p>
-<ul>
-<li><p>Open the created folder.</p></li>
-<li><p>Press blue button with “+”</p></li>
-</ul>
-<p><img src="images/AC-new-NB.png" class="img-fluid" style="width:40.0%"></p>
-<p>and choose any of anaconda-notebooks:</p>
-<p><img src="images/AC-run.png" class="img-fluid" style="width:50.0%"></p>
-<ul>
-<li>Rename the created file</li>
-</ul>
-<p><img src="images/AC-rename.png" class="img-fluid" style="width:50.0%"></p>
-<p>e.g.&nbsp;to “Lab1.ipynb”, “Lab2.ipynb” etc.</p>
+<section id="section" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> </h2>
+<div class="task">
+<p>Generate the first <span class="math inline">\(10^6\)</span> values of the time series <span class="math inline">\(\{X_n\}\)</span> and plot the graph. <strong>Include some comments into your code explaining the steps.</strong> (Recall that comments in Python are any text after <code>#</code> symbol.)</p>
+<p>Your output should be similar to this:</p>
+<div id="a686f52e" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab9_files/figure-html/cell-4-output-1.png" width="586" height="428" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you still think that the graph too much fluctuates, think about the scale: the length is (approximately) in <span class="math inline">\(5000\)</span> times larger than the height.</p>
+</div>
+</section>
+<section id="section-1" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="section-1"><span class="header-section-number">1.2</span> </h2>
+<div class="task">
+<p><strong>Very important task</strong> as a part of the Lab Test preparation.</p>
+<p>Save your Python notebook with solved Task 1.1 in the Anaconda.com/app. In menu File, choose Download and save the Python Notebook to your device. Rename the file on your device, so that the file name would be your student number. Upload the file to Canvas Assignment “Task 1.2 of Lab 9” and submit the Assignment.</p>
+</div>
+<p>Now you may continue working with your file in Anaconda.com/app; further changes there <strong>do not need</strong> to be uploaded to Canvas.</p>
+</section>
+<section id="section-2" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="section-2"><span class="header-section-number">1.3</span> </h2>
+<div class="task">
+<p>Now generate the first <span class="math inline">\(10^6\)</span> of the time series <span class="math inline">\(Y_n= Y_{n-1}+W_n\)</span>, where <span class="math inline">\(\{W_n\}\)</span> is <strong>another</strong> white noise, <span class="math inline">\(W_n\sim\mathcal{N}(0,1)\)</span>, generated separately from <span class="math inline">\(\{Z_n\}\)</span>. Choose <span class="math inline">\(Y_0=5\)</span>. Store it in <code>y</code> and make two graphs for <span class="math inline">\(X_n\)</span> and <span class="math inline">\(Y_n\)</span> on the same plot (by typing two commands <code>plt.plot</code> with one <code>plt.show()</code> at the end). Make them in different colours: blue for <code>x</code> and red for <code>y</code>.</p>
+<div id="e6ee3f52" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab9_files/figure-html/cell-5-output-1.png" width="583" height="428" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can see now how different is the behaviour of a stationary (<span class="math inline">\(X_n\)</span>) and a non-stationary (<span class="math inline">\(Y_n\)</span>) time series.</p>
+</div>
+<section id="ar2-model" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="ar2-model"><span class="math inline">\(AR(2)\)</span>-model</h3>
+<p>In <span class="math inline">\(AR(2)\)</span>-model, we have</p>
+<p><span class="math display">\[
+X_n = a X_{n-1} + b X_{n-2} + Z_n.
+\]</span></p>
+<p>Then, we need to set values to <span class="math inline">\(X_0\)</span> and <span class="math inline">\(X_1\)</span>, and then we can define iteratively <span class="math display">\[
+\begin{aligned}
+X_2 &amp; = a X_1 + b X_0 + Z_2,\\
+X_3 &amp; = a X_2 + b X_1 + Z_3,\\
+X_4 &amp; = a X_3 + b X_2 + Z_4,\\
+\vdots
+\end{aligned}
+\]</span></p>
+</section>
+</section>
+<section id="section-3" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="section-3"><span class="header-section-number">1.4</span> </h2>
+<div class="task">
+<p>Consider the example from a lecture: <span class="math inline">\(X_n=\frac1{12} X_{n-1}+\frac12 X_{n-2}+Z_n\)</span>. Set <span class="math inline">\(X_0=X_1=1\)</span>. Generate <span class="math inline">\(10^4\)</span> values (note that you should start from <span class="math inline">\(n=2\)</span>) and assign them to <code>x</code>. Plot the graph of <code>x</code>.</p>
+<div id="a6b93bd1" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab9_files/figure-html/cell-6-output-1.png" width="569" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hence, this is quite agreed with the theoretical prediction we made on lecture: the time series demonstrates stationary behaviour.</p>
+</div>
+<section id="arma2q-model" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="arma2q-model"><span class="math inline">\(ARMA(2,q)\)</span>-model</h3>
+<p>Recall that <span class="math inline">\(ARMA(2,q)\)</span> means that</p>
+<p><span class="math display">\[
+X_n = a X_{n-1} + b X_{n-2} + Z_n + \beta_1 Z_{n-1}+\ldots+\beta_q Z_{n-q}.
+\]</span></p>
+<p>We discussed on a lecture that <span class="math inline">\(MA\)</span>-part with past white noises does not affect the stationarity (or non-stationarity) of $AR-part.</p>
+<p>To model e.g.&nbsp;<span class="math inline">\(ARMA(2,3)\)</span>, i.e. <span class="math display">\[
+X_n = a X_{n-1} + b X_{n-2} + Z_n + \beta_1 Z_{n-1}+\beta_2 Z_{n-2} +\beta_3 Z_{n-3}.
+\]</span></p>
+<p>we notice that</p>
+<p><span class="math display">\[
+\begin{aligned}
+X_2 &amp; = a X_1 + b X_0 + Z_2 + \beta_1 Z_1 + \beta_2 Z_0 + \beta_3 Z_{-1},\\
+X_3 &amp; = a X_2 + b X_1 + Z_3 + \beta_1 Z_2 + \beta_2 Z_1 +\beta_3 Z_0,\\
+X_4 &amp; = a X_3 + b X_2 + Z_4 + \beta_1 Z_3 +\beta_2 Z_2 + \beta_3 Z_1,\\
+\vdots
+\end{aligned}
+\]</span> Hence, we need to set <span class="math inline">\(X_0\)</span> and <span class="math inline">\(X_1\)</span> and also <span class="math inline">\(Z_{-1}\)</span>. Usually, <span class="math inline">\(Z_{-1}=0\)</span>.</p>
+<div class="task">
+<p>Consider a modification of the previous time series <span class="math inline">\(X_n\)</span>, keeping <span class="math inline">\(AR\)</span>-part: <span class="math inline">\(Y_n=\frac1{12} Y_{n-1}+\frac12 Y_{n-2}+Z_n + 2Z_{n-1}+3Z_{n-2} + 4 Z_{n-3}\)</span>. Choose <span class="math inline">\(Z_{-1}=0\)</span> (note that in Python, if <code>a</code> is an array or list, then <code>a[-1]</code> means the last element of this array), and <span class="math inline">\(Y_0=Y_1=1\)</span>. Generate <span class="math inline">\(10^4\)</span> values and assign them to <code>y</code>.</p>
+<p>Let’s plot both <span class="math inline">\(\{X_n\}\)</span> and <span class="math inline">\(\{Y_n\}\)</span> on the same diagram:</p>
+<div id="b5bbc468" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.plot(y, color <span class="op">=</span> <span class="st">"blue"</span>, label <span class="op">=</span> <span class="st">"Y"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x, color <span class="op">=</span> <span class="st">"red"</span>, label <span class="op">=</span> <span class="st">"X"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab9_files/figure-html/cell-8-output-1.png" width="577" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hence, as you can see, the large coefficients before past noises <span class="math inline">\(Z_{n-1}, Z_{n-2}, Z_{n-3}\)</span> made large fluctuations around the zero mean, but <span class="math inline">\(Y_n\)</span> is still stationary as expected.</p>
+</div>
+</section>
+<section id="arma33-model" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="arma33-model"><span class="math inline">\(ARMA(3,3)\)</span>-model</h3>
+<p>Recall that, for <span class="math inline">\(ARMA(3,3)\)</span>-model:</p>
+<p><span class="math display">\[
+X_n = a X_{n-1} + b X_{n-2} + c X_{n-3} + Z_n + \beta_1 Z_{n-1}+\beta_2 Z_{n-2} +\beta_3 Z_{n-3}.
+\]</span></p>
+<p>we would need to consider the characteristic equation</p>
+<p><span class="math display">\[
+1 -  a\lambda - b \lambda^2 -c \lambda^3 =0
+\]</span></p>
+<p>We know from algebra, that</p>
+<p><span class="math display">\[
+1 -  a\lambda - b \lambda^2 -c \lambda^3 = -c(\lambda - \lambda_1)(\lambda - \lambda_2)
+(\lambda - \lambda_3),
+\]</span></p>
+<p>where <span class="math inline">\(\lambda_1,\lambda_2,\lambda_3\)</span> are the roots of the characteristic equation. We know also that if <span class="math inline">\(|\lambda_1|&gt;1\)</span>, <span class="math inline">\(|\lambda_2|&gt;1\)</span>, <span class="math inline">\(|\lambda_3|&gt;1\)</span>, then the <span class="math inline">\(ARMA(3,q)\)</span> time series is stationary (for any <span class="math inline">\(q\)</span>, actually).</p>
+</section>
+</section>
+</section>
+<section id="if-you-have-more-time" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> If you have more time</h1>
+<div class="task">
+<p>Choose any <span class="math inline">\(\lambda_1\)</span>,<span class="math inline">\(\lambda_2\)</span>, <span class="math inline">\(\lambda_3\)</span> such that <span class="math inline">\(|\lambda_1|&gt;1\)</span>, <span class="math inline">\(|\lambda_2|&gt;1\)</span>, <span class="math inline">\(|\lambda_3|&gt;1\)</span>. Calculate <span class="math inline">\(a,b,c\)</span> such that <span class="math inline">\(1 -  a\lambda - b \lambda^2 -c \lambda^3 = -c(\lambda - \lambda_1)(\lambda - \lambda_2)
+(\lambda - \lambda_3)\)</span> would be true (to get that <span class="math inline">\(1\)</span> you will need <span class="math inline">\(c\)</span> such that <span class="math inline">\(c\lambda_1\lambda_2\lambda_3=1\)</span>). Model the corresponding <span class="math inline">\(ARMA(3,3)\)</span> model (with e.g.&nbsp;<span class="math inline">\(\beta_1=\beta_2=\beta_3=1\)</span>) and ensure that the behaviour is stationary.</p>
+</div>
 
 
 </section>
@@ -735,6 +981,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Lab8.html" class="pagination-link" aria-label="Lab 8 - Problems">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 8 - Problems</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

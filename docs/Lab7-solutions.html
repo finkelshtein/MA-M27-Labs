@@ -63,6 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./Lab8-solutions.html" rel="next">
 <link href="./Lab6-solutions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -239,6 +240,12 @@ window.Quarto = {
  <span class="menu-text">Lab 8 - Problems</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lab9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 9 - Problems</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -291,6 +298,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./Lab7-solutions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 7 - Solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Lab8-solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 8 - Solutions</span></a>
   </div>
 </li>
       </ul>
@@ -374,7 +387,7 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 <h4 class="unnumbered anchored" data-anchor-id="p-value">2. <span class="math inline">\(p\)</span>-value</h4>
 <p>Informally speaking, <span class="math inline">\(p\)</span>-value describes the area of the “tail” of distribution bounded by the test statistic. On the diagram below, the tails are shaded in pink. Recall that <span class="math inline">\(\varphi(z)=f_Z(z)\)</span> is the PDF of the <strong>standard normal distribution</strong>, where <span class="math inline">\(Z\sim \mathcal{N}(0,1)\)</span>. The pink areas are then related to the CDF <span class="math inline">\(\Phi_Z\)</span> of <span class="math inline">\(Z\sim \mathcal{N}(0,1)\)</span>, namely:</p>
 <div class="img">
-<div id="c9ce5b65" class="cell" data-execution_count="1">
+<div id="c9ce5b65" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -403,7 +416,7 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 <p><span class="math inline">\(z\)</span>-scores provide <strong>another</strong> approach to test the hypothesis (i.e.&nbsp;practically we calculate <strong>either</strong> <span class="math inline">\(p\)</span>-value <strong>or</strong> <span class="math inline">\(z\)</span>-score).</p>
 <p>In simple words, <span class="math inline">\(z_\mathrm{score}\)</span> is the number such that its <span class="math inline">\(p\)</span>-value would be <span class="math inline">\(\alpha\)</span>. Therefore, to find <span class="math inline">\(z_\mathrm{score}\)</span>, we would use the inverse function to <span class="math inline">\(\Phi\)</span>, i.e.&nbsp;the percentile (see Lab 5). We will choose <span class="math inline">\(z_\mathrm{score}\)</span> so that its sign is the same as it is for the test statistic.</p>
 <div class="img">
-<div id="d70fe212" class="cell" data-execution_count="2">
+<div id="d70fe212" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -425,7 +438,7 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 <p>A machine produces items having a nominal mass of <span class="math inline">\(1\)</span> kg. The mass of a randomly selected item <span class="math inline">\(x\)</span> follows the distribution <span class="math inline">\(X\sim \mathcal{N}(\mu, 0.02^2)\)</span>. If <span class="math inline">\(\mu\neq 1\)</span> then the machinery should be corrected. The mean mass of a randomly sample of <span class="math inline">\(25\)</span> items was found to be <span class="math inline">\(0.989\)</span> kg. Test the null hypothesis that <span class="math inline">\(H_0:\mu=1\)</span> at the <span class="math inline">\(1\%\)</span> significance level.</p>
 <p>Note that the alternative hypothesis here is <span class="math inline">\(\mu\neq1\)</span>, i.e.&nbsp;we deal with the two-tailed test.</p>
 <p>We have</p>
-<div id="842b5f36" class="cell" data-execution_count="3">
+<div id="842b5f36" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">0.02</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">25</span></span>
@@ -433,7 +446,7 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and we can calculate the test statistic. Recall that, for the square root function we need either use an additional module, e.g.&nbsp;<code>import numpy as np</code> and then <code>np.sqrt(n)</code> (this is reasonable in the case we use <code>numpy</code> also for some other purposes) or we just use that <span class="math inline">\(\sqrt{n}=n^{\frac12}\)</span>, namely, we write by <a href="#eq-z-stat" class="quarto-xref">Equation&nbsp;1</a>,</p>
-<div id="c77cfb5f" class="cell" data-execution_count="4">
+<div id="c77cfb5f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> (xbar <span class="op">-</span> mu) <span class="op">/</span> (sigma <span class="op">/</span> (n <span class="op">**</span> <span class="fl">0.5</span>))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -441,7 +454,7 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 </div>
 </div>
 <p>Since the test statistic is negative, to calculate the <span class="math inline">\(p\)</span>-value we consider the <span class="math inline">\(\Phi(z)\)</span>, and since this is the two-tailed case, we have that <span class="math inline">\(p=2\Phi(z)\)</span>. Namely, we calculate</p>
-<div id="e35be993" class="cell" data-execution_count="5">
+<div id="e35be993" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> norm.cdf(z)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -451,7 +464,7 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 </div>
 <p>Since <span class="math inline">\(p &lt; \alpha = 0.01\)</span>, i.e.&nbsp;the significance of the <span class="math inline">\(p\)</span>-value is <strong>below</strong> the significance level, we reject <span class="math inline">\(H_0\)</span>.</p>
 <p><strong>Alternatively</strong>, we can use the <span class="math inline">\(z\)</span>-score approach (<strong>that is exactly what you use doing calculations by hand and using the statistical tables</strong>), we need to use <code>norm.ppf</code> function (discussed on Lab 5); since this is the two-tailed case, we calculate it at <span class="math inline">\(\frac{\alpha}2\)</span>, that is then the area of the left pink tail on Figure 2, as we need to choose the negative <span class="math inline">\(z_\mathrm{score}\)</span>:</p>
-<div id="7dea3455" class="cell" data-execution_count="6">
+<div id="7dea3455" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>zscore <span class="op">=</span> norm.ppf(alpha<span class="op">/</span><span class="dv">2</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>zscore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -472,7 +485,7 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 <h2 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> </h2>
 <div class="task">
 <p>Calculate the test statistic and assign it to <code>z</code>.</p>
-<div id="41fbe0cb" class="cell" data-execution_count="7">
+<div id="41fbe0cb" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="fl">84.1</span></span>
@@ -484,7 +497,7 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 </details>
 </div>
 <p>Check the answer:</p>
-<div id="db07dbe4" class="cell" data-execution_count="8">
+<div id="db07dbe4" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>2.3076923076923075</code></pre>
@@ -496,14 +509,14 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 <h2 data-number="1.2" class="anchored" data-anchor-id="section-1"><span class="header-section-number">1.2</span> </h2>
 <div class="task">
 <p>Calculate the <span class="math inline">\(p\)</span>-value, taking into account that <span class="math inline">\(z&gt;0\)</span> and we test the one-tailed case.</p>
-<div id="b928ae63" class="cell" data-execution_count="9">
+<div id="b928ae63" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> norm.cdf(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Check the answer:</p>
-<div id="d60f2cbe" class="cell" data-execution_count="10">
+<div id="d60f2cbe" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>0.01050812811375934</code></pre>
@@ -516,14 +529,14 @@ z=\frac{\bar{x}-\mu}{\dfrac{\sigma}{\sqrt{n}}}
 <h2 data-number="1.3" class="anchored" data-anchor-id="section-2"><span class="header-section-number">1.3</span> </h2>
 <div class="task">
 <p>Alternatively, calculate the <span class="math inline">\(z\)</span>-score correspondent to the considered significance level (and assign it to <code>zscore</code>). Note that we are going to compare the <span class="math inline">\(z\)</span>-score with the test statistic, hence, we will be looking for the positive <span class="math inline">\(z\)</span>-score (as the test statistic is positive).</p>
-<div id="1b30fd65" class="cell" data-execution_count="11">
+<div id="1b30fd65" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>zscore <span class="op">=</span> norm.ppf(<span class="dv">1</span><span class="op">-</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Check the answer:</p>
-<div id="d9ef7d74" class="cell" data-execution_count="12">
+<div id="d9ef7d74" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>zscore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>1.6448536269514722</code></pre>
@@ -546,7 +559,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <ol start="2" type="1">
 <li><span class="math inline">\(p\)</span>-value and <span class="math inline">\(t\)</span>-score are calculated for <span class="math inline">\(t\)</span>-distribution, instead of the standard normal distribution. The work with <span class="math inline">\(t\)</span>-distribution in Python is similar to any other distribution:</li>
 </ol>
-<div id="ad2ef071" class="cell" data-execution_count="13">
+<div id="ad2ef071" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and then you can used <code>t.cdf(x, df)</code> or <code>t.pdf(x, df)</code> or <code>t.ppf(q, df)</code>, where <code>df</code> is the degree of freedoms. Before considering an example, we note that the name of the class for this distribution is just <code>t</code>, hence, <span style="color:red;"><strong>YOU SHOULD NOT USE</strong></span> <code>t</code> variable for the test statistic. We will use e.g.&nbsp;<code>tstat</code> instead.</p>
@@ -554,7 +567,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <h2 data-number="2.1" class="anchored" data-anchor-id="section-3"><span class="header-section-number">2.1</span> </h2>
 <div class="task">
 <p>Download file <a href="Heights.csv">Heights.csv</a>, upload it to Anaconda cloud, and load its content to Pandas data frame <code>df_heights</code> (see Lab 1 if you don’t remember how to do this).</p>
-<div id="ae9b28bf" class="cell" data-execution_count="14">
+<div id="ae9b28bf" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -562,7 +575,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </details>
 </div>
 <p>Check the first rows to see the structure:</p>
-<div id="b3de5d52" class="cell" data-execution_count="15">
+<div id="b3de5d52" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_heights.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
@@ -609,7 +622,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <h2 data-number="2.2" class="anchored" data-anchor-id="section-4"><span class="header-section-number">2.2</span> </h2>
 <div class="task">
 <p>Assign the values of the only column of this data frame to Numpy array <code>x</code>. Assign to <code>n</code> the size of the sample, i.e.&nbsp;the length of <code>x</code> using function <code>len</code>.</p>
-<div id="bf3acd0d" class="cell" data-execution_count="16">
+<div id="bf3acd0d" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_heights[<span class="st">'HEIGHTS'</span>].to_numpy()</span>
@@ -617,7 +630,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </details>
 </div>
 <p>Check the answer:</p>
-<div id="f3a75252" class="cell" data-execution_count="17">
+<div id="f3a75252" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>65</code></pre>
@@ -625,7 +638,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </div>
 </div>
 <p>Recall that, to calculate the sample standard deviation <span class="math inline">\(s\)</span> (that has <span class="math inline">\(n-1\)</span> in the denominator), we need to use the key <code>ddof = 1</code>, e.g.</p>
-<div id="a56eab25" class="cell" data-execution_count="18">
+<div id="a56eab25" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>np.std(a, ddof <span class="op">=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -634,7 +647,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </div>
 </div>
 <p>Note that we can also write</p>
-<div id="5f52d65c" class="cell" data-execution_count="19">
+<div id="5f52d65c" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>a.std(ddof <span class="op">=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>1.0</code></pre>
@@ -646,7 +659,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <h2 data-number="2.3" class="anchored" data-anchor-id="section-5"><span class="header-section-number">2.3</span> </h2>
 <div class="task">
 <p>Assign to <code>xbar</code> the mean of <code>x</code>. Assign to <code>s</code> the sample standard deviation of <code>x</code>.</p>
-<div id="945016ea" class="cell" data-execution_count="20">
+<div id="945016ea" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>xbar <span class="op">=</span> x.mean() <span class="co"># Or xbar = np.mean(x)</span></span>
@@ -654,7 +667,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </details>
 </div>
 <p>Check the answers:</p>
-<div id="a04d79f4" class="cell" data-execution_count="21">
+<div id="a04d79f4" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>[xbar, s]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>[6.467692323784616, 0.3302970630589082]</code></pre>
@@ -666,7 +679,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <h2 data-number="2.4" class="anchored" data-anchor-id="section-6"><span class="header-section-number">2.4</span> </h2>
 <div class="task">
 <p>We are going to use a one-sample <span class="math inline">\(t\)</span>-test to determine whether the heights in the data frame has a mean of <span class="math inline">\(\mu = 6.5\)</span>. Assign to <code>tstat</code> the corresponding test statistic, using <a href="#eq-t-stat" class="quarto-xref">Equation&nbsp;2</a>.</p>
-<div id="1e319de9" class="cell" data-execution_count="22">
+<div id="1e319de9" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="fl">6.5</span></span>
@@ -674,7 +687,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </details>
 </div>
 <p>Check the answer</p>
-<div id="8de86d93" class="cell" data-execution_count="23">
+<div id="8de86d93" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>tstat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>-0.7886016620455049</code></pre>
@@ -682,7 +695,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </div>
 <p>Here <span class="math inline">\(H_0: \mu=6.5\)</span> and <span class="math inline">\(H_1: \mu\neq 6.5\)</span>, i.e.&nbsp;we deal with the two-tailed test.</p>
 <p>We can calculate <span class="math inline">\(p\)</span>-value, recall that for the one-sample test we should take <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(n-1\)</span> degrees of freedom. Since the test statistic is negative, we have</p>
-<div id="b06f2509" class="cell" data-execution_count="24">
+<div id="b06f2509" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> t.cdf(tstat, df <span class="op">=</span> n<span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
@@ -692,7 +705,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <p>Therefore, if we consider any significance level below this <span class="math inline">\(p\)</span>: e.g.&nbsp;<span class="math inline">\(5\%=0.05\)</span>, then we do not have any evidence to reject <span class="math inline">\(H_0\)</span>.</p>
 </div>
 <p><strong>Alternatively</strong>, we calculate the <span class="math inline">\(t\)</span>-score corresponding to the chosen significance level, e.g.&nbsp;<span class="math inline">\(\alpha = 0.05\)</span>. Since this is two-tailed test, we calculate the percentile at <span class="math inline">\(\frac{\alpha}{2}\)</span>:</p>
-<div id="42919a65" class="cell" data-execution_count="25">
+<div id="42919a65" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>tscore <span class="op">=</span> t.ppf(<span class="fl">0.05</span><span class="op">/</span><span class="dv">2</span>, df <span class="op">=</span> n<span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>tscore</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
@@ -701,7 +714,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </div>
 <p>Since (the negative) <span class="math inline">\(t\)</span>-score is smaller than (the negative) <span class="math inline">\(t\)</span>-statistic, the latter lies outside of the critical interval, and again, we can’t reject <span class="math inline">\(H_0\)</span>.</p>
 <p>Apparently, <code>scipy.stats</code> module proposes a faster way to calculate both the test statistic and the <span class="math inline">\(p\)</span>-value for the <span class="math inline">\(1\)</span>-sample <span class="math inline">\(t\)</span>-test:</p>
-<div id="8107e782" class="cell" data-execution_count="26">
+<div id="8107e782" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_1samp</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="fl">6.5</span> <span class="co"># If you haven't assign it before</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>ttest_1samp(x, mu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -710,7 +723,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </div>
 </div>
 <p>Surely the answers are the same as we found previously. They are also accessible directly:</p>
-<div id="eef86f04" class="cell" data-execution_count="27">
+<div id="eef86f04" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> ttest_1samp(x, mu)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>results.pvalue</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
@@ -723,7 +736,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <h2 data-number="2.5" class="anchored" data-anchor-id="section-7"><span class="header-section-number">2.5</span> </h2>
 <div class="task">
 <p>Download the file <a href="HealthData.csv">HealthData.csv</a>, upload it to Anaconda.com/app, and consider the column <code>DENSITY</code>. Use a one-sample <span class="math inline">\(t\)</span>-test to determine whether the density variable in the data set Health Data has a mean of <span class="math inline">\(1.051\)</span> using the <span class="math inline">\(5\)</span>% significance level. Assign the corresponding <span class="math inline">\(p\)</span>-value to <code>p</code> (you may use either of the considered approaches).</p>
-<div id="e94d9b7d" class="cell" data-execution_count="28">
+<div id="e94d9b7d" class="cell" data-execution_count="29">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df_health <span class="op">=</span> pd.read_csv(<span class="st">'HealthData.csv'</span>)</span>
@@ -734,14 +747,14 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </details>
 </div>
 <p>Check the answer:</p>
-<div id="5cee1904" class="cell" data-execution_count="29">
+<div id="5cee1904" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>0.00017145125375254356</code></pre>
 </div>
 </div>
 <p>As you can see <span class="math inline">\(p\)</span>-value is less than the significance level: surely, you check this in Python :-)</p>
-<div id="6f4f3e71" class="cell" data-execution_count="30">
+<div id="6f4f3e71" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">&lt;</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>True</code></pre>
@@ -760,7 +773,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <h2 data-number="2.6" class="anchored" data-anchor-id="section-8"><span class="header-section-number">2.6</span> </h2>
 <div class="task">
 <p>Load the the data to Anaconda.com/app, and assign to <span class="math inline">\(a\)</span> the column <code>Process A</code> and to <span class="math inline">\(b\)</span> the column <code>Process B</code>.</p>
-<div id="acce27f4" class="cell" data-execution_count="31">
+<div id="acce27f4" class="cell" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df_meat <span class="op">=</span> pd.read_csv(<span class="st">'MeatJoints.csv'</span>)</span>
@@ -769,7 +782,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </details>
 </div>
 <p>Then use the following command to apply two-sample test</p>
-<div id="3b3502b4" class="cell" data-execution_count="32">
+<div id="3b3502b4" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_rel</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> ttest_rel(a,b)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -778,7 +791,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </div>
 </div>
 <p>Since</p>
-<div id="2b452e8f" class="cell" data-execution_count="33">
+<div id="2b452e8f" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>results.pvalue <span class="op">&lt;</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>True</code></pre>
@@ -795,7 +808,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <h2 data-number="3.1" class="anchored" data-anchor-id="section-9"><span class="header-section-number">3.1</span> </h2>
 <div class="task">
 <p>Load the file to Anaconda.com/app and assign to <code>f</code> the heights of football players and to <code>b</code> the heights of basketball players.</p>
-<div id="5331abd9" class="cell" data-execution_count="34">
+<div id="5331abd9" class="cell" data-execution_count="35">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df_sport <span class="op">=</span> pd.read_csv(<span class="st">'SportHeights.csv'</span>)</span>
@@ -804,7 +817,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </details>
 </div>
 <p>Then perform the following test:</p>
-<div id="5cd321b9" class="cell" data-execution_count="35">
+<div id="5cd321b9" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> ttest_ind(f, b, nan_policy<span class="op">=</span><span class="st">'omit'</span>)</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -814,7 +827,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </div>
 <p>Note the key <code>nan_policy='omit'</code> as <code>b</code> and <code>f</code> have different sizes here.</p>
 <p>Since</p>
-<div id="42e91a93" class="cell" data-execution_count="36">
+<div id="42e91a93" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>results.pvalue <span class="op">&lt;</span> <span class="fl">0.05</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>True</code></pre>
@@ -827,7 +840,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 <section id="if-you-have-more-time" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> If you have more time</h1>
 <p>The PDF of <span class="math inline">\(t\)</span>-distribution has heavier (“thicker”) tails than the standard normal distribution: the following picture compare PDFs for <span class="math inline">\(Z\sim \mathcal{N}(0,1)\)</span> and <span class="math inline">\(X\sim t_1\)</span> (the <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(1\)</span> degree of freedom).</p>
-<div id="e3fbbb23" class="cell" data-execution_count="37">
+<div id="e3fbbb23" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x, norm.pdf(x), color <span class="op">=</span> <span class="st">'b'</span>, label <span class="op">=</span> <span class="vs">r'$y = f_Z(x), Z\sim \mathcal</span><span class="sc">{N}</span><span class="vs">(0,1)$'</span>)</span>
@@ -843,7 +856,7 @@ t=\frac{\bar{x}-\mu}{\dfrac{s}{\sqrt{n}}}
 </div>
 </div>
 <p>Recall that the chosen degree of freedom depends on the sample size. If degree of freedom is increasing, the <span class="math inline">\(t\)</span>-distribution becomes closer to the `standard normal distribution:</p>
-<div id="62163e2d" class="cell" data-execution_count="38">
+<div id="62163e2d" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> norm.pdf(x)</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x, norm.pdf(x), color <span class="op">=</span> <span class="st">'b'</span>, label <span class="op">=</span> <span class="vs">r'$y = f_Z(x), Z\sim \mathcal</span><span class="sc">{N}</span><span class="vs">(0,1)$'</span>)</span>
@@ -1296,6 +1309,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./Lab8-solutions.html" class="pagination-link" aria-label="Lab 8 - Solutions">
+        <span class="nav-page-text">Lab 8 - Solutions</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

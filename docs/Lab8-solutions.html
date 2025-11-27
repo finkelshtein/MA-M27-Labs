@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 8 – MA-M27 Lab Assignments</title>
+<title>Lab 8 - Solutions – MA-M27 Lab Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,8 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Lab9.html" rel="next">
-<link href="./Lab7.html" rel="prev">
+<link href="./Lab7-solutions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -133,9 +132,9 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Lab 8 – MA-M27 Lab Assignments">
+<meta property="og:title" content="Lab 8 - Solutions – MA-M27 Lab Assignments">
 <meta property="og:description" content="Lab Assignments for MA-M27 Probability and Statistics for Data Science">
-<meta property="og:image" content="Lab8_files/figure-html/cell-16-output-1.png">
+<meta property="og:image" content="Lab8-solutions_files/figure-html/cell-16-output-1.png">
 <meta property="og:site_name" content="MA-M27 Lab Assignments">
 </head>
 
@@ -148,7 +147,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab8.html">Lab 8 - Problems</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab8-solutions.html">Lab 8 - Solutions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -233,7 +232,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab8.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Lab8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 8 - Problems</span></a>
   </div>
 </li>
@@ -299,7 +298,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lab8-solutions.html" class="sidebar-item-text sidebar-link">
+  <a href="./Lab8-solutions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 8 - Solutions</span></a>
   </div>
 </li>
@@ -343,9 +342,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1.html">Labs - Problems</a></li><li class="breadcrumb-item"><a href="./Lab8.html">Lab 8 - Problems</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Lab1-solutions.html">Labs - Solutions</a></li><li class="breadcrumb-item"><a href="./Lab8-solutions.html">Lab 8 - Solutions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lab 8</h1>
+<h1 class="title">Lab 8 - Solutions</h1>
 </div>
 
 
@@ -391,7 +390,7 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <section id="fitting-data-in-python" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="fitting-data-in-python">Fitting data in Python</h3>
 <p>Suppose we are given a sample</p>
-<div id="10b57fd3" class="cell" data-execution_count="2">
+<div id="bc9ee71b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array([<span class="dv">8</span>,  <span class="dv">4</span>,  <span class="dv">7</span>, <span class="dv">11</span>,  <span class="dv">9</span>,  <span class="dv">7</span>,  <span class="dv">5</span>,  <span class="dv">9</span>,  <span class="dv">8</span>,  <span class="dv">7</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -401,12 +400,12 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 \]</span></p>
 <p>however, the probability <span class="math inline">\(p\)</span> of a “success” is unknown (i.e.&nbsp;here <span class="math inline">\(\theta=p\)</span>). One needs to find the value of <span class="math inline">\(p\)</span> which would make the probability to observe <code>data</code> the highest possible.</p>
 <p>The following code would do the needed:</p>
-<div id="bf22aaaf" class="cell" data-execution_count="3">
+<div id="30ab9bc7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> binom, fit</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> [(<span class="dv">20</span>,<span class="dv">20</span>), (<span class="dv">0</span>, <span class="dv">1</span>)]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fit(binom, data, bounds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>  params: FitParams(n=20.0, p=0.37500002089341816, loc=0.0)
+<pre><code>  params: FitParams(n=20.0, p=0.37499999528423467, loc=0.0)
  success: True
  message: 'Optimization terminated successfully.'</code></pre>
 </div>
@@ -418,18 +417,18 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <li><p><code>bounds</code> sets bounds for the parameters of the considered distribution: in this case, <code>binom</code> has two parameters: <span class="math inline">\(X\sim Bin(n,p)\)</span>, i.e.&nbsp;there are <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>. <span class="math inline">\(n\)</span> is given to be <span class="math inline">\(20\)</span> (we know the number of attempts), whereas <span class="math inline">\(p\in[0,1]\)</span> is the unknown probability. Note that <code>bounds</code> is a Python list, whose entries are <strong>tuples</strong>. Tuples are very similar to lists, the main difference is that the tuple can’t be changed after it is defined (whereas a list may be e.g.&nbsp;extended or some its elements may be changed or removed). Each tuple sets the lower and the upper bounds for the corresponding parameter. So, for <span class="math inline">\(n\)</span> we request <span class="math inline">\(20\leq n\leq 20\)</span> (that just means <span class="math inline">\(n=20\)</span>, as needed), and for <span class="math inline">\(p\)</span> we have <span class="math inline">\(0\leq p\leq 1\)</span>.</p></li>
 </ul>
 <p>The output tells us that the best possible <span class="math inline">\(n=20.0\)</span> (that is not surprising as we requested this) and the best possible <span class="math inline">\(p\approx 0.375\)</span> (we ignore <code>loc</code> for now). The values are accessible:</p>
-<div id="efd99154" class="cell" data-execution_count="4">
+<div id="41030e45" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> fit(binom, data, bounds)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>res.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>FitParams(n=20.0, p=0.3749999983579152, loc=0.0)</code></pre>
+<pre><code>FitParams(n=20.0, p=0.3749999940793132, loc=0.0)</code></pre>
 </div>
 </div>
 <p>so that there are two parameters, and the maximum likelihood estimator is the second of them:</p>
-<div id="96682d4c" class="cell" data-execution_count="5">
+<div id="9e258f56" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res.params[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>0.3749999983579152</code></pre>
+<pre><code>0.3749999940793132</code></pre>
 </div>
 </div>
 <p>(and <code>res.params[0]</code> would return <code>20.0</code>).</p>
@@ -437,7 +436,7 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <p><span class="proof-title"><em>Remark</em>. </span>You may notice that the values of <code>p</code> appeared to be slightly different. It’s because the internal algorithm of how <code>fit</code> maximises the likelihood function is the so-called stochastic algorithm, it has a random output (though pretty close to the “real” point of maximum).</p>
 </div>
 <p>In the first task, we will test the work of <code>fit</code> function for the case when we know the answer. Recall that, to generate e.g.&nbsp;<span class="math inline">\(5\)</span> values (outputs) of a Bernoulli random variable <span class="math inline">\(X\in\{0,1\}\)</span> with <span class="math inline">\(\mathbb{P}(X=1)=p\)</span> for some <span class="math inline">\(p\)</span>, e.g.&nbsp;for <span class="math inline">\(p=0.4\)</span>, we need to use the code</p>
-<div id="3230d5c7" class="cell" data-execution_count="6">
+<div id="f1a99f12" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> bernoulli</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.4</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>bernoulli.rvs(p, size <span class="op">=</span> <span class="dv">5</span>, random_state <span class="op">=</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -448,7 +447,7 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <p>Here, recall, <code>random_state</code> can be any integer number, but if you use <code>10</code> your output will be exactly like above.</p>
 <div class="proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>Note also that you could write here more “full” code</p>
-<div id="af170993" class="cell" data-execution_count="7">
+<div id="43f57b8c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bernoulli.rvs(p <span class="op">=</span> p, size <span class="op">=</span> <span class="dv">5</span>, random_state <span class="op">=</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>array([1, 0, 1, 1, 0], dtype=int64)</code></pre>
@@ -461,9 +460,17 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <h2 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> </h2>
 <div class="task">
 <p>Generate <span class="math inline">\(n = 100\)</span> values of a Bernoulli random variable <span class="math inline">\(X\)</span> with <span class="math inline">\(\mathbb{P}(X=1)=0.3\)</span>, using <code>random_state = 100</code>, and assign the resulting Numpy-array to the variable <code>data_ber</code>.</p>
+<div id="72350e18" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>data_ber <span class="op">=</span> bernoulli.rvs(p, size <span class="op">=</span> n, random_state <span class="op">=</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Check the output by calculating its sum:</p>
-<div id="31bcff4b" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data_ber.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="838c75f9" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_ber.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>25</code></pre>
 </div>
@@ -475,31 +482,50 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <h2 data-number="1.2" class="anchored" data-anchor-id="section-1"><span class="header-section-number">1.2</span> </h2>
 <div class="task">
 <p>Find the maximum likelihood estimate for <span class="math inline">\(p=\mathbb{P}(X=1)\)</span>, using <code>fit</code> function for the data <code>data_ber</code> (<strong>stress that <code>bernoulli</code> has only one parameter</strong>, denoted below by <code>p</code>, hence, <code>bounds</code> should contain only one tuple for the range of <span class="math inline">\(p\in[0,1]\)</span>). Assign the result to <code>res_ber</code>.</p>
+<div id="d822cc7b" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>res_ber <span class="op">=</span> fit(bernoulli, data_ber, bounds <span class="op">=</span> [(<span class="dv">0</span>,<span class="dv">1</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Check the output:</p>
-<div id="f8477428" class="cell" data-execution_count="11">
+<div id="8c6b77d0" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>res_ber.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>FitParams(p=0.24999999423017177, loc=0.0)</code></pre>
+<pre><code>FitParams(p=0.24999999259172612, loc=0.0)</code></pre>
+</div>
 </div>
 </div>
 <p>As we can see, the answer is pretty close to the real maximum likelihood estimate (known from lectures), which <span class="math inline">\(\frac{k}{n}\)</span>, where <span class="math inline">\(k\)</span> is the number of <span class="math inline">\(1\)</span>-s and <span class="math inline">\(n\)</span> is the total number of trials: the absolution value of the difference:</p>
-<div id="d9b969e9" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">abs</span>(data_ber.<span class="bu">sum</span>()<span class="op">/</span>n <span class="op">-</span> res_ber.params[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ccceddef" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">abs</span>(data_ber.<span class="bu">sum</span>()<span class="op">/</span>n <span class="op">-</span> res_ber.params[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>5.76982822630967e-09</code></pre>
+<pre><code>7.40827388323595e-09</code></pre>
 </div>
 </div>
 <p>On the other hand, the maximum likelihood estimator does not recover the real probability <code>p = 0.3</code> with which the data <code>data_ber</code> was generated. This because the sample size is relatively small.</p>
-</div>
 </section>
 <section id="section-2" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="section-2"><span class="header-section-number">1.3</span> </h2>
 <div class="task">
 <p>Repeat the previous steps but generate now a sample of the size <span class="math inline">\(n = 100000\)</span>. Assign the output of <code>fit</code> function to <code>res_big_ber</code>.</p>
+<div id="566b15d6" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100000</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>data_ber <span class="op">=</span> bernoulli.rvs(p, size <span class="op">=</span> n, random_state <span class="op">=</span> <span class="dv">100</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>res_big_ber <span class="op">=</span> fit(bernoulli, data_ber, bounds <span class="op">=</span> [(<span class="dv">0</span>,<span class="dv">1</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Check the found value:</p>
-<div id="47b0f148" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>res_big_ber.params[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4912cb3a" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>res_big_ber.params[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>0.2998799962872814</code></pre>
+<pre><code>0.2998799973367203</code></pre>
 </div>
 </div>
 <p>so the result is much closer to <span class="math inline">\(0.3\)</span>.</p>
@@ -507,24 +533,24 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <section id="maximum-likelihood-estimation-of-several-parameters-at-once" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="maximum-likelihood-estimation-of-several-parameters-at-once">Maximum likelihood estimation of several parameters at once</h3>
 <p>Let’s now return back to the dataset <code>data</code>. Suppose now that we know only that it follows the binomial distribution: <span class="math inline">\(X\sim Bin(n,p)\)</span>, where <span class="math inline">\(n\)</span> is not know exactly, but we expect that <span class="math inline">\(1\leq n\leq 25\)</span>. We can then modify the bounds for <span class="math inline">\(n\)</span>:</p>
-<div id="b4a31df3" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> [(<span class="dv">1</span>, <span class="dv">25</span>), (<span class="dv">0</span>, <span class="dv">1</span>)]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> fit(binom, data, bounds)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>res.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ef623799" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> [(<span class="dv">1</span>, <span class="dv">25</span>), (<span class="dv">0</span>, <span class="dv">1</span>)]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> fit(binom, data, bounds)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>res.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>FitParams(n=14.0, p=0.5357142714632469, loc=0.0)</code></pre>
+<pre><code>FitParams(n=14.0, p=0.535714273902257, loc=0.0)</code></pre>
 </div>
 </div>
 <p>Thus, the highest probability to see the sample <code>data</code>, for the given restriction on <span class="math inline">\(n\)</span>, would be if <span class="math inline">\(X\sim Bin(14, \approx 0.5357)\)</span>.</p>
 <p>Moreover, the output of <code>fit</code> function (which we denoted <code>res</code>) can be plotted:</p>
-<div id="984af1fb" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>res.plot()</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="64d0d857" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>res.plot()</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab8_files/figure-html/cell-16-output-1.png" width="597" height="450" class="figure-img"></p>
+<p><img src="Lab8-solutions_files/figure-html/cell-16-output-1.png" width="597" height="450" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -538,9 +564,16 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <h2 data-number="1.4" class="anchored" data-anchor-id="section-3"><span class="header-section-number">1.4</span> </h2>
 <div class="task">
 <p>Generate <span class="math inline">\(n=10\)</span> random values of the normal distribution of <span class="math inline">\(X\sim \mathcal{N}(10, 1.5^2)\)</span> (see Lab 5 (solutions): Task 3.4 for <code>rvs</code> function and e.g.&nbsp;Task 3.3 for using <code>loc</code> argument for the mean and <code>scale</code> for the standard deviation; don’t forget to import <code>norm</code>). Use <code>random_state = 123</code>. Assign the output to <code>data_norm</code>.</p>
+<div id="8d1e884f" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>data_norm <span class="op">=</span> norm.rvs(loc <span class="op">=</span> <span class="dv">10</span>, scale <span class="op">=</span> <span class="fl">1.5</span>, size <span class="op">=</span> <span class="dv">10</span>, random_state <span class="op">=</span> <span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Check yourself by calculating mean and standard deviation of the output:</p>
-<div id="b2ff7e16" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>[data_norm.mean(), data_norm.std()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="17cbece5" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>[data_norm.mean(), data_norm.std()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>[9.595725834510507, 1.8544572022485344]</code></pre>
 </div>
@@ -552,19 +585,26 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <h2 data-number="1.5" class="anchored" data-anchor-id="section-4"><span class="header-section-number">1.5</span> </h2>
 <div class="task">
 <p>Fit the data to a normal distribution: find the normal distribution <span class="math inline">\(\mathcal{N}(\mu,\sigma^2)\)</span> with <span class="math inline">\(\mu\in [7,12]\)</span> and <span class="math inline">\(\sigma\in[1,2]\)</span> which is most likely to be the distribution for the sample <code>data_norm</code>. Assign the result to <code>res_norm</code>.</p>
+<div id="1d0a3eca" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> [(<span class="dv">7</span>, <span class="dv">12</span>), (<span class="dv">1</span>,<span class="dv">2</span>)]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>res_norm <span class="op">=</span> fit(norm, data_norm, bounds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Check the output:</p>
-<div id="8978b6d2" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>res_norm.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6518a697" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>res_norm.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>FitParams(loc=9.595723817982465, scale=1.8544586662018996)</code></pre>
+<pre><code>FitParams(loc=9.595726502801217, scale=1.8544564399196046)</code></pre>
 </div>
 </div>
 <p>As you can see, the fitting reflects the characteristics of the sample, not the initial distribution (as the sample was not large enough).</p>
 </div>
 <div class="proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>Some of distributions in <code>scipy.stats</code> have own <code>fit</code> methods which do not require using <code>bounds</code>. For example, one can write</p>
-<div id="a3ead9b8" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>norm.fit(data_norm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b849a430" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>norm.fit(data_norm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>(9.595725834510507, 1.8544572022485344)</code></pre>
 </div>
@@ -576,28 +616,28 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <section id="how-we-can-calculate-maximum-likelihood-estimator-manually" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> How we can calculate maximum likelihood estimator manually</h1>
 <p>Let’s return again to <code>data</code> sample:</p>
-<div id="fba219cc" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7d0043d5" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>array([ 8,  4,  7, 11,  9,  7,  5,  9,  8,  7])</code></pre>
 </div>
 </div>
 <p>Suppose we know that it came from <span class="math inline">\(X\sim Bin(20,p)\)</span>, and we want to estimate <span class="math inline">\(p\)</span> manually, without using <code>fit</code> function. How does <code>fit</code> do the estimation? Look at the formulas at the beginning of this Lab.</p>
 <p>We can calculate the likelihood function <span class="math inline">\(\mathcal{L}(\theta)\)</span> for each particular value of <span class="math inline">\(\theta = p\)</span>. E.g. for <span class="math inline">\(p=0.4\)</span>, we can calculate <span class="math inline">\(p_X(x)=\mathbb{P}(X=x)\)</span> for each <span class="math inline">\(x\)</span> from <code>data</code>.</p>
-<div id="e728470c" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.4</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>probabilities <span class="op">=</span> binom.pmf(data, n <span class="op">=</span> n, p <span class="op">=</span> p)</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>probabilities</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8581c3fe" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.4</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>probabilities <span class="op">=</span> binom.pmf(data, n <span class="op">=</span> n, p <span class="op">=</span> p)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>probabilities</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>array([0.17970579, 0.03499079, 0.16588227, 0.07099488, 0.15973848,
        0.16588227, 0.07464702, 0.15973848, 0.17970579, 0.16588227])</code></pre>
 </div>
 </div>
 <p>We can now calculate the likelihood function at <span class="math inline">\(p=0.4\)</span>:</p>
-<div id="ab7dd721" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>likelihood <span class="op">=</span> np.prod(probabilities)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>likelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2d03ef7d" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>likelihood <span class="op">=</span> np.prod(probabilities)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>likelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>6.974873531555715e-10</code></pre>
 </div>
@@ -607,9 +647,16 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <h2 data-number="2.1" class="anchored" data-anchor-id="section-5"><span class="header-section-number">2.1</span> </h2>
 <div class="task">
 <p>Assign to <code>logprobabilities</code> the array of natural logarithms of all entries in <code>probabilities</code>. Assign to <code>loglikelihood</code> the sum of all these logarithms.</p>
+<div id="f3d22403" class="cell" data-execution_count="24">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>logprobabilities <span class="op">=</span> np.log(probabilities)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>loglikelihood <span class="op">=</span> logprobabilities.<span class="bu">sum</span>() <span class="co"># or np.sum(log-probabilities)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Check the output:</p>
-<div id="6078f514" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>loglikelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1aca185a" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>loglikelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>-21.08353673407401</code></pre>
 </div>
@@ -617,73 +664,81 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 </div>
 <div class="proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>Note that the distributions in <code>scipy.stats</code> contains functions <code>logpmf</code> and <code>logpdf</code> for calculation logarithms of PMF (for discrete random variables) and PDF (for continuous random variables), respectively. We could write also:</p>
-<div id="71599bee" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>logprobabilities <span class="op">=</span> binom.logpmf(data, n <span class="op">=</span> n, p <span class="op">=</span> p)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>loglikelihood <span class="op">=</span> logprobabilities.<span class="bu">sum</span>()</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>loglikelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9c592129" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>logprobabilities <span class="op">=</span> binom.logpmf(data, n <span class="op">=</span> n, p <span class="op">=</span> p)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>loglikelihood <span class="op">=</span> logprobabilities.<span class="bu">sum</span>()</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>loglikelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>-21.08353673407403</code></pre>
 </div>
 </div>
 </div>
 <p>Now, we are going to calculate the log-likelihood for a range of <span class="math inline">\(p\in[0,1]\)</span>. We, hence, define a function which combines all previous steps. Let’s call e.g.&nbsp;<code>loglbinom</code>, it will have only one argument: the value of <span class="math inline">\(p\)</span>; we keep the value of <span class="math inline">\(n\)</span> and data fixed. We can do this in one line</p>
-<div id="77e394ab" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loglbinom(p):</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> binom.logpmf(data, n <span class="op">=</span> n, p <span class="op">=</span> p).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2c162c2b" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loglbinom(p):</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> binom.logpmf(data, n <span class="op">=</span> n, p <span class="op">=</span> p).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It can be also written “longer”:</p>
-<div id="c0c149f8" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loglbinom1(p):</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    probabilities <span class="op">=</span> binom.pmf(data, n <span class="op">=</span> n, p <span class="op">=</span> p)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    logprobabilities <span class="op">=</span> np.log(probabilities)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    loglikelihood <span class="op">=</span> logprobabilities.<span class="bu">sum</span>()</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> loglikelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fe9cd5d3" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loglbinom1(p):</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    probabilities <span class="op">=</span> binom.pmf(data, n <span class="op">=</span> n, p <span class="op">=</span> p)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    logprobabilities <span class="op">=</span> np.log(probabilities)</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    loglikelihood <span class="op">=</span> logprobabilities.<span class="bu">sum</span>()</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> loglikelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s check that it would be the same as in the previous computations for <span class="math inline">\(p=0.4\)</span>:</p>
-<div id="75a74138" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>[loglbinom(<span class="fl">0.4</span>), loglbinom1(<span class="fl">0.4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2b54121b" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>[loglbinom(<span class="fl">0.4</span>), loglbinom1(<span class="fl">0.4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>[-21.08353673407403, -21.08353673407401]</code></pre>
 </div>
 </div>
 <p>so both of course coincides with the previously found <code>loglikelihood</code>.</p>
 <p>We are going to apply <code>loglbinom</code> to an array fo values of <code>p</code>. For this, we create its vectorised version:</p>
-<div id="484162d0" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>vloglbinom <span class="op">=</span> np.vectorize(loglbinom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="133a0682" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>vloglbinom <span class="op">=</span> np.vectorize(loglbinom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-6" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="section-6"><span class="header-section-number">2.2</span> </h2>
 <div class="task">
 <p>Define array <code>x</code> of 1000 points from <span class="math inline">\([0,1]\)</span>, using <code>np.linspace</code> function (see e.g.&nbsp;Lab 4 or Lab 5). Apply the vectorised function <code>vloglbinom</code> to <code>x</code> (it keeps <code>n=20</code> and <code>data</code> fixed), and assign the result to <code>y</code>. Plot the graph of <code>y</code> against <code>x</code>.</p>
-<div id="4b17c5e8" class="cell" data-execution_count="32">
+<div id="c6476b18" class="cell" data-execution_count="31">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> vloglbinom(x)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab8_files/figure-html/cell-32-output-1.png" width="586" height="411" class="figure-img"></p>
+<p><img src="Lab8-solutions_files/figure-html/cell-32-output-1.png" width="586" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <p>And finally, one can find now the point of maximum of the log-likelihood: namely, <code>np.argmax(y)</code> returns the <strong>index</strong> in array <code>y</code> of the maximal element:</p>
-<div id="c73e604c" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ind_max <span class="op">=</span> np.argmax(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3960099b" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>ind_max <span class="op">=</span> np.argmax(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>therefore, the value <code>y[ind_max]</code> is the maximal value of the log-likelihood function. However, we are interested in the argument, that is the corresponding <code>x[ind_max]</code>:</p>
-<div id="4299e1c0" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>x[ind_max]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="695cc944" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>x[ind_max]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>0.37537537537537535</code></pre>
 </div>
 </div>
 <p>that is pretty close to the initially found value. (Surely, if we divide <span class="math inline">\([0,1]\)</span> on a larger number of pieces, the prediction will be better.)</p>
 <p>The following graph has the vertical line at the found value of <code>x[ind_max]</code>, as you can see, it comes (pretty close) to the maximum of the log-likelihood function.</p>
-<div id="16c9ce09" class="cell" data-execution_count="35">
+<div id="5b8fabfc" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Lab8_files/figure-html/cell-35-output-1.png" width="586" height="411" class="figure-img"></p>
+<p><img src="Lab8-solutions_files/figure-html/cell-35-output-1.png" width="586" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -701,9 +756,19 @@ L(\theta\mid x_1,\ldots,x_n): &amp;= \ln \mathcal{L}(\theta\mid x_1,\ldots,x_n)\
 <h2 data-number="3.1" class="anchored" data-anchor-id="section-7"><span class="header-section-number">3.1</span> </h2>
 <div class="task">
 <p>Generate <span class="math inline">\(m=1000\)</span> samples, each sample of size <span class="math inline">\(5\)</span>, of Bernoulli random variable with <span class="math inline">\(p=\mathbb{P}(X=1)=0.3\)</span>. For each sample calculate the maximum likelihood estimate <span class="math inline">\(\hat{p}\)</span> of <span class="math inline">\(p\)</span>. Find the average of the obtained <span class="math inline">\(MLE\)</span>.</p>
-<div id="56f2b0ce" class="cell" data-execution_count="36">
+<div id="bf05cccd" class="cell" data-execution_count="35">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m):</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  data_ber <span class="op">=</span> bernoulli.rvs(p <span class="op">=</span> <span class="fl">0.3</span>, size <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  res_ber <span class="op">=</span> fit(bernoulli, data_ber, bounds <span class="op">=</span> [(<span class="dv">0</span>,<span class="dv">1</span>)])</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  s <span class="op">+=</span> res_ber.params[<span class="dv">0</span>]</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>s<span class="op">/</span>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="35">
-<pre><code>0.29140000731451227</code></pre>
+<pre><code>0.3040000054846187</code></pre>
 </div>
 </div>
 <p>Since the samples are random, your answer will be different. Notice that it’s quite close to <span class="math inline">\(p=0.3\)</span>.</p>
@@ -1133,14 +1198,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Lab7.html" class="pagination-link" aria-label="Lab 7 - Problems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 7 - Problems</span>
+      <a href="./Lab7-solutions.html" class="pagination-link" aria-label="Lab 7 - Solutions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 7 - Solutions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Lab9.html" class="pagination-link" aria-label="Lab 9 - Problems">
-        <span class="nav-page-text">Lab 9 - Problems</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
