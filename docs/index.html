@@ -167,6 +167,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>This site contains Lab assignments and their solutions for the module MA-M27 Probability and Statistics for Data Science.</p>
 <section id="sign-up-to-anaconda-do-it-once" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Sign up to Anaconda (do it once)</h1>
 <ul>
@@ -295,6 +296,11 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
