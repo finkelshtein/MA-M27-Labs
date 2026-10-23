@@ -1,5 +1,126 @@
 [
   {
+    "objectID": "Lab4.html",
+    "href": "Lab4.html",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Recall that the linear regression provides the “best line” that reflects the relation between two sets of data. Namely, let \\(X=(x_1,\\ldots,x_n)\\) and \\(Y=(y_1,\\ldots,y_n)\\) be vectors (arrays) of data. We define\n\\[\n\\begin{aligned}\n\\bar{x}& = \\frac1n \\sum_{i=1}^n x_i,\\\\\nS_{xx} &= \\sum_{i=1}^n(x_i-\\bar{x})^2=\\sum_{i=1}^nx_i^2-n\\bar{x}^2,\\\\\nS_{xy}&=\\sum_{i=1}^n(x_i-\\bar{x})(y_i-\\bar{y})=\\sum_{i=1}^nx_iy_i-n\\bar{x}\\bar{y},\\\\\nS_{yy}&= \\sum_{i=1}^n(y_i-\\bar{y})^2=\\sum_{i=1}^ny_i^2-n\\bar{y}^2.\n\\end{aligned}\n\\]\nThen the best fit line is\n\\[\n\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x,\n\\]\nwhere\n\\[\n\\begin{aligned}\n\\hat{\\beta}_1 &= \\dfrac{S_{xy}}{S_{xx}},\\\\\n\\hat{\\beta}_0 &= \\bar{y}-\\hat{\\beta}_1\\bar{x}.\n\\end{aligned}\n\\]\nThe strength of a linear relationship between the variables can be measured by the Pearson correlation coefficient (or just the correlation coefficient) which is given by\n\\[\nr=\\dfrac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}.\n\\]\nWe know that \\(-1\\leq r\\leq 1\\) and we say that\n\\[\n\\begin{aligned}\n|r|&gt;0.7 & \\quad \\text{means strong correlation}\\\\\n0.7\\geq |r|&gt;0.4& \\quad \\text{means moderate correlation}\\\\\n|r|\\leq 0.4 & \\quad \\text{means weak correlation}\n\\end{aligned}\n\\]\n\n\n\nDownload file Birthweight.csv and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 1. Don’t forget about pandas library.\nYou should get the following output\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.\n\n\n\n\nPlot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.\n\n\n\n\n\nConvert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]\n\n\n\n\n\n\n\nAssign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]\n\n\n\n\n\n\n\nAssign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\nCombine the regression line with the scatter plot to get the following output:\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.\n\n\n\n\n\nDownload now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section",
+    "href": "Lab4.html#section",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Download file Birthweight.csv and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 1. Don’t forget about pandas library.\nYou should get the following output\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section-1",
+    "href": "Lab4.html#section-1",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Plot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section-2",
+    "href": "Lab4.html#section-2",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Convert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section-3",
+    "href": "Lab4.html#section-3",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Assign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section-4",
+    "href": "Lab4.html#section-4",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Assign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section-5",
+    "href": "Lab4.html#section-5",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Combine the regression line with the scatter plot to get the following output:\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section-6",
+    "href": "Lab4.html#section-6",
+    "title": "Lab 4",
+    "section": "",
+    "text": "Download now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section-7",
+    "href": "Lab4.html#section-7",
+    "title": "Lab 4",
+    "section": "2.1 ",
+    "text": "2.1 \n\nChange the code as explained and get the following summary.\n\n\nOptimization terminated successfully.\n         Current function value: 0.322141\n         Iterations 8\n\n\n\nLogit Regression Results\n\n\nDep. Variable:\nadmitted\nNo. Observations:\n29\n\n\nModel:\nLogit\nDf Residuals:\n26\n\n\nMethod:\nMLE\nDf Model:\n2\n\n\nDate:\nWed, 22 Oct 2025\nPseudo R-squ.:\n0.5348\n\n\nTime:\n00:15:07\nLog-Likelihood:\n-9.3421\n\n\nconverged:\nTrue\nLL-Null:\n-20.084\n\n\nCovariance Type:\nnonrobust\nLLR p-value:\n2.162e-05\n\n\n\n\n\n\n\n\n\ncoef\nstd err\nz\nP&gt;|z|\n[0.025\n0.975]\n\n\nIntercept\n-22.0171\n9.232\n-2.385\n0.017\n-40.111\n-3.923\n\n\ngmat\n0.0150\n0.014\n1.052\n0.293\n-0.013\n0.043\n\n\ngpa\n3.7604\n2.003\n1.877\n0.060\n-0.166\n7.686\n\n\n\n\n\n\nAgain, the coefficients are available using (in the previous notations) reg.params. As before, Intercept stands for \\(\\hat{\\beta}_0\\), gmat stands for \\(\\hat{\\beta}_1\\), and also gpa stands for \\(\\hat{\\beta}_2\\) in\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2\n\\]\nand hence\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}\n\\]\nWe can show how \\(p\\) separates the values (some lines of the code may be new for you - it’s just for your information, you are not required to learn them):\n\nx1 = df['gmat'].to_numpy()\nx2 = df['gpa'].to_numpy()\np = df['admitted'].to_numpy()\nfig = plt.figure()\nax = fig.add_subplot(1, 1, 1, projection='3d', computed_zorder=False)\nx1values = np.linspace(min(x1), max(x1), 100)\nx2values = np.linspace(min(x2), max(x2), 100)\n[X1, X2] = np.meshgrid(x1values, x2values)\nb0 = reg.params.iloc[0]\nb1 = reg.params.iloc[1]\nb2 = reg.params.iloc[2]\npvalues = np.exp(b0 + b1 * X1 + b2 * X2)/(1 + np.exp(b0 + b1 * X1 + b2 * X2))\nax.plot_surface(X1, X2, pvalues, color = 'r', alpha = 0.4)\nax.scatter(x1, x2, p)\nplt.show()\n\n\n\n\n\n\n\n\nAs you can see, the red graph (surface) of \\(p\\) separates values of \\(0\\) and \\(1\\). Again, we may try to predict the admission for the student with data stored in df_test. We assigned to gmat the corresponding mark, now we do the same for gpa and calculate p for these two values. As you can see, the result is much closer to \\(0\\), hence, we are more confident in our (correct) prediction that the student would not be admitted.\n\ngpa = df_test['gpa']\nnp.exp(b0 + b1 * gmat + b2 * gpa)/(1 + np.exp(b0 + b1 * gmat + b2 * gpa))\n\n0.07118806995711167\n\n\n\nLogistic regression for 3 independent variables\nNow, we consider the dependence of admitted on all three values: gmat, gpa, and work_experience. Surely, in this case, we will not be able to draw \\(p\\) (as it would be a 4-dimensional diagram), but we can calculate \\(\\hat{\\beta}_0,\\hat{\\beta}_1,\\hat{\\beta}_2,\\hat{\\beta}_3\\).",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section-8",
+    "href": "Lab4.html#section-8",
+    "title": "Lab 4",
+    "section": "2.2 ",
+    "text": "2.2 \n\nFind the coefficients of\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2 + \\hat{\\beta}_3 x_3\n\\]\n\n\nOptimization terminated successfully.\n         Current function value: 0.255306\n         Iterations 8\n\n\nCheck your answer:\n\nreg.params\n\nIntercept         -16.182243\ngmat                0.002624\ngpa                 3.258770\nwork_experience     0.994371\ndtype: float64",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
+    "objectID": "Lab4.html#section-9",
+    "href": "Lab4.html#section-9",
+    "title": "Lab 4",
+    "section": "2.3 ",
+    "text": "2.3 \n\nAssign to w_exp the work experience value for the student from df_test and calculate the function\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}\n\\]\nfor that student. Check the answer:\n\n\n0.31333312863167756\n\n\n\nAs you can see, the information about a relatively high work experience (5 years in this case), increased chances to be admitted, though the non-admission is still more likely.\nNote that the rest of information from summary actually explains the level of certainty we may have in the future prediction (we do not consider this now). Note also that, in practice, one predicts outcomes for a number of students (the dataframe df_test would contain a lot of rows), and the prediction is “good” if one predicted correctly for a big percentage of them.",
+    "crumbs": [
+      "Labs - Problems",
+      "Lab 4 - Problems"
+    ]
+  },
+  {
     "objectID": "Lab3.html",
     "href": "Lab3.html",
     "title": "Lab 3",
@@ -744,6 +865,127 @@
     "crumbs": [
       "Labs - Solutions",
       "Lab 3 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html",
+    "href": "Lab4-solutions.html",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Recall that the linear regression provides the “best line” that reflects the relation between two sets of data. Namely, let \\(X=(x_1,\\ldots,x_n)\\) and \\(Y=(y_1,\\ldots,y_n)\\) be vectors (arrays) of data. We define\n\\[\n\\begin{aligned}\n\\bar{x}& = \\frac1n \\sum_{i=1}^n x_i,\\\\\nS_{xx} &= \\sum_{i=1}^n(x_i-\\bar{x})^2=\\sum_{i=1}^nx_i^2-n\\bar{x}^2,\\\\\nS_{xy}&=\\sum_{i=1}^n(x_i-\\bar{x})(y_i-\\bar{y})=\\sum_{i=1}^nx_iy_i-n\\bar{x}\\bar{y},\\\\\nS_{yy}&= \\sum_{i=1}^n(y_i-\\bar{y})^2=\\sum_{i=1}^ny_i^2-n\\bar{y}^2.\n\\end{aligned}\n\\]\nThen the best fit line is\n\\[\n\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x,\n\\]\nwhere\n\\[\n\\begin{aligned}\n\\hat{\\beta}_1 &= \\dfrac{S_{xy}}{S_{xx}},\\\\\n\\hat{\\beta}_0 &= \\bar{y}-\\hat{\\beta}_1\\bar{x}.\n\\end{aligned}\n\\]\nThe strength of a linear relationship between the variables can be measured by the Pearson correlation coefficient (or just the correlation coefficient) which is given by\n\\[\nr=\\dfrac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}.\n\\]\nWe know that \\(-1\\leq r\\leq 1\\) and we say that\n\\[\n\\begin{aligned}\n|r|&gt;0.7 & \\quad \\text{means strong correlation}\\\\\n0.7\\geq |r|&gt;0.4& \\quad \\text{means moderate correlation}\\\\\n|r|\\leq 0.4 & \\quad \\text{means weak correlation}\n\\end{aligned}\n\\]\n\n\n\nDownload file Birthweight.csv from Canvas (see Week 4 section in Modules) and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 3. Don’t forget about pandas library.\nYou should get the following output\n\n\nCode\nimport pandas as pd\ndf = pd.read_csv(\"Birthweight.csv\")\ndf.head()\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.\n\n\n\n\nPlot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(df['length'], df['Birthweight'])\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.\n\n\n\n\n\nConvert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\n\n\nCode\nimport numpy as np\nx = df['length'].to_numpy()\ny = df['Birthweight'].to_numpy()\nmx = np.mean(x)\nmy = np.mean(y)\n\n\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]\n\n\n\n\n\n\n\nAssign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\n\n\nCode\nsxx = np.sum((x-mx)**2)\nsxy = np.sum((x-mx)*(y-my))\nsyy= np.sum((y-my)**2)\n\n\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]\n\n\n\n\n\n\n\nAssign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\n\n\nCode\nb1 = sxy/sxx\nb0 = my - b1 * mx\nr = sxy / np.sqrt(sxx * syy)\n\n\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\nCombine the regression line with the scatter plot to get the following output:\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.\n\n\n\n\n\nDownload now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\nCode\ndf = pd.read_csv(\"Experience-Salary.csv\")\nx = df['exp(in months)'].to_numpy()\ny = df['salary(in thousands)'].to_numpy()\nlr = linregress(x,y)\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Experience (months)')\nplt.ylabel('Salary (thousands)')\nplt.show()\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section",
+    "href": "Lab4-solutions.html#section",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Download file Birthweight.csv from Canvas (see Week 4 section in Modules) and upload it to Anaconda.com/app. Assign it to the dataframe named df. Show the first rows of df.\nHint: to import CSV file, use commands discussed in Lab 3. Don’t forget about pandas library.\nYou should get the following output\n\n\nCode\nimport pandas as pd\ndf = pd.read_csv(\"Birthweight.csv\")\ndf.head()\n\n\n\n\n\n\n\n\n\nid\nheadcircumference\nlength\nBirthweight\nGestation\nsmoker\nmotherage\nmnocig\nmheight\nmppwt\nfage\nfedyrs\nfnocig\nfheight\nlowbwt\nmage35\nLowBirthWeight\nQCL_1\n\n\n\n\n0\n1313\n12\n17\n5.8\n33\n0\n24\n0\n58\n99\n26\n16\n0\n66\n1\n0\nLow\n1\n\n\n1\n431\n12\n19\n4.2\n33\n1\n20\n7\n63\n109\n20\n10\n35\n71\n1\n0\nLow\n1\n\n\n2\n808\n13\n19\n6.4\n34\n0\n26\n0\n65\n140\n25\n12\n25\n69\n0\n0\nNormal\n2\n\n\n3\n300\n12\n18\n4.5\n35\n1\n41\n7\n65\n125\n37\n14\n25\n68\n1\n1\nLow\n1\n\n\n4\n516\n13\n18\n5.8\n35\n1\n20\n35\n67\n125\n23\n12\n50\n73\n1\n0\nLow\n2\n\n\n\n\n\n\n\n\nAs you can see, this dataframe contains the data about newborns and their parents. (Here values of headcircumference and length are in inches and Birthweight is in pounds.)\nWe will study dependence of newborn’s weights on their lengths.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-1",
+    "href": "Lab4-solutions.html#section-1",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Plot a scatter plot making length data on the horizontal axes and Birthweight data on the vertical axes. Label axes appropriately, and show in labels the units (in and lb).\nHint: use commands discussed in Lab 3. Don’t forget about matplotlib.pyplot module. Note also that matplotlib allows to use Pandas series (e.g. dataframe columns), it’s not necessary to convert them into Numpy arrays using .to_numpy() command.\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(df['length'], df['Birthweight'])\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\n\nAt first, we calculate the regression line manually, using the formulas above.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-2",
+    "href": "Lab4-solutions.html#section-2",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Convert columns length and Birthweight to Numpy arrays x and y, respectively. Assign \\(\\bar{x}\\) and \\(\\bar{y}\\) to mx and my, respectively. Note that you may use either mean or np.mean functions.\n\n\nCode\nimport numpy as np\nx = df['length'].to_numpy()\ny = df['Birthweight'].to_numpy()\nmx = np.mean(x)\nmy = np.mean(y)\n\n\nCheck your answer:\n\n[mx, my]\n\n[19.928571428571427, 7.264285714285713]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-3",
+    "href": "Lab4-solutions.html#section-3",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Assign values of \\(S_{xx}, S_{xy}, S_{yy}\\) to variables sxx, sxy, and syy, respectively (use the formulas at the beginning of this Lab). Note that you can use functions sum or np.sum, and remember about vector operations in Python.\n\n\nCode\nsxx = np.sum((x-mx)**2)\nsxy = np.sum((x-mx)*(y-my))\nsyy= np.sum((y-my)**2)\n\n\nCheck the answer:\n\n[sxx, sxy, syy]\n\n[50.785714285714285, 42.292857142857144, 72.49642857142857]",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-4",
+    "href": "Lab4-solutions.html#section-4",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Assign values of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\) to variables b1 and b0, respectively. Assign the Pearson regression coefficient to variable r. (To find the square root, you may use np.sqrt function.)\n\n\nCode\nb1 = sxy/sxx\nb0 = my - b1 * mx\nr = sxy / np.sqrt(sxx * syy)\n\n\nCheck the answer:\n\n[b0, b1, r]\n\n[-9.331645569620253, 0.8327707454289733, 0.6970082792022007]\n\n\n\n\n\nInstead of all these calculations, we can also use linregress class from scipy.stats module:\n\nfrom scipy.stats import linregress\nlinregress(x,y)\n\nLinregressResult(slope=0.8327707454289743, intercept=-9.331645569620274, rvalue=0.697008279202201, pvalue=2.9301969030655954e-07, stderr=0.13546119087983002, intercept_stderr=2.7036545086005135)\n\n\nYou may notice that it gives the same answers (up to a little calculation error), where slope stands for b1 (that is indeed the slope of \\(\\hat{y}=\\hat{\\beta}_0+\\hat{\\beta}_1 x\\)), intercept stands for b0, and rvalue stands for r. You may access these values as follows:\n\nlr = linregress(x,y)\n[lr.intercept, lr.slope, lr.rvalue]\n\n[-9.331645569620274, 0.8327707454289743, 0.697008279202201]\n\n\nthat is pretty simular to [b0, b1, r] calculated before.\nWe are going now to draw now the graph of the regression line on the scatter plot. For this, we create an array of values on the horizontal axes by dividing the interval between min(x) and max(x) by e.g. \\(100\\) parts (for this we will use np.linespace function), and calculate the values of the linear regression line at these points:\n\nimport matplotlib.pyplot as plt\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.show()",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-5",
+    "href": "Lab4-solutions.html#section-5",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Combine the regression line with the scatter plot to get the following output:\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Length (in)')\nplt.ylabel('Weight (lb)')\nplt.show()\n\n\n\n\n\n\n\n\n\nAs we can see, the regression line reflects the trend between weights and lengths, however, the values are “jumping” around the line. We could see that the correlation coefficient (see lr.rvalue or r) is not large:\n\nlr.rvalue\n\n0.697008279202201\n\n\ni.e. we see here a moderate correlation.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-6",
+    "href": "Lab4-solutions.html#section-6",
+    "title": "Lab 4 - Solutions",
+    "section": "",
+    "text": "Download now file Experience-Salary.csv which contains data on how the salary depends on experience. Repeat the previous steps to show the scatter plot together with the regression line:\n\n\nCode\ndf = pd.read_csv(\"Experience-Salary.csv\")\nx = df['exp(in months)'].to_numpy()\ny = df['salary(in thousands)'].to_numpy()\nlr = linregress(x,y)\nimport matplotlib.pyplot as plt\nplt.scatter(x, y)\nxvalues = np.linspace(min(x), max(x), 100)\nyvalues = lr.intercept + lr.slope * xvalues\nplt.plot(xvalues, yvalues, color = 'r')\nplt.xlabel('Experience (months)')\nplt.ylabel('Salary (thousands)')\nplt.show()\n\n\n\n\n\n\n\n\n\nYou can see that here the regression line fits the data better. Indeed, in this case the correlation is higher:\n\nlr.rvalue #If you kept the notation lr for linregress object.\n\n0.8109692945840655",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-7",
+    "href": "Lab4-solutions.html#section-7",
+    "title": "Lab 4 - Solutions",
+    "section": "2.1 ",
+    "text": "2.1 \n\nChange the code as explained and get the following summary.\n\n\nCode\nreg = smf.logit('admitted ~ gmat + gpa', data = df).fit()\nreg.summary()\n\n\nOptimization terminated successfully.\n         Current function value: 0.322141\n         Iterations 8\n\n\n\nLogit Regression Results\n\n\nDep. Variable:\nadmitted\nNo. Observations:\n29\n\n\nModel:\nLogit\nDf Residuals:\n26\n\n\nMethod:\nMLE\nDf Model:\n2\n\n\nDate:\nThu, 30 Oct 2025\nPseudo R-squ.:\n0.5348\n\n\nTime:\n00:41:51\nLog-Likelihood:\n-9.3421\n\n\nconverged:\nTrue\nLL-Null:\n-20.084\n\n\nCovariance Type:\nnonrobust\nLLR p-value:\n2.162e-05\n\n\n\n\n\n\n\n\n\ncoef\nstd err\nz\nP&gt;|z|\n[0.025\n0.975]\n\n\nIntercept\n-22.0171\n9.232\n-2.385\n0.017\n-40.111\n-3.923\n\n\ngmat\n0.0150\n0.014\n1.052\n0.293\n-0.013\n0.043\n\n\ngpa\n3.7604\n2.003\n1.877\n0.060\n-0.166\n7.686\n\n\n\n\n\n\nAgain, the coefficients are available using (in the previous notations) reg.params. As before, Intercept stands for \\(\\hat{\\beta}_0\\), gmat stands for \\(\\hat{\\beta}_1\\), and also gpa stands for \\(\\hat{\\beta}_2\\) in\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2\n\\]\nand hence\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2}}\n\\]\nWe can show how \\(p\\) separates the values (some lines of the code may be new for you - it’s just for your information, you are not required to learn them):\n\nx1 = df['gmat'].to_numpy()\nx2 = df['gpa'].to_numpy()\np = df['admitted'].to_numpy()\nfig = plt.figure()\nax = fig.add_subplot(1, 1, 1, projection='3d', computed_zorder=False)\nx1values = np.linspace(min(x1), max(x1), 100)\nx2values = np.linspace(min(x2), max(x2), 100)\n[X1, X2] = np.meshgrid(x1values, x2values)\nb0 = reg.params.iloc[0]\nb1 = reg.params.iloc[1]\nb2 = reg.params.iloc[2]\npvalues = np.exp(b0 + b1 * X1 + b2 * X2)/(1 + np.exp(b0 + b1 * X1 + b2 * X2))\nax.plot_surface(X1, X2, pvalues, color = 'r', alpha = 0.4)\nax.scatter(x1, x2, p)\nplt.show()\n\n\n\n\n\n\n\n\nAs you can see, the red graph (surface) of \\(p\\) separates values of \\(0\\) and \\(1\\). Again, we may try to predict the admission for the student with data stored in df_test. We assigned to gmat the corresponding mark, now we do the same for gpa and calculate p for these two values. As you can see, the result is much closer to \\(0\\), hence, we are more confident in our (correct) prediction that the student would not be admitted.\n\ngpa = df_test['gpa']\nnp.exp(b0 + b1 * gmat + b2 * gpa)/(1 + np.exp(b0 + b1 * gmat + b2 * gpa))\n\n0.07118806995711167\n\n\n\nLogistic regression for 3 independent variables\nNow, we consider the dependence of admitted on all three values: gmat, gpa, and work_experience. Surely, in this case, we will not be able to draw \\(p\\) (as it would be a 4-dimensional diagram), but we can calculate \\(\\hat{\\beta}_0,\\hat{\\beta}_1,\\hat{\\beta}_2,\\hat{\\beta}_3\\).",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-8",
+    "href": "Lab4-solutions.html#section-8",
+    "title": "Lab 4 - Solutions",
+    "section": "2.2 ",
+    "text": "2.2 \n\nFind the coefficients of\n\\[\n\\mathrm{logit} (p) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_1 + \\hat{\\beta}_2 x_2 + \\hat{\\beta}_3 x_3\n\\]\n\n\nCode\nreg = smf.logit('admitted ~ gmat + gpa + work_experience', data = df).fit()\n\n\nOptimization terminated successfully.\n         Current function value: 0.255306\n         Iterations 8\n\n\nCheck your answer:\n\nreg.params\n\nIntercept         -16.182243\ngmat                0.002624\ngpa                 3.258770\nwork_experience     0.994371\ndtype: float64",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
+    ]
+  },
+  {
+    "objectID": "Lab4-solutions.html#section-9",
+    "href": "Lab4-solutions.html#section-9",
+    "title": "Lab 4 - Solutions",
+    "section": "2.3 ",
+    "text": "2.3 \n\nAssign to w_exp the work experience value for the student from df_test and calculate the function\n\\[\np = \\frac{e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}{1+e^{\\hat{\\beta}_0+\\hat{\\beta}_1 x_1+\\hat{\\beta}_2 x_2+\\hat{\\beta}_3 x_3}}\n\\]\nfor that student. Check the answer:\n\n\nCode\nw_exp = df_test['work_experience']\nb0, b1, b2, b3 = reg.params #Note the trick\nnp.exp(b0 + b1 * gmat + b2 * gpa + b3 * w_exp)/(1 + np.exp(b0 + b1 * gmat + b2 * gpa + b3 * w_exp))\n\n\n0.31333312863167756\n\n\n\nAs you can see, the information about a relatively high work experience (5 years in this case), increased chances to be admitted, though the non-admission is still more likely.\nNote that the rest of information from summary actually explains the level of certainty we may have in the future prediction (we do not consider this now). Note also that, in practice, one predicts outcomes for a number of students (the dataframe df_test would contain a lot of rows), and the prediction is “good” if one predicted correctly for a big percentage of them.",
+    "crumbs": [
+      "Labs - Solutions",
+      "Lab 4 - Solutions"
     ]
   }
 ]
